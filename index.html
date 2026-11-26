@@ -33,7 +33,7 @@ h2{font-size:20px;line-height:1.2;margin:0}h3{font-size:17px;line-height:1.25;ma
 .lead{color:var(--ink2);margin:6px 0 14px;max-width:70ch}.muted{color:var(--ink2);margin:12px 0}.hint{font-weight:400;color:var(--ink2);font-size:13px}
 .g-tx{color:var(--gaintx)}.l-tx{color:var(--losstx)}
 /* en-tête */
-.top{padding-bottom:12px}
+.top{padding-bottom:12px;padding-top:max(clamp(18px,3.5vw,36px),calc(env(safe-area-inset-top) + 10px))}
 .hrow{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap}
 .acct{display:flex;gap:6px;flex-wrap:wrap}
 .ac{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--axis);background:transparent;color:var(--ink);font:600 15px Inter,system-ui,sans-serif;cursor:pointer}
@@ -263,8 +263,8 @@ dialog.viewer .btn{position:absolute;top:calc(12px + env(safe-area-inset-top));r
   <div id="tips"></div>
   <div class="claude" id="claudeBox">
     <div class="sec-h"><h2>L’avis de Claude</h2><span id="advDate"></span></div>
-    <p class="lead">Claude lit vos chiffres, vos derniers trades et votre journal de bord, puis vous propose un bilan et 3 actions concrètes. Ce n’est pas un conseil financier : il ne vous dit pas quoi acheter ou vendre.</p>
-    <div class="actions"><button class="btn" type="button" id="askBtn">Demander l’avis de Claude</button><button class="btn ghost" type="button" id="stopBtn" hidden>Arrêter</button></div>
+    <p class="lead" id="advLead">Claude lit vos chiffres, vos derniers trades et votre journal de bord, puis vous propose un bilan et 3 actions concrètes. Ce n’est pas un conseil financier : il ne vous dit pas quoi acheter ou vendre.</p>
+    <div class="actions"><button class="btn" type="button" id="askBtn">Demander l’avis de Claude</button><button class="btn" type="button" id="copyBtn" hidden>Copier pour Claude</button><a class="btn ghost" id="openClaude" href="https://claude.ai/new" target="_blank" rel="noopener" hidden>Ouvrir Claude</a><button class="btn ghost" type="button" id="stopBtn" hidden>Arrêter</button></div>
     <p class="hint" id="advMsg" aria-live="polite"></p>
     <div class="adv" id="adv"></div>
   </div>
@@ -292,6 +292,7 @@ dialog.viewer .btn{position:absolute;top:calc(12px + env(safe-area-inset-top));r
   <div class="sec-h"><h2>Réglages</h2><span id="status"></span></div>
   <p class="muted" id="roSet" hidden>Revenez à vos comptes pour modifier vos réglages.</p>
   <div class="setgrid" id="setgrid">
+    <div class="stack-f" id="webAcct" hidden><h3>Mon compte</h3><p id="webEmail"></p><div class="actions"><button class="btn ghost" type="button" id="logout">Se déconnecter</button></div></div>
     <div class="stack-f" id="cset">
       <h3 id="csetT">Compte</h3>
       <label>Nom du compte<input id="c-nom" maxlength="30" autocomplete="off"></label>
@@ -310,7 +311,7 @@ dialog.viewer .btn{position:absolute;top:calc(12px + env(safe-area-inset-top));r
       <h3>Sur l’écran d’accueil de votre téléphone</h3>
       <ol class="steps">
         <li>Ouvrez ce lien dans <b>Safari</b> : <a id="appLink" href="#" target="_blank" rel="noopener"></a></li>
-        <li>Connectez-vous à Claude si Safari vous le demande (avec le même compte qu’ici).</li>
+        <li id="homeLogin">Connectez-vous à Claude si Safari vous le demande (avec le même compte qu’ici).</li>
         <li>Touchez le bouton <b>Partager</b> (le carré avec une flèche vers le haut).</li>
         <li>Choisissez <b>Sur l’écran d’accueil</b>, puis <b>Ajouter</b>.</li>
       </ol>
@@ -327,6 +328,14 @@ dialog.viewer .btn{position:absolute;top:calc(12px + env(safe-area-inset-top));r
       <label>Fichier CSV<input id="impFile" type="file" accept=".csv,text/csv,text/plain"></label>
       <textarea id="impText" placeholder="… ou collez le contenu CSV ici" aria-label="Contenu CSV à importer"></textarea>
       <div class="actions"><button class="btn ghost" type="button" id="impBtn">Importer le texte collé</button></div><p id="impMsg" aria-live="polite"></p>
+    </div>
+    <div class="stack-f">
+      <h3>Sauvegarde complète</h3><p>Tous vos comptes, trades et notes (sans les captures d’écran), pour les garder ou les transférer dans l’autre version de l’appli.</p>
+      <div class="actions"><button class="btn ghost" type="button" id="bkExp">Copier la sauvegarde</button><button class="btn ghost" type="button" id="bkDl" hidden>Télécharger</button></div>
+      <textarea id="bkOut" readonly hidden aria-label="Votre sauvegarde"></textarea>
+      <label>Importer une sauvegarde<input id="bkFile" type="file" accept=".json,application/json,text/plain"></label>
+      <textarea id="bkIn" placeholder="… ou collez la sauvegarde ici" aria-label="Sauvegarde à importer"></textarea>
+      <div class="actions"><button class="btn ghost" type="button" id="bkImp">Importer la sauvegarde</button></div><p id="bkMsg" aria-live="polite"></p>
     </div>
     <div class="stack-f">
       <h3>Aperçu</h3><p>Découvrez l’outil rempli de trades fictifs. Rien n’est enregistré et vos vrais trades ne sont pas touchés.</p>
@@ -379,7 +388,7 @@ dialog.viewer .btn{position:absolute;top:calc(12px + env(safe-area-inset-top));r
   </fieldset>
   <div id="f-claude" hidden>
     <h3 class="fh">L’avis de Claude sur ce trade</h3>
-    <div class="actions" style="margin-top:12px"><button class="btn ghost" type="button" id="f-ask">Demander à Claude</button></div>
+    <div class="actions" style="margin-top:12px"><button class="btn ghost" type="button" id="f-ask">Demander à Claude</button><button class="btn ghost" type="button" id="f-copy" hidden>Copier ce trade pour Claude</button><a class="btn ghost" id="f-open" href="https://claude.ai/new" target="_blank" rel="noopener" hidden>Ouvrir Claude</a></div>
     <p class="hint" id="f-askmsg" aria-live="polite"></p><div class="adv" id="f-avis"></div>
   </div>
   <p class="err" id="errT" role="alert"></p>
@@ -426,7 +435,9 @@ dialog.viewer .btn{position:absolute;top:calc(12px + env(safe-area-inset-top));r
 /* ---------- outils ---------- */
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const KEY='bilan-trading-v1',APP_URL='https://claude.ai/artifact/CpJnoLdQskqmD7uYmU3dNJ';
+const CONF=window.BT_CONF||{},WEB=CONF.web===true,PLAT=window.BT_PLATFORM||null;
+const KEY='bilan-trading-v1',APP_URL=CONF.appUrl||'https://claude.ai/artifact/CpJnoLdQskqmD7uYmU3dNJ';
+const blobUrl=id=>WEB&&typeof CONF.imgUrl==='function'?CONF.imgUrl(id):'/_blob/'+id;
 const DEVISES=['CHF','EUR','USD','GBP','CAD','XOF','XAF','JPY','USDT'];
 const EMO=[['calme','Calme'],['confiant','Confiant'],['concentre','Concentré'],['stresse','Stressé'],['impatient','Impatient'],['fomo','Peur de rater'],['revanche','Envie de revanche'],['fatigue','Fatigué'],['euphorique','Euphorique']];
 const PLAN=[['oui','Oui'],['partiel','En partie'],['non','Non']];
@@ -476,7 +487,7 @@ const hashStr=s=>{let h=5381;for(let i=0;i<s.length;i++)h=(h*33^s.charCodeAt(i))
 
 /* ---------- état ---------- */
 const defComptes=()=>[{id:'reel',nom:'Réel',type:'reel',devise:'CHF',capital:null,objMois:null,perteJour:null,tradesJour:null,risqueMax:1},{id:'demo',nom:'Démo',type:'demo',devise:'CHF',capital:null,objMois:null,perteJour:null,tradesJour:null,risqueMax:1}];
-const S={mode:'loading',loaded:false,trades:[],notes:[],profile:{v:2,comptes:defComptes(),partage:{actif:false,pseudo:'',comptes:['reel','demo'],notes:false}},conseils:{},compte:pref.get('compte')||'reel',period:'all',asset:'',q:'',view:'bilan',calMonth:'',calDay:'',demo:null,viewing:null,vCompte:'',visitor:false,community:[],names:{},lc:false,note:'',migrated:false,shareChecked:false,defisDocs:[],ld:false,defInit:false,defChecked:false};
+const S={mode:'loading',loaded:false,trades:[],notes:[],profile:{v:2,comptes:defComptes(),partage:{actif:false,pseudo:'',comptes:['reel','demo'],notes:false}},conseils:{},compte:pref.get('compte')||'reel',period:'all',asset:'',q:'',view:'bilan',calMonth:'',calDay:'',demo:null,viewing:null,vCompte:'',visitor:false,community:[],names:{},lc:false,note:'',migrated:false,shareChecked:false,defisDocs:[],ld:false,defInit:false,defChecked:false,profils:{}};
 let B=null,tCol=null,nCol=null,DBX=null,UIDV=null,USR=null,ASSETS=null,SAMPLE=null,IMG_OK=false;
 
 const okId=v=>typeof v==='string'&&/^[A-Za-z0-9_-]{1,40}$/.test(v);
@@ -729,7 +740,7 @@ function renderCal(){
 function cardHTML(t){
   const R=rOf(t),tags=[t.sens==='short'?'Vente':'Achat',R!=null?fR(R):'',t.setup].filter(Boolean);
   const meta=[lab(EMO,t.emotion),t.plan?'Plan : '+lab(PLAN,t.plan).toLowerCase():'',...t.erreurs.map(e=>lab(ERR,e))].filter(Boolean);
-  return `<button type="button" class="tc" data-id="${esc(t.id)}"><span class="tc-l"><span class="tc-d">${esc(fDY.format(pd(t.date)))}${t.heure?' · '+esc(t.heure):''}</span><b class="tc-a">${esc(t.actif)}</b><span class="tc-t">${tags.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</span>${meta.length?`<span class="tc-m">${esc(meta.join(' · '))}</span>`:''}${t.note?`<span class="tc-n">${esc(t.note.slice(0,140))}${t.note.length>140?'…':''}</span>`:''}</span><span class="tc-r"><b class="${tone(t.resultat)}">${esc(money(t.resultat,true,false,compteOf(t).devise))}</b>${t.images.length?`<img src="/_blob/${t.images[0]}" alt="" loading="lazy">`:''}</span></button>`;
+  return `<button type="button" class="tc" data-id="${esc(t.id)}"><span class="tc-l"><span class="tc-d">${esc(fDY.format(pd(t.date)))}${t.heure?' · '+esc(t.heure):''}</span><b class="tc-a">${esc(t.actif)}</b><span class="tc-t">${tags.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</span>${meta.length?`<span class="tc-m">${esc(meta.join(' · '))}</span>`:''}${t.note?`<span class="tc-n">${esc(t.note.slice(0,140))}${t.note.length>140?'…':''}</span>`:''}</span><span class="tc-r"><b class="${tone(t.resultat)}">${esc(money(t.resultat,true,false,compteOf(t).devise))}</b>${t.images.length?`<img src="${esc(blobUrl(t.images[0]))}" alt="" loading="lazy">`:''}</span></button>`;
 }
 function renderTrades(ts){
   const q=S.q.trim().toLowerCase();let rows=ts.slice().reverse();
@@ -841,6 +852,7 @@ function renderConseils(ts,s){
   const c=cpt();$('#tipsCtx').textContent=`${c.nom} · ${perLabel()}`;
   const T=autoTips(ts,s);$('#tips').innerHTML=!S.loaded?'<p class="muted">Chargement…</p>':T.length?T.map(tipHTML).join(''):'<p class="muted">Ajoutez quelques trades pour recevoir des conseils.</p>';
   $('#claudeBox').hidden=!!S.viewing;if(S.viewing)return;
+  if(WEB){$('#askBtn').hidden=true;$('#copyBtn').hidden=false;$('#openClaude').hidden=false;$('#advLead').textContent='Copiez votre bilan, ouvrez l’app Claude et collez-le : Claude vous propose un bilan et 3 actions concrètes, compris dans votre abonnement. Ce n’est pas un conseil financier : il ne vous dit pas quoi acheter ou vendre.';$('#adv').replaceChildren();$('#advDate').textContent='';if(!asking)$('#advMsg').textContent='';return}
   $('#askBtn').hidden=!SAMPLE;
   if(!SAMPLE&&!asking)$('#advMsg').textContent=inClaude?(S.mode==='loading'?'Chargement…':'Claude n’est pas disponible ici.'):'Ouvrez l’appli dans Claude pour demander l’avis de Claude.';
   if(S.mode==='db'&&!S.demo&&!(c.id in S.conseils)){S.conseils[c.id]=null;DBX.doc(`data/users/${UIDV}/conseil-${c.id}`).get().then(x=>{S.conseils[c.id]=x.exists?x.data():null;if(S.view==='conseils'&&!asking)renderConseils(view(),stats(view(),cpt()))}).catch(()=>{})}
@@ -859,9 +871,11 @@ $('#askBtn').addEventListener('click',async()=>{
   finally{asking=false;$('#askBtn').disabled=false;$('#stopBtn').hidden=true}
 });
 $('#stopBtn').addEventListener('click',()=>{if(askCtl)askCtl.abort()});
+async function copyText(txt,okMsg){try{await navigator.clipboard.writeText(txt);toast(okMsg);return true}catch(e){toast('Copie impossible : sélectionnez le texte à la main.');return false}}
+$('#copyBtn').addEventListener('click',()=>{const c=cpt(),ts=view();if(!ts.length){$('#advMsg').textContent='Ajoutez d’abord quelques trades sur cette période.';return}copyText(buildPrompt(ts,stats(ts,c),c),'Bilan copié : ouvrez Claude et collez-le.');$('#advMsg').textContent='Copié ! Ouvrez Claude, collez le texte dans une nouvelle conversation et envoyez-le.'});
 
 /* ---------- partage ---------- */
-const nameOf=p=>(p&&p.pseudo)||S.names[p&&p.uid]||'Trader';
+const nameOf=p=>(p&&p.pseudo)||S.profils[p&&p.uid]||S.names[p&&p.uid]||'Trader';
 const shareTrade=(t,withNotes)=>{const o={id:t.id,date:t.date,heure:t.heure,actif:t.actif,sens:t.sens,entree:t.entree,sortie:t.sortie,qte:t.qte,frais:t.frais,stop:t.stop,tp:t.tp,resultat:t.resultat,setup:t.setup,emotion:t.emotion,plan:t.plan,erreurs:t.erreurs,images:t.images,cree:t.cree};if(withNotes)o.note=t.note.slice(0,500);return o};
 function buildShare(){
   const p=S.profile.partage,ids=new Set(p.comptes);
@@ -897,7 +911,10 @@ function renderPartage(){
   if(!S.lc)h+='<p class="muted">Chargement…</p>';
   else if(!others.length)h+='<p class="muted">Personne n’a encore rendu ses comptes visibles. Invitez quelqu’un (voir plus bas) : dès qu’il rend un compte visible, il apparaît ici.</p>';
   else h+=others.map(o=>`<div class="person"><b>${esc(nameOf(o))}</b> <span class="hint">· mis à jour le ${esc(fDT(o.maj))}</span>${o.comptes.map(c=>{const ts=o.trades.filter(t=>t.compte===c.id),s=stats(ts,c);return`<div class="pacc"><span><i class="dot ${c.type}"></i> <b style="color:var(--ink)">${esc(c.nom)}</b> · ${c.type==='demo'?'démo':'réel'} · ${plural(s.n,'trade')} · réussite ${pct(s.rate)} · PF ${s.pf==null?'—':s.pf===Infinity?'∞':f2.format(s.pf)}</span><span class="val ${tone(s.net)}">${esc(money(s.net,true,false,c.devise))}</span><button class="btn ghost sm" type="button" data-see="${esc(o.uid)}|${esc(c.id)}">Voir</button></div>`}).join('')}</div>`).join('');
-  h+=`<details class="more" style="margin-top:28px"><summary>Inviter quelqu’un à utiliser l’appli</summary>
+  if(WEB)h+=`<details class="more" style="margin-top:28px"><summary>Inviter quelqu’un à utiliser l’appli</summary>
+    <ol class="steps" style="margin-top:12px"><li>Envoyez-lui le lien de l’appli : <a href="${esc(APP_URL)}" target="_blank" rel="noopener">${esc(APP_URL.replace('https://',''))}</a></li><li>Elle crée son compte avec son e-mail et un mot de passe, sans besoin de compte Claude.</li><li>Chacun a ses propres comptes, <b>privés par défaut</b>. Personne ne voit les comptes des autres tant qu’ils ne sont pas rendus visibles ici.</li></ol>
+    <div class="actions"><button class="btn ghost" type="button" data-copy-link>Copier le lien</button></div></details>`;
+  else h+=`<details class="more" style="margin-top:28px"><summary>Inviter quelqu’un à utiliser l’appli</summary>
     <ol class="steps" style="margin-top:12px"><li>Ouvrez cette appli dans Claude et touchez <b>Partager</b>, en haut de la page.</li><li>Ajoutez la personne avec l’accès <b>Contributeur</b> (ou <b>Éditeur</b> si c’est le seul choix proposé) : elle pourra enregistrer ses propres trades.</li><li>Envoyez-lui le lien. Chacun a ses propres comptes, <b>privés par défaut</b>. Personne ne voit les comptes des autres tant qu’ils ne sont pas rendus visibles ici.</li></ol>
     <p class="hint">Avec un simple lien en lecture, la personne pourra voir les comptes rendus visibles, mais pas enregistrer ses trades.</p></details>`;
   pv.innerHTML=h;
@@ -912,7 +929,7 @@ function closeViewing(){S.viewing=null;S.asset='';S.calDay='';S.calMonth='';go('
 /* ---------- réglages ---------- */
 function renderSettings(){
   const r=!!S.viewing||S.visitor;$('#roSet').hidden=!r;$('#setgrid').hidden=r;
-  $('#status').textContent=S.demo?'Aperçu : rien n’est enregistré':{loading:'Chargement…',db:'Enregistré dans votre compte Claude',local:'Enregistré dans ce navigateur',mem:'Rien n’est enregistré dans ce navigateur'}[S.mode]+(S.note?' · '+S.note:'');
+  $('#status').textContent=S.demo?'Aperçu : rien n’est enregistré':{loading:'Chargement…',db:WEB?'Enregistré dans votre compte, sur tous vos appareils':'Enregistré dans votre compte Claude',local:'Enregistré dans ce navigateur',mem:'Rien n’est enregistré dans ce navigateur'}[S.mode]+(S.note?' · '+S.note:'');
   if(r)return;
   const c=cpt();$('#csetT').textContent=`Compte « ${c.nom} » (${c.type==='demo'?'démo':'réel'})`;
   const set=(id,v)=>{const el=$(id);if(document.activeElement!==el)el.value=v==null?'':String(v)};
@@ -920,7 +937,9 @@ function renderSettings(){
   set('#c-nom',c.nom);set('#c-capital',c.capital);set('#c-obj',c.objMois);set('#c-perte',c.perteJour);set('#c-trades',c.tradesJour);set('#c-risque',c.risqueMax);
   $('#clist').innerHTML=comptes().map(x=>`<div class="crow"><i class="dot ${x.type}"></i><b>${esc(x.nom)}</b><span class="hint">${x.type==='demo'?'Démo':'Réel'} · ${plural(tOf(x.id).length,'trade')}</span>${['reel','demo'].includes(x.id)?'':`<button class="btn ghost sm" type="button" data-del-acct="${esc(x.id)}">Supprimer</button>`}</div>`).join('');
   const a=$('#appLink');a.href=APP_URL;a.textContent=APP_URL.replace('https://','');
-  $('#dl').hidden=inClaude;$('#demoToggle').textContent=S.demo?'Quitter l’aperçu':'Voir avec des trades fictifs';
+  $('#homeLogin').textContent=WEB?'Connectez-vous avec votre e-mail et votre mot de passe.':'Connectez-vous à Claude si Safari vous le demande (avec le même compte qu’ici).';
+  $('#webAcct').hidden=!(WEB&&PLAT);if(WEB&&PLAT)$('#webEmail').textContent='Connecté avec '+(PLAT.email||'votre e-mail');
+  $('#dl').hidden=inClaude&&!WEB;$('#bkDl').hidden=inClaude&&!WEB;$('#demoToggle').textContent=S.demo?'Quitter l’aperçu':'Voir avec des trades fictifs';
 }
 const CF={'c-nom':'nom','c-devise':'devise','c-capital':'capital','c-obj':'objMois','c-perte':'perteJour','c-trades':'tradesJour','c-risque':'risqueMax'};
 $('#cset').addEventListener('change',e=>{
@@ -988,6 +1007,7 @@ function subscribe(){
     S.defisDocs=s.docs.map(d=>cleanDefisDoc(d.data(),d.id)).filter(Boolean);if(!defBusy)MY=S.defisDocs.find(x=>x.uid===UIDV)||null;S.ld=true;
     resolveNames(S.defisDocs.map(x=>x.uid).concat(...S.defisDocs.map(x=>x.crees.map(d=>d.adversaire))));
     render();if(lp&&lt&&!S.defChecked){S.defChecked=true;setTimeout(syncDefis,1500)}},()=>{S.ld=true;render()});
+  if(WEB)DBX.collection('profils').onSnapshot(s=>{const m={};for(const d of s.docs){const x=d.data();if(okUid(d.id)&&x&&typeof x.nom==='string')m[d.id]=x.nom.slice(0,40)}S.profils=m;if(['partage','defis'].includes(S.view))render()},()=>{});
 }
 
 /* ---------- défis ---------- */
@@ -1009,8 +1029,8 @@ function writeMy(mut){
   defBusy++;const cur=JSON.parse(JSON.stringify(myDefis()));mut(cur);cur.crees=cur.crees.slice(-150);cur.pseudo=S.profile.partage.pseudo||'';MY=cur;if(S.view==='defis')render();
   defQ=defQ.then(()=>DBX.doc('defis/'+UIDV).set({v:1,pseudo:MY.pseudo,crees:MY.crees,part:MY.part})).catch(e=>toast('Défis : '+wErr(e))).finally(()=>{defBusy--});return defQ;
 }
-const nameOfUid=u=>{if(u===UIDV)return 'Vous';const c=S.community.find(x=>x.uid===u),d=S.defisDocs.find(x=>x.uid===u);return(c&&c.pseudo)||(d&&d.pseudo)||S.names[u]||'Trader'};
-function candidats(){const s=new Set();S.community.forEach(x=>s.add(x.uid));S.defisDocs.forEach(x=>s.add(x.uid));s.delete(UIDV);return[...s].sort((a,b)=>nameOfUid(a).localeCompare(nameOfUid(b),'fr'))}
+const nameOfUid=u=>{if(u===UIDV)return 'Vous';const c=S.community.find(x=>x.uid===u),d=S.defisDocs.find(x=>x.uid===u);return(c&&c.pseudo)||(d&&d.pseudo)||S.profils[u]||S.names[u]||'Trader'};
+function candidats(){const s=new Set();S.community.forEach(x=>s.add(x.uid));S.defisDocs.forEach(x=>s.add(x.uid));Object.keys(S.profils).forEach(u=>s.add(u));s.delete(UIDV);return[...s].sort((a,b)=>nameOfUid(a).localeCompare(nameOfUid(b),'fr'))}
 function allDefis(){
   if(!UIDV)return[];const today=iso(new Date()),out=[],docs=S.defisDocs.filter(x=>x.uid!==UIDV).concat([myDefis()]);
   const partOf=(u,id)=>{const d=u===UIDV?myDefis():S.defisDocs.find(x=>x.uid===u);return d&&d.part[id]||null};
@@ -1073,7 +1093,7 @@ function renderDefis(){
   h+=sec('À accepter',L.filter(d=>d.status==='attente'&&d.moi==='b'))+sec('En cours',g('encours'),L.length?'':'Aucun défi pour l’instant. Lancez-en un : la personne le verra ici et pourra l’accepter.')+sec('À venir',g('avenir'))+sec('En attente de réponse',L.filter(d=>d.status==='attente'&&d.moi==='a'))+sec('Terminés',fin.slice(0,20));
   const old=L.filter(d=>d.status==='refuse'||d.status==='annule');
   if(old.length)h+=`<details class="more" style="margin-top:24px"><summary>Refusés ou annulés (${old.length})</summary>${old.slice(0,20).map(defiCard).join('')}</details>`;
-  h+='<p class="hint" style="margin-top:20px">Les défis et leurs scores sont visibles par les personnes qui ont accès à l’appli. Pour défier quelqu’un, il doit avoir ouvert l’appli au moins une fois.</p>';
+  h+='<p class="hint" style="margin-top:20px">Les défis et leurs scores sont visibles par les personnes qui ont accès à l’appli. '+(WEB?'Pour défier quelqu’un, il doit avoir créé son compte dans l’appli.':'Pour défier quelqu’un, il doit avoir ouvert l’appli au moins une fois.')+'</p>';
   box.innerHTML=h;
 }
 const dlgD=$('#dlgD'),fmD=$('#fmD');const DF={crit:'net'};
@@ -1082,7 +1102,7 @@ function setDur(n){const a=pd(okDate($('#d-debut').value)||iso(new Date()));$('#
 function openDefi(op,base){
   const cands=candidats();
   $('#d-adv').replaceChildren(...cands.map(u=>new Option(nameOfUid(u),u)));if(op&&cands.includes(op))$('#d-adv').value=op;
-  $('#d-advHint').textContent=cands.length?'':'Personne à défier pour l’instant : la personne doit d’abord ouvrir l’appli (onglet Défis ou Partage).';
+  $('#d-advHint').textContent=cands.length?'':WEB?'Personne à défier pour l’instant : la personne doit d’abord créer son compte dans l’appli.':'Personne à défier pour l’instant : la personne doit d’abord ouvrir l’appli (onglet Défis ou Partage).';
   $('#d-compte').replaceChildren(...S.profile.comptes.map(c=>new Option(c.nom+(c.type==='demo'?' (démo)':''),c.id)));
   const mp=base&&(base.moi==='a'?base.pa:base.pb);$('#d-compte').value=mp&&mp.compte&&S.profile.comptes.some(c=>c.id===mp.compte.id)?mp.compte.id:(S.profile.comptes.some(c=>c.id===S.compte)?S.compte:S.profile.comptes[0].id);
   DF.crit=base?base.critere:'net';$('#d-debut').value=iso(new Date());setDur(base?Math.round((pd(base.fin)-pd(base.debut))/864e5)+1:7);
@@ -1123,7 +1143,7 @@ function infoLine(){
 function hintRes(){$('#resHint').textContent=F.manual?'· saisi à la main':calc()!=null?'· calculé tout seul':''}
 function auto(){if(!F.manual){const c=calc();$('#f-res').value=c==null?'':String(c)}hintRes();infoLine()}
 function renderThumbs(){
-  $('#f-thumbs').replaceChildren(...F.imgs.map(id=>{const d=document.createElement('div');d.className='thumb';const im=document.createElement('img');im.src='/_blob/'+id;im.alt='Capture du trade';im.dataset.view=id;d.append(im);if(!ro()){const b=document.createElement('button');b.type='button';b.textContent='×';b.setAttribute('aria-label','Retirer cette capture');b.dataset.rm=id;d.append(b)}return d}));
+  $('#f-thumbs').replaceChildren(...F.imgs.map(id=>{const d=document.createElement('div');d.className='thumb';const im=document.createElement('img');im.src=blobUrl(id);im.alt='Capture du trade';im.dataset.view=id;d.append(im);if(!ro()){const b=document.createElement('button');b.type='button';b.textContent='×';b.setAttribute('aria-label','Retirer cette capture');b.dataset.rm=id;d.append(b)}return d}));
   $('#f-up').hidden=ro()||!ASSETS;$('#f-imgmsg').textContent=ro()?'':!ASSETS?(inClaude?'':'Les captures d’écran fonctionnent quand l’appli est ouverte dans Claude.'):'';
 }
 function openTrade(id,date){
@@ -1136,7 +1156,7 @@ function openTrade(id,date){
   $('#f-res').value=t?String(t.resultat):'';$('#f-setup').value=t?t.setup:'';$('#f-note').value=t?t.note:'';
   const c=calc();F.manual=!!t&&(c==null||Math.abs(c-t.resultat)>.005);hintRes();infoLine();renderChipsT();renderThumbs();
   $('#fsT').disabled=r;$('#saveT').hidden=r;$('#cancelT').textContent=r?'Fermer':'Annuler';delT.hidden=r||!t;delT.textContent='Supprimer';errT.textContent='';
-  const showAsk=!!t&&!r&&!!SAMPLE;$('#f-claude').hidden=!(showAsk||(t&&t.avis));$('#f-ask').hidden=!showAsk;$('#f-askmsg').textContent=t&&t.avis?'Avis du '+fDT(t.avis.date):'';
+  const showAsk=!WEB&&!!t&&!r&&!!SAMPLE;$('#f-claude').hidden=WEB?!(t&&!r):!(showAsk||(t&&t.avis));$('#f-ask').hidden=!showAsk;$('#f-copy').hidden=!(WEB&&t&&!r);$('#f-open').hidden=!(WEB&&t&&!r);$('#f-askmsg').textContent=t&&t.avis?'Avis du '+fDT(t.avis.date):'';
   if(t&&t.avis)mdLite($('#f-avis'),t.avis.texte);else $('#f-avis').replaceChildren();
   fillLists();
   if(dlgT.showModal)dlgT.showModal();else dlgT.setAttribute('open','');
@@ -1193,10 +1213,11 @@ $('#f-file').addEventListener('change',async e=>{
     catch(x){msg.textContent=aErr(x)}
   }
 });
+$('#f-copy').addEventListener('click',async()=>{if(!F.t)return;const ok=await copyText(tradePrompt(F.t,compteOf(F.t),false)+(F.t.images.length?'\n\n(Je joins la capture d’écran du graphique.)':''),'Trade copié : ouvrez Claude et collez-le.');if(ok)$('#f-askmsg').textContent=F.t.images.length?'Copié ! Dans Claude, collez le texte et joignez votre capture d’écran.':'Copié ! Ouvrez Claude et collez le texte.'});
 $('#f-ask').addEventListener('click',async()=>{
   if(!SAMPLE||!F.t||ro())return;const t=F.t,c=compteOf(t),btn=$('#f-ask'),msg=$('#f-askmsg');btn.disabled=true;msg.textContent='Claude réfléchit…';
   let imgs=[],phase='ask';
-  if(IMG_OK&&t.images.length){try{const lim=await SAMPLE.limits(),max=lim&&lim.images?lim.images.maxCount:0;imgs=(await Promise.all(t.images.slice(0,max).map(id=>fetch('/_blob/'+id).then(r=>r.ok?r.blob():null).catch(()=>null)))).filter(Boolean)}catch(e){}}
+  if(IMG_OK&&t.images.length){try{const lim=await SAMPLE.limits(),max=lim&&lim.images?lim.images.maxCount:0;imgs=(await Promise.all(t.images.slice(0,max).map(id=>fetch(blobUrl(id)).then(r=>r.ok?r.blob():null).catch(()=>null)))).filter(Boolean)}catch(e){}}
   try{const o={cache:false,onText:({text})=>{msg.textContent='';mdLite($('#f-avis'),text)}};if(imgs.length)o.images=imgs;
     const{text}=await SAMPLE(tradePrompt(t,c,imgs.length>0),o);mdLite($('#f-avis'),text);phase='save';
     const av={texte:text.slice(0,8000),date:new Date().toISOString()};msg.textContent='Avis du '+fDT(av.date);const nt={...t,avis:av};F.t=nt;
@@ -1274,7 +1295,7 @@ async function doImport(txt){
   if(S.demo){out.textContent='Quittez d’abord l’aperçu pour importer vos trades.';return}
   if(!S.loaded){out.textContent='Patientez, vos trades sont en cours de chargement.';return}
   const ts=fromCSV(txt);if(!ts.length){out.textContent='Aucun trade reconnu. Il faut une ligne d’en-tête avec au moins « date » et « resultat » (ou les prix et la quantité).';return}
-  if(S.mode==='db'){let i=0;try{for(const t of ts){await tCol.doc(t.id).set(body(t));i++;out.textContent=`Import… ${i}/${ts.length}`}scheduleShare();scheduleDefis()}catch(x){out.textContent=`${plural(i,'trade')} importé(s), puis arrêt : ${wErr(x)}`;return}}
+  if(S.mode==='db'){try{await putMany(tCol,ts,(i,n)=>{out.textContent=`Import… ${i}/${n}`});scheduleShare();scheduleDefis()}catch(x){out.textContent=`Import arrêté : ${wErr(x)}`;return}}
   else{ts.forEach(t=>S.trades.push(t));persist();render()}
   out.textContent=`${plural(ts.length,'trade')} importé${ts.length>1?'s':''} dans « ${cpt().nom} ».`;$('#impText').value='';
 }
@@ -1283,6 +1304,34 @@ $('#dl').addEventListener('click',()=>{const a=document.createElement('a');a.hre
 $('#impFile').addEventListener('change',async e=>{const f=e.target.files&&e.target.files[0];if(!f)return;const txt=await f.text();e.target.value='';doImport(txt)});
 $('#impBtn').addEventListener('click',()=>doImport($('#impText').value));
 $('#copyLink').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(APP_URL);toast('Lien copié : collez-le dans Safari.')}catch(e){toast('Copiez le lien affiché au-dessus.')}});
+
+async function putMany(col,items,prog){
+  if(typeof DBX.setMany==='function'){for(let i=0;i<items.length;i+=200){await DBX.setMany(items.slice(i,i+200).map(x=>({path:col.path+'/'+x.id,data:body(x)})));prog&&prog(Math.min(i+200,items.length),items.length)}return}
+  let i=0;for(const x of items){await col.doc(x.id).set(body(x));i++;prog&&prog(i,items.length)}
+}
+function backupText(){return JSON.stringify({app:'bilan-trading',v:2,date:new Date().toISOString(),comptes:S.profile.comptes,trades:S.trades.map(t=>({...t,images:[],avis:null})),notes:S.notes})}
+$('#bkExp').addEventListener('click',async()=>{if(S.demo){$('#bkMsg').textContent='Quittez d’abord l’aperçu.';return}const ta=$('#bkOut');ta.value=backupText();ta.hidden=false;
+  const ok=await copyText(ta.value,`Sauvegarde copiée : ${plural(S.trades.length,'trade')}, ${plural(S.notes.length,'note')}.`);if(!ok){ta.focus();ta.select()}
+  $('#bkMsg').textContent=`Sauvegarde prête : ${plural(S.trades.length,'trade')} et ${plural(S.notes.length,'note')}. Collez-la dans « Importer une sauvegarde » de l’autre version.`});
+$('#bkDl').addEventListener('click',()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([backupText()],{type:'application/json'}));a.download='bilan-trading-sauvegarde.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000)});
+$('#bkFile').addEventListener('change',async e=>{const f=e.target.files&&e.target.files[0];if(!f)return;$('#bkIn').value=await f.text();e.target.value='';$('#bkMsg').textContent='Fichier chargé : touchez « Importer la sauvegarde ».'});
+let bkArm=null;
+$('#bkImp').addEventListener('click',async()=>{
+  const msg=$('#bkMsg'),btn=$('#bkImp');if(S.demo){msg.textContent='Quittez d’abord l’aperçu.';return}if(!S.loaded||ro()){msg.textContent='Import impossible pour le moment.';return}
+  let o;try{o=JSON.parse($('#bkIn').value.trim())}catch(e){msg.textContent='Ce texte n’est pas une sauvegarde valide.';return}
+  if(!o||o.app!=='bilan-trading'){msg.textContent='Ce texte n’est pas une sauvegarde de Bilan trading.';return}
+  const cs=(Array.isArray(o.comptes)?o.comptes:[]).map(normCompte).filter(Boolean),ts=(Array.isArray(o.trades)?o.trades:[]).map(t=>clean(t,t&&t.id)).filter(Boolean).map(t=>({...t,images:[],avis:null})),ns=(Array.isArray(o.notes)?o.notes:[]).map(n=>cleanNote(n,n&&n.id)).filter(Boolean);
+  if(!bkArm){bkArm=true;btn.textContent='Confirmer l’import';msg.textContent=`Trouvé : ${plural(cs.length,'compte')}, ${plural(ts.length,'trade')}, ${plural(ns.length,'note')}. Touchez « Confirmer l’import ». Les trades déjà présents ne seront pas dupliqués.`;setTimeout(()=>{bkArm=null;btn.textContent='Importer la sauvegarde'},8000);return}
+  bkArm=null;btn.textContent='Importer la sauvegarde';btn.disabled=true;
+  try{
+    for(const c of cs){const ex=S.profile.comptes.find(x=>x.id===c.id);if(ex)Object.assign(ex,c);else if(S.profile.comptes.length<8)S.profile.comptes.push(c)}
+    await saveProfile();
+    if(S.mode==='db'){await putMany(tCol,ts,(i,n)=>{msg.textContent=`Import des trades… ${i}/${n}`});await putMany(nCol,ns,(i,n)=>{msg.textContent=`Import des notes… ${i}/${n}`});scheduleShare();scheduleDefis()}
+    else{ts.forEach(t=>upsert(S.trades,t));ns.forEach(n=>upsert(S.notes,n));persist();render()}
+    msg.textContent=`Import terminé : ${plural(ts.length,'trade')} et ${plural(ns.length,'note')}.`;$('#bkIn').value='';toast('Sauvegarde importée.');
+  }catch(x){msg.textContent='Import arrêté : '+wErr(x)}finally{btn.disabled=false}
+});
+$('#logout').addEventListener('click',()=>{if(PLAT&&typeof PLAT.signOut==='function')PLAT.signOut()});
 
 /* ---------- aperçu ---------- */
 function demoData(){
@@ -1312,7 +1361,7 @@ document.addEventListener('error',e=>{if(e.target&&e.target.tagName==='IMG')e.ta
 document.addEventListener('click',async e=>{
   const t=e.target,c=s=>t.closest(s);let b;
   if(b=c('[data-close]')){closeDlg(b.closest('dialog'));return}
-  if(b=c('img[data-view]')){$('#viewerImg').src='/_blob/'+b.dataset.view;const v=$('#viewer');if(v.showModal)v.showModal();else v.setAttribute('open','');return}
+  if(b=c('img[data-view]')){$('#viewerImg').src=blobUrl(b.dataset.view);const v=$('#viewer');if(v.showModal)v.showModal();else v.setAttribute('open','');return}
   if(b=c('#acct [data-c]')){if(S.viewing)S.vCompte=b.dataset.c;else{S.compte=b.dataset.c;pref.set('compte',S.compte)}S.asset='';S.calDay='';fc={};render();return}
   if(b=c('[data-p]')){S.period=b.dataset.p;render();return}
   if(b=c('#nav [data-v],.gear[data-v]')){go(b.dataset.v);return}
@@ -1345,6 +1394,7 @@ document.addEventListener('click',async e=>{
     writeMy(cur=>{cur.part[d.id]={statut:'accepte',compte:{id:cc.id,nom:cc.nom,type:cc.type},score:scoreFor(d,cc.id)}});toast('Défi accepté. Bonne chance !');return}
   if(b=c('[data-ref]')){const id=b.dataset.ref;writeMy(cur=>{cur.part[id]={statut:'refuse',compte:null,score:null}});toast('Défi refusé.');return}
   if(b=c('[data-cancel-defi]')){if(b.dataset.arm!=='1'){b.dataset.arm='1';b.textContent='Confirmer l’annulation';return}const id=b.dataset.cancelDefi;writeMy(cur=>{const x=cur.crees.find(y=>y.id===id);if(x)x.annule=true});toast('Défi annulé.');return}
+  if(c('[data-copy-link]')){copyText(APP_URL,'Lien copié.');return}
   if(c('#fab')){if(S.view==='journal')openNote();else openTrade();return}
 });
 document.addEventListener('change',e=>{

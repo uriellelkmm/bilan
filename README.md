@@ -17,6 +17,15 @@ Un journal de trading complet en une seule page, en français, pensé pour le t�
 - Ouvert depuis Claude : dans le compte Claude de chaque personne, privé. Seuls les comptes rendus visibles dans l'onglet Partage sont lisibles par les autres, et personne ne peut les modifier.
 - Ouvert ailleurs (le fichier `index.html` dans un navigateur) : dans ce navigateur uniquement. Le partage, les captures d'écran et l'avis de Claude ne fonctionnent alors pas.
 
+## Deux versions
+
+- **Version Claude** : `index.html`, publiée comme page dans Claude.
+- **Version web indépendante** : le dossier `docs/`, mise en ligne avec GitHub Pages. Elle utilise Supabase pour la connexion par e-mail, les données, le partage, les défis et les captures. L'avis de Claude y est remplacé par un bouton « Copier pour Claude ».
+
+`docs/index.html` est généré à partir de `index.html` : après une modification, lancez `python3 tools/build_web.py`. Le script de base de données à coller dans Supabase est `tools/supabase.sql`, et l'adresse et la clé publique du projet sont dans `docs/config.js`.
+
 ## Fichiers
 
 - `index.html` : tout l'outil (page, style et code dans un seul fichier, sans installation).
+- `docs/` : la version web (appli installable sur l'écran d'accueil).
+- `tools/` : le script de construction de la version web et le script SQL pour Supabase.
