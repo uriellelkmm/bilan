@@ -8,6 +8,7 @@ Un journal de trading complet en une seule page, en français, pensé pour le t�
 - **Trades** : la liste des trades, avec recherche. Chaque trade contient le compte, la date et l'heure, l'actif, le sens, l'entrée, le stop loss, l'objectif, la sortie, la quantité, les frais, le résultat (calculé tout seul), le setup, l'émotion, le plan suivi ou non, les erreurs, une note et des captures d'écran.
 - **Journal** : le journal de bord (humeur, déroulé de la séance, leçon, objectif pour la prochaine fois).
 - **Conseils** : des conseils automatiques tirés de vos chiffres, l'avis de Claude sur votre bilan (et sur chaque trade) et les règles d'or du trader.
+- **Défis** : des défis à deux avec les autres utilisateurs de l'appli, sur la même période. On choisit l'adversaire, son compte, ce qui fait gagner (le plus gros gain, le meilleur rendement %, le plus de R, la meilleure réussite ou la meilleure discipline), les dates et un enjeu. L'autre accepte ou refuse, les scores se mettent à jour tout seuls et le gagnant s'affiche à la fin, avec un bouton Revanche. Seuls les scores sont partagés, pas les trades.
 - **Partage** : rendre ses comptes visibles par les autres utilisateurs de l'appli (en lecture seule), ou rester privé. On y voit aussi les comptes que les autres ont rendus visibles.
 - **Réglages** : comptes (Réel, Démo, et d'autres si besoin), devise, capital, objectif mensuel, limites, ajout à l'écran d'accueil, export et import CSV, aperçu avec des trades fictifs.
 

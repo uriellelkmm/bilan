@@ -62,7 +62,22 @@ input:disabled,select:disabled,textarea:disabled{opacity:.75}
 .nav svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .nav button[aria-current=page]{color:var(--ink)}.nav button[aria-current=page] svg{stroke-width:2.4}
 @media(min-width:900px){.nav{position:sticky;top:0;bottom:auto;display:flex;justify-content:center;gap:4px;border-top:0;border-bottom:1px solid var(--line);padding:0 max(5vw,16px)}.nav button{flex-direction:row;min-height:52px;padding:0 16px;font-size:15px;gap:8px;border-bottom:2px solid transparent}.nav button[aria-current=page]{border-bottom-color:var(--ink)}}
-@media(max-width:899px){body{padding-bottom:150px}}
+@media(max-width:899px){body{padding-bottom:150px}.nav .nav-set{display:none}}
+.trow{display:flex;align-items:center;justify-content:space-between;gap:12px}@media(max-width:899px){.trow{flex:1 1 100%}}
+.gear{width:44px;height:44px;border-radius:999px;border:1px solid var(--axis);background:transparent;color:var(--ink);display:grid;place-items:center;cursor:pointer;flex:none}
+.gear svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}.gear[aria-current=page]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+@media(min-width:900px){.gear{display:none}}
+.nav button{position:relative}.badge{position:absolute;top:6px;left:calc(50% + 6px);min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:#dc3c3d;color:#fff;font:700 12px/18px Inter,sans-serif;text-align:center}
+@media(min-width:900px){.badge{position:static;margin-left:2px}}
+.dsec{font-size:17px;margin:26px 0 4px}
+.defi{padding:16px 0;border-bottom:1px solid var(--line);display:grid;gap:8px}
+.defi-h{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}.defi-h b{font:700 18px "Space Grotesk",Inter,sans-serif}
+.defi p{margin:0}.enjeu{font-weight:600}.dres{font:700 17px "Space Grotesk",Inter,sans-serif}
+.dbar{background:var(--soft);height:8px}.dbar i{background:var(--ink)}
+.drows{display:grid;gap:0;border-top:1px solid var(--line)}
+.drow{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:4px 12px;align-items:center;padding:10px 8px;border-bottom:1px solid var(--line)}
+.drow.lead{background:var(--soft)}.drow .dn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.drow .dv{font-size:18px;white-space:nowrap;text-align:right;min-width:5em}
+.drow .kind{grid-column:1/-1}
 .fab{position:fixed;right:16px;bottom:calc(72px + env(safe-area-inset-bottom));z-index:20;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.25);min-height:52px;padding:0 20px}
 @media(min-width:900px){.fab{bottom:24px;right:24px}}
 .toast{position:fixed;left:50%;bottom:calc(136px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 8px 8px 16px;border-radius:10px;display:flex;gap:8px;align-items:center;z-index:30;max-width:calc(100vw - 24px);font-size:15px;min-height:44px}
@@ -142,7 +157,7 @@ details.rules ol{padding-left:22px}details.rules li{margin:8px 0}
 .person{padding:14px 0;border-bottom:1px solid var(--line)}.person>b{font-size:17px}
 .pacc{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;justify-content:space-between;padding:8px 0}
 .pacc>span{font-size:14px;color:var(--ink2)}.pacc .val{font-size:16px}
-.steps{padding-left:22px;margin:0}.steps li{margin:6px 0}
+.steps{padding-left:22px;margin:0}#appLink{overflow-wrap:anywhere}.steps li{margin:6px 0}
 label.check{display:flex;gap:10px;align-items:flex-start;font-weight:500;font-size:15px}label.check input{width:22px;height:22px;min-height:0;margin:2px 0 0;flex:none}
 /* réglages */
 .setgrid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));padding-top:18px}
@@ -182,7 +197,7 @@ dialog.viewer .btn{position:absolute;top:calc(12px + env(safe-area-inset-top));r
 </head>
 <body>
 <header class="band top"><div class="wrap">
-  <div class="hrow"><h1>Bilan trading</h1><div class="acct" id="acct" role="group" aria-label="Compte"></div></div>
+  <div class="hrow"><div class="trow"><h1>Bilan trading</h1><button type="button" class="gear" data-v="reglages" aria-label="Réglages"><svg viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg></button></div><div class="acct" id="acct" role="group" aria-label="Compte"></div></div>
   <div class="filters" id="filters">
     <div class="chips" id="periods" role="group" aria-label="Période"></div>
     <select id="asset" aria-label="Actif"></select>
@@ -194,8 +209,9 @@ dialog.viewer .btn{position:absolute;top:calc(12px + env(safe-area-inset-top));r
   <button type="button" data-v="trades"><svg viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></svg><span>Trades</span></button>
   <button type="button" data-v="journal"><svg viewBox="0 0 24 24"><path d="M6 3h10a3 3 0 0 1 3 3v15H9a3 3 0 0 1-3-3zM10 8h5M10 12h4"/></svg><span>Journal</span></button>
   <button type="button" data-v="conseils"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.2h5c0-.9.4-1.7 1.1-2.2A6 6 0 0 0 12 3z"/></svg><span>Conseils</span></button>
+  <button type="button" data-v="defis"><svg viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 21h8M10 17h4"/></svg><span>Défis</span><b class="badge" id="defBadge" hidden></b></button>
   <button type="button" data-v="partage"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.5c2.9.2 5 2.5 5 5.5"/></svg><span>Partage</span></button>
-  <button type="button" data-v="reglages"><svg viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg><span>Réglages</span></button>
+  <button type="button" data-v="reglages" class="nav-set"><svg viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg><span>Réglages</span></button>
 </nav>
 <div id="banners"></div>
 
@@ -267,6 +283,8 @@ dialog.viewer .btn{position:absolute;top:calc(12px + env(safe-area-inset-top));r
     <li>Ne tradez que de l’argent que vous pouvez vous permettre de perdre.</li>
   </ol></details>
 </div></div></section>
+
+<section data-view="defis" hidden><div class="band"><div class="wrap" id="dv"></div></div></section>
 
 <section data-view="partage" hidden><div class="band"><div class="wrap" id="pv"></div></div></section>
 
@@ -382,6 +400,25 @@ dialog.viewer .btn{position:absolute;top:calc(12px + env(safe-area-inset-top));r
 </form>
 </dialog>
 
+<dialog id="dlgD" aria-labelledby="ddT">
+<form class="fm" id="fmD" novalidate>
+  <div class="dh"><h2 id="ddT">Nouveau défi</h2><button type="button" class="x" data-close aria-label="Fermer">×</button></div>
+  <label>Contre qui ?<select id="d-adv"></select></label>
+  <p class="hint" id="d-advHint"></p>
+  <label>Avec quel compte ?<select id="d-compte"></select></label>
+  <div class="fl"><span class="fl-l">Qui gagne ?</span><div class="cg" id="cg-crit"></div></div>
+  <p class="help" id="d-critHelp"></p>
+  <div class="fl"><span class="fl-l">Durée</span><div class="cg" id="cg-dur"><button type="button" data-dur="7">1 semaine</button><button type="button" data-dur="14">2 semaines</button><button type="button" data-dur="30">1 mois</button></div></div>
+  <div class="fgrid"><label>On commence le<input type="date" id="d-debut"></label><label>On finit le<input type="date" id="d-fin"></label></div>
+  <label id="d-minL">Minimum de trades pour compter<input id="d-min" inputmode="numeric" autocomplete="off"></label>
+  <label>Enjeu <span class="hint">facultatif</span><input id="d-enjeu" maxlength="120" placeholder="ex. Le perdant offre le café" autocomplete="off"></label>
+  <label>Nom du défi <span class="hint">facultatif</span><input id="d-titre" maxlength="60" placeholder="ex. Défi de décembre" autocomplete="off"></label>
+  <p class="help">Seuls les scores du défi sont partagés, pas vos trades. Les défis et leurs scores sont visibles par les personnes qui ont accès à l’appli.</p>
+  <p class="err" id="errD" role="alert"></p>
+  <div class="actions sticky-actions"><span class="sp"></span><button type="button" class="btn ghost" data-close>Annuler</button><button class="btn" type="submit" id="saveD">Lancer le défi</button></div>
+</form>
+</dialog>
+
 <dialog id="viewer" class="viewer" aria-label="Capture d’écran"><img id="viewerImg" alt="Capture d’écran du trade"><button class="btn" type="button" data-close>Fermer</button></dialog>
 
 <script>
@@ -397,7 +434,10 @@ const ERR=[['sans-stop','Pas de stop'],['stop-deplace','Stop déplacé'],['entre
 const HUM=[['excellent','Excellente'],['bien','Bonne'],['neutre','Neutre'],['difficile','Difficile'],['mauvais','Mauvaise']];
 const JOURS=['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
 const PER=[['all','Tout'],['day','Aujourd’hui'],['week','Cette semaine'],['month','Ce mois'],['3m','3 mois'],['year','Cette année']];
-const VIEWS=['bilan','trades','journal','conseils','partage','reglages'];
+const VIEWS=['bilan','trades','journal','conseils','defis','partage','reglages'];
+const CRIT=[['net','Le plus gros gain','Le résultat net en argent. Équitable si vous avez la même devise et un capital proche.'],['pct','Le meilleur rendement %','Le résultat divisé par le capital de départ : équitable même avec des comptes de tailles différentes. Chacun doit avoir indiqué son capital dans Réglages.'],['r','Le plus de R','La somme des résultats en R (1 R = la somme risquée) : récompense la qualité des trades, pas leur taille. Il faut noter ses stop loss.'],['rate','La meilleure réussite','La part de trades gagnants, avec un minimum de trades.'],['plan','La meilleure discipline','La part de trades où le plan a été suivi, avec un minimum de trades.']];
+const critLab=k=>(CRIT.find(c=>c[0]===k)||CRIT[0])[1];
+const ST={attente:'En attente',avenir:'À venir',encours:'En cours',fini:'Terminé',refuse:'Refusé',annule:'Annulé'};
 const lab=(arr,k)=>(arr.find(x=>x[0]===k)||[0,''])[1];
 const inClaude=typeof window.claude==='object'&&!!window.claude&&typeof window.claude.use==='function';
 const pref={get(k){try{return localStorage.getItem('bt-'+k)}catch(e){return null}},set(k,v){try{localStorage.setItem('bt-'+k,v)}catch(e){}}};
@@ -436,7 +476,7 @@ const hashStr=s=>{let h=5381;for(let i=0;i<s.length;i++)h=(h*33^s.charCodeAt(i))
 
 /* ---------- état ---------- */
 const defComptes=()=>[{id:'reel',nom:'Réel',type:'reel',devise:'CHF',capital:null,objMois:null,perteJour:null,tradesJour:null,risqueMax:1},{id:'demo',nom:'Démo',type:'demo',devise:'CHF',capital:null,objMois:null,perteJour:null,tradesJour:null,risqueMax:1}];
-const S={mode:'loading',loaded:false,trades:[],notes:[],profile:{v:2,comptes:defComptes(),partage:{actif:false,pseudo:'',comptes:['reel','demo'],notes:false}},conseils:{},compte:pref.get('compte')||'reel',period:'all',asset:'',q:'',view:'bilan',calMonth:'',calDay:'',demo:null,viewing:null,vCompte:'',visitor:false,community:[],names:{},lc:false,note:'',migrated:false,shareChecked:false};
+const S={mode:'loading',loaded:false,trades:[],notes:[],profile:{v:2,comptes:defComptes(),partage:{actif:false,pseudo:'',comptes:['reel','demo'],notes:false}},conseils:{},compte:pref.get('compte')||'reel',period:'all',asset:'',q:'',view:'bilan',calMonth:'',calDay:'',demo:null,viewing:null,vCompte:'',visitor:false,community:[],names:{},lc:false,note:'',migrated:false,shareChecked:false,defisDocs:[],ld:false,defInit:false,defChecked:false};
 let B=null,tCol=null,nCol=null,DBX=null,UIDV=null,USR=null,ASSETS=null,SAMPLE=null,IMG_OK=false;
 
 const okId=v=>typeof v==='string'&&/^[A-Za-z0-9_-]{1,40}$/.test(v);
@@ -527,6 +567,7 @@ function render(){
   else if(v==='journal')renderJournal();
   else if(v==='conseils')renderConseils(ts,s);
   else if(v==='partage')renderPartage();
+  else if(v==='defis')renderDefis();
   else renderSettings();
 }
 function renderHeader(){
@@ -537,8 +578,9 @@ function renderHeader(){
   const assets=[...new Set(list().map(t=>t.actif))].sort((a,b)=>a.localeCompare(b,'fr'));
   if(S.asset&&!assets.includes(S.asset))S.asset='';
   const sel=$('#asset');sel.replaceChildren(new Option('Tous les actifs',''),...assets.map(a=>new Option(a,a)));sel.value=S.asset;
-  $$('#nav [data-v]').forEach(b=>{if(b.dataset.v===S.view)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
-  const fab=$('#fab');fab.hidden=ro()||['partage','reglages'].includes(S.view)||!S.loaded;fab.textContent=S.view==='journal'?'+ Note':'+ Trade';
+  $$('[data-v]').forEach(b=>{if(b.dataset.v===S.view)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
+  const nb=S.mode==='db'?allDefis().filter(d=>d.status==='attente'&&d.moi==='b').length:0,bd=$('#defBadge');bd.hidden=!nb;bd.textContent=nb;
+  const fab=$('#fab');fab.hidden=ro()||['partage','reglages','defis'].includes(S.view)||!S.loaded;fab.textContent=S.view==='journal'?'+ Note':'+ Trade';
 }
 function renderBanners(){
   const p=[];
@@ -898,11 +940,11 @@ $('#addAcct').addEventListener('click',()=>{
 /* ---------- enregistrement ---------- */
 const upsert=(a,t)=>{const i=a.findIndex(x=>x.id===t.id);if(i<0)a.push(t);else a[i]=t};
 const body=t=>{const b={...t};delete b.id;return b};
-async function saveTrade(t){if(S.demo){upsert(S.demo.trades,t);render();return}if(S.mode==='db'){await tCol.doc(t.id).set(body(t));scheduleShare();return}upsert(S.trades,t);persist();render()}
-async function removeTrade(id){if(S.demo){S.demo.trades=S.demo.trades.filter(x=>x.id!==id);render();return}if(S.mode==='db'){await tCol.doc(id).delete();scheduleShare();return}S.trades=S.trades.filter(x=>x.id!==id);persist();render()}
+async function saveTrade(t){if(S.demo){upsert(S.demo.trades,t);render();return}if(S.mode==='db'){await tCol.doc(t.id).set(body(t));scheduleShare();scheduleDefis();return}upsert(S.trades,t);persist();render()}
+async function removeTrade(id){if(S.demo){S.demo.trades=S.demo.trades.filter(x=>x.id!==id);render();return}if(S.mode==='db'){await tCol.doc(id).delete();scheduleShare();scheduleDefis();return}S.trades=S.trades.filter(x=>x.id!==id);persist();render()}
 async function saveNote(n){if(S.demo){upsert(S.demo.notes,n);render();return}if(S.mode==='db'){await nCol.doc(n.id).set(body(n));scheduleShare();return}upsert(S.notes,n);persist();render()}
 async function removeNote(id){if(S.demo){S.demo.notes=S.demo.notes.filter(x=>x.id!==id);render();return}if(S.mode==='db'){await nCol.doc(id).delete();scheduleShare();return}S.notes=S.notes.filter(x=>x.id!==id);persist();render()}
-async function saveProfile(){fc={};render();if(S.mode==='db'){try{await B.set(JSON.parse(JSON.stringify(S.profile)));scheduleShare()}catch(e){toast('Réglages : '+wErr(e))}}else persist()}
+async function saveProfile(){fc={};render();if(S.mode==='db'){try{await B.set(JSON.parse(JSON.stringify(S.profile)));scheduleShare();scheduleDefis()}catch(e){toast('Réglages : '+wErr(e))}}else persist()}
 function persist(){if(S.mode!=='local')return;try{localStorage.setItem(KEY,JSON.stringify({v:2,profile:S.profile,trades:S.trades,notes:S.notes,conseils:S.conseils}))}catch(e){S.mode='mem';render()}}
 function wErr(x){const c=x&&x.code;if(c==='quota_exceeded')return 'l’espace de stockage est plein : exportez puis supprimez d’anciens trades.';if(c==='invalid_argument')return 'enregistrement refusé : votre accès ne permet peut-être pas d’enregistrer.';return 'connexion impossible pour le moment. Réessayez dans un instant.'}
 function aErr(x){const c=x&&x.code;return c==='too_large'?'Image trop lourde (20 Mo maximum).':c==='unsupported_type'?'Format d’image non accepté (JPEG, PNG, WebP ou GIF).':c==='quota_or_state'?'L’espace de stockage des captures est plein.':c==='rate_limited'?'Trop d’envois d’un coup, réessayez dans un instant.':'Envoi impossible, réessayez.'}
@@ -940,10 +982,128 @@ function subscribe(){
   DBX.collection('partage').onSnapshot(s=>{
     S.community=s.docs.map(d=>cleanShare(d.data(),d.id)).filter(Boolean);S.lc=true;
     if(S.viewing){const o=S.community.find(x=>x.uid===S.viewing.uid);if(!o||!o.comptes.some(c=>c.id===S.vCompte)){S.viewing=null;toast('Ce compte n’est plus partagé.');if(S.view!=='partage'){go('partage');return}}else S.viewing={uid:o.uid,nom:nameOf(o),comptes:o.comptes,trades:o.trades,notes:o.notes,notesPartagees:o.notesPartagees}}
-    const ids=S.community.map(x=>x.uid).filter(x=>!S.names[x]);
-    if(ids.length&&USR&&typeof USR.profiles==='function')Promise.resolve(USR.profiles(ids)).then(ps=>{for(const id of ids){const p=ps&&ps[id];if(p&&p.name)S.names[id]=p.name}if(S.view==='partage'||S.viewing)render()}).catch(()=>{});
+    resolveNames(S.community.map(x=>x.uid));
     render();ready()},()=>{S.lc=true;render()});
+  DBX.collection('defis').onSnapshot(s=>{
+    S.defisDocs=s.docs.map(d=>cleanDefisDoc(d.data(),d.id)).filter(Boolean);if(!defBusy)MY=S.defisDocs.find(x=>x.uid===UIDV)||null;S.ld=true;
+    resolveNames(S.defisDocs.map(x=>x.uid).concat(...S.defisDocs.map(x=>x.crees.map(d=>d.adversaire))));
+    render();if(lp&&lt&&!S.defChecked){S.defChecked=true;setTimeout(syncDefis,1500)}},()=>{S.ld=true;render()});
 }
+
+/* ---------- défis ---------- */
+const okUid=v=>typeof v==='string'&&v.length>0&&v.length<=200&&!v.includes('/');
+function resolveNames(ids){const need=[...new Set(ids)].filter(x=>okUid(x)&&!S.names[x]);if(!need.length||!USR||typeof USR.profiles!=='function')return;
+  Promise.resolve(USR.profiles(need)).then(ps=>{let ch=false;for(const id of need){const p=ps&&ps[id];if(p&&p.name){S.names[id]=p.name;ch=true}}if(ch&&['partage','defis'].includes(S.view)||S.viewing)render()}).catch(()=>{})}
+function cleanDefisDoc(o,uidv){
+  if(!o||typeof o!=='object'||!okUid(uidv))return null;
+  const crees=(Array.isArray(o.crees)?o.crees.slice(-200):[]).map(d=>d&&typeof d==='object'&&okId(d.id)&&okUid(d.adversaire)&&okDate(d.debut)&&okDate(d.fin)?{id:d.id,titre:str(d.titre,60),adversaire:d.adversaire,debut:d.debut,fin:d.fin,critere:CRIT.some(c=>c[0]===d.critere)?d.critere:'net',min:Math.max(0,Math.min(100,Math.round(num(d.min)||0))),enjeu:str(d.enjeu,120),cree:Number(d.cree)||0,annule:d.annule===true}:null).filter(Boolean);
+  const part={};
+  if(o.part&&typeof o.part==='object')for(const[k,p]of Object.entries(o.part).slice(0,400)){if(!okId(k)||!p||typeof p!=='object')continue;
+    const sc=p.score&&typeof p.score==='object'?{n:Math.max(0,Math.round(num(p.score.n)||0)),v:num(p.score.v),devise:okDev(p.score.devise)||'CHF',maj:str(p.score.maj,40)}:null;
+    part[k]={statut:p.statut==='refuse'?'refuse':p.statut==='accepte'?'accepte':'',compte:p.compte&&typeof p.compte==='object'&&okId(p.compte.id)?{id:p.compte.id,nom:str(p.compte.nom,30)||'Compte',type:p.compte.type==='demo'?'demo':'reel'}:null,score:sc}}
+  return{uid:uidv,pseudo:str(o.pseudo,40),crees,part};
+}
+let MY=null,defBusy=0,defQ=Promise.resolve();
+const myDefis=()=>MY||{uid:UIDV,pseudo:'',crees:[],part:{}};
+function writeMy(mut){
+  defBusy++;const cur=JSON.parse(JSON.stringify(myDefis()));mut(cur);cur.crees=cur.crees.slice(-150);cur.pseudo=S.profile.partage.pseudo||'';MY=cur;if(S.view==='defis')render();
+  defQ=defQ.then(()=>DBX.doc('defis/'+UIDV).set({v:1,pseudo:MY.pseudo,crees:MY.crees,part:MY.part})).catch(e=>toast('Défis : '+wErr(e))).finally(()=>{defBusy--});return defQ;
+}
+const nameOfUid=u=>{if(u===UIDV)return 'Vous';const c=S.community.find(x=>x.uid===u),d=S.defisDocs.find(x=>x.uid===u);return(c&&c.pseudo)||(d&&d.pseudo)||S.names[u]||'Trader'};
+function candidats(){const s=new Set();S.community.forEach(x=>s.add(x.uid));S.defisDocs.forEach(x=>s.add(x.uid));s.delete(UIDV);return[...s].sort((a,b)=>nameOfUid(a).localeCompare(nameOfUid(b),'fr'))}
+function allDefis(){
+  if(!UIDV)return[];const today=iso(new Date()),out=[],docs=S.defisDocs.filter(x=>x.uid!==UIDV).concat([myDefis()]);
+  const partOf=(u,id)=>{const d=u===UIDV?myDefis():S.defisDocs.find(x=>x.uid===u);return d&&d.part[id]||null};
+  for(const doc of docs)for(const d of doc.crees){
+    const a=doc.uid,b=d.adversaire;if(a!==UIDV&&b!==UIDV)continue;
+    const pa=partOf(a,d.id),pb=partOf(b,d.id);
+    const status=d.annule?'annule':pb&&pb.statut==='refuse'?'refuse':!(pb&&pb.statut==='accepte')?'attente':today<d.debut?'avenir':today>d.fin?'fini':'encours';
+    out.push({...d,createur:a,pa,pb,status,moi:a===UIDV?'a':'b'});
+  }
+  return out.sort((x,y)=>y.cree-x.cree);
+}
+function verdict(d){const va=d.pa&&d.pa.score?d.pa.score.v:null,vb=d.pb&&d.pb.score?d.pb.score.v:null;if(va==null&&vb==null)return 0;if(vb==null)return 1;if(va==null)return -1;return va>vb?1:va<vb?-1:0}
+const fmtCrit=(k,v,dev)=>v==null?'—':k==='net'?money(v,true,false,dev):k==='pct'?pct(v,true):k==='r'?fR(v):pct(v);
+function scoreFor(d,cid){
+  const c=S.profile.comptes.find(x=>x.id===cid);if(!c)return null;
+  const ts=S.trades.filter(t=>(t.compte||'reel')===cid&&t.date>=d.debut&&t.date<=d.fin),s=stats(ts,c);
+  let v=null;const rs=ts.map(rOf).filter(x=>x!=null);
+  if(d.critere==='net')v=s.net;else if(d.critere==='pct')v=c.capital>0?s.net/c.capital:null;else if(d.critere==='r')v=rs.length?rs.reduce((a,x)=>a+x,0):null;
+  else if(d.critere==='rate')v=s.n>=d.min?s.rate:null;else if(d.critere==='plan')v=s.planN>=Math.max(1,d.min)?s.planRate:null;
+  return{n:s.n,v:v==null||!Number.isFinite(v)?null:Math.round(v*10000)/10000,devise:c.devise,maj:new Date().toISOString()};
+}
+let defTimer=0;
+function scheduleDefis(){if(S.mode!=='db'||S.visitor)return;clearTimeout(defTimer);defTimer=setTimeout(syncDefis,1500)}
+function syncDefis(){
+  if(S.mode!=='db'||S.visitor||!S.ld)return;const up={};
+  const gel=iso(new Date(Date.now()-3*864e5));
+  for(const d of allDefis()){if(d.status==='annule'||d.status==='refuse'||d.fin<gel)continue;const p=d.moi==='a'?d.pa:d.pb;if(!p||p.statut!=='accepte'||!p.compte)continue;
+    const sc=scoreFor(d,p.compte.id);if(!sc)continue;const o=p.score;if(!o||o.n!==sc.n||o.v!==sc.v||o.devise!==sc.devise)up[d.id]=sc}
+  if(Object.keys(up).length)writeMy(cur=>{for(const id in up)if(cur.part[id])cur.part[id].score=up[id]});
+}
+function defiCard(d){
+  const meA=d.moi==='a',me=meA?d.pa:d.pb,op=meA?d.pb:d.pa,opU=meA?d.adversaire:d.createur,v=verdict(d)*(meA?1:-1);
+  const today=iso(new Date()),D=x=>pd(x).getTime(),tot=Math.round((D(d.fin)-D(d.debut))/864e5)+1,el=Math.max(0,Math.min(tot,Math.round((D(today)-D(d.debut))/864e5)+1)),left=tot-el;
+  const live=d.status==='encours'||d.status==='fini';
+  const row=(who,p,lead)=>{const sc=p&&p.score;return`<div class="drow${lead?' lead':''}"><span class="dn"><b>${esc(who)}</b>${p&&p.compte?` <i class="dot ${p.compte.type}"></i> <span class="hint">${esc(p.compte.nom)}</span>`:''}</span><span class="hint">${sc?plural(sc.n,'trade'):''}</span><b class="dv ${sc&&live&&['net','pct','r'].includes(d.critere)?tone(sc.v):''}">${esc(sc&&live?fmtCrit(d.critere,sc.v,sc.devise):'—')}</b>${lead?`<span class="kind k-good"><i></i>${d.status==='fini'?'Gagnant':'En tête'}</span>`:''}</div>`};
+  let act='';
+  if(!S.visitor){
+    if(d.status==='attente'&&!meA)act=`<label>Avec quel compte ?<select data-acc-c="${esc(d.id)}">${S.profile.comptes.map(c=>`<option value="${esc(c.id)}">${esc(c.nom)}${c.type==='demo'?' (démo)':''}</option>`).join('')}</select></label><div class="actions"><button class="btn" type="button" data-acc="${esc(d.id)}">Accepter le défi</button><button class="btn ghost" type="button" data-ref="${esc(d.id)}">Refuser</button></div>`;
+    else if(meA&&['attente','avenir','encours'].includes(d.status))act=`<div class="actions"><button class="btn ghost sm" type="button" data-cancel-defi="${esc(d.id)}">Annuler le défi</button></div>`;
+    else if(d.status==='fini')act=`<div class="actions"><button class="btn ghost sm" type="button" data-revanche="${esc(d.id)}">Revanche</button></div>`;
+  }
+  const res=d.status==='fini'?(v>0?'Vous avez gagné':v<0?`${nameOfUid(opU)} a gagné`:'Égalité'):'';
+  const when=d.status==='encours'?(left>0?` · encore ${plural(left,'jour')}`:' · dernier jour'):d.status==='avenir'?` · commence dans ${plural(Math.round((D(d.debut)-D(today))/864e5),'jour')}`:'';
+  return`<article class="defi"><div class="defi-h"><b>${esc(d.titre||critLab(d.critere))}</b><span class="tag">${ST[d.status]}</span></div>
+  <p class="hint">${esc(meA?'Vous défiez '+nameOfUid(opU):nameOfUid(opU)+' vous défie')} · ${esc(fDY.format(pd(d.debut)))} → ${esc(fDY.format(pd(d.fin)))} · ${esc(critLab(d.critere).charAt(0).toLowerCase()+critLab(d.critere).slice(1))}${['rate','plan'].includes(d.critere)&&d.min?` · ${plural(d.min,'trade')} minimum`:''}${when}</p>
+  ${d.enjeu?`<p class="enjeu">Enjeu : ${esc(d.enjeu)}</p>`:''}${d.status==='encours'?`<div class="goal-bar dbar"><i style="width:${(el/tot*100).toFixed(1)}%"></i></div>`:''}${res?`<p class="dres">${esc(res)}</p>`:''}
+  <div class="drows">${row('Vous',me,live&&v>0)}${row(nameOfUid(opU),op,live&&v<0)}</div>
+  ${d.status==='attente'&&meA?`<p class="hint">En attente de la réponse de ${esc(nameOfUid(opU))}.</p>`:''}${act}</article>`;
+}
+function renderDefis(){
+  const box=$('#dv');
+  if(S.mode!=='db'){box.innerHTML=`<div class="sec-h"><h2>Défis</h2></div><p class="muted">${S.mode==='loading'?'Chargement…':'Les défis fonctionnent seulement quand l’appli est ouverte dans Claude.'}</p>`;return}
+  if(!S.ld){box.innerHTML='<div class="sec-h"><h2>Défis</h2></div><p class="muted">Chargement…</p>';return}
+  if(!S.visitor&&!S.defInit&&!S.defisDocs.some(x=>x.uid===UIDV)&&!MY){S.defInit=true;writeMy(()=>{});return}
+  const L=allDefis(),g=k=>L.filter(d=>d.status===k),fin=g('fini');let w=0,l=0,e=0;fin.forEach(d=>{const v=verdict(d)*(d.moi==='a'?1:-1);if(v>0)w++;else if(v<0)l++;else e++});
+  const sec=(t,a,empty)=>a.length?`<h3 class="dsec">${t}</h3>`+a.map(defiCard).join(''):empty?`<h3 class="dsec">${t}</h3><p class="muted">${empty}</p>`:'';
+  let h=`<div class="sec-h"><h2>Défis</h2><span>${fin.length?`${plural(w,'victoire')} · ${plural(l,'défaite')} · ${plural(e,'égalité')}`:''}</span></div>
+  <p class="lead">Mesurez-vous à quelqu’un sur la même période : le plus gros gain, le meilleur rendement, le plus de R, la meilleure réussite ou la meilleure discipline. Seuls les scores du défi sont partagés, pas vos trades.</p>`;
+  if(!S.visitor)h+='<div class="actions"><button class="btn" type="button" data-defi-new>+ Nouveau défi</button></div>';
+  h+=sec('À accepter',L.filter(d=>d.status==='attente'&&d.moi==='b'))+sec('En cours',g('encours'),L.length?'':'Aucun défi pour l’instant. Lancez-en un : la personne le verra ici et pourra l’accepter.')+sec('À venir',g('avenir'))+sec('En attente de réponse',L.filter(d=>d.status==='attente'&&d.moi==='a'))+sec('Terminés',fin.slice(0,20));
+  const old=L.filter(d=>d.status==='refuse'||d.status==='annule');
+  if(old.length)h+=`<details class="more" style="margin-top:24px"><summary>Refusés ou annulés (${old.length})</summary>${old.slice(0,20).map(defiCard).join('')}</details>`;
+  h+='<p class="hint" style="margin-top:20px">Les défis et leurs scores sont visibles par les personnes qui ont accès à l’appli. Pour défier quelqu’un, il doit avoir ouvert l’appli au moins une fois.</p>';
+  box.innerHTML=h;
+}
+const dlgD=$('#dlgD'),fmD=$('#fmD');const DF={crit:'net'};
+function renderCrit(){chips('#cg-crit',CRIT.map(c=>[c[0],c[1]]),k=>DF.crit===k,'crit');$('#d-critHelp').textContent=(CRIT.find(c=>c[0]===DF.crit)||CRIT[0])[2];$('#d-minL').hidden=!['rate','plan'].includes(DF.crit)}
+function setDur(n){const a=pd(okDate($('#d-debut').value)||iso(new Date()));$('#d-fin').value=iso(new Date(a.getFullYear(),a.getMonth(),a.getDate()+n-1))}
+function openDefi(op,base){
+  const cands=candidats();
+  $('#d-adv').replaceChildren(...cands.map(u=>new Option(nameOfUid(u),u)));if(op&&cands.includes(op))$('#d-adv').value=op;
+  $('#d-advHint').textContent=cands.length?'':'Personne à défier pour l’instant : la personne doit d’abord ouvrir l’appli (onglet Défis ou Partage).';
+  $('#d-compte').replaceChildren(...S.profile.comptes.map(c=>new Option(c.nom+(c.type==='demo'?' (démo)':''),c.id)));
+  const mp=base&&(base.moi==='a'?base.pa:base.pb);$('#d-compte').value=mp&&mp.compte&&S.profile.comptes.some(c=>c.id===mp.compte.id)?mp.compte.id:(S.profile.comptes.some(c=>c.id===S.compte)?S.compte:S.profile.comptes[0].id);
+  DF.crit=base?base.critere:'net';$('#d-debut').value=iso(new Date());setDur(base?Math.round((pd(base.fin)-pd(base.debut))/864e5)+1:7);
+  $('#d-min').value=String(base?base.min||5:5);$('#d-enjeu').value=base?base.enjeu:'';$('#d-titre').value=base&&base.titre?('Revanche : '+base.titre).slice(0,60):base?'Revanche':'';
+  $('#ddT').textContent=base?'Revanche':'Nouveau défi';$('#errD').textContent='';$('#saveD').disabled=!cands.length;renderCrit();
+  if(dlgD.showModal)dlgD.showModal();else dlgD.setAttribute('open','');
+}
+fmD.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.crit){DF.crit=b.dataset.crit;renderCrit()}else if(b.dataset.dur)setDur(+b.dataset.dur)});
+$('#d-debut').addEventListener('change',()=>{const a=okDate($('#d-debut').value),f=okDate($('#d-fin').value);if(a&&f&&f<a)setDur(7)});
+fmD.addEventListener('submit',async e=>{
+  e.preventDefault();if(S.visitor||S.mode!=='db')return;const err=$('#errD');
+  const adv=$('#d-adv').value,cid=$('#d-compte').value,debut=okDate($('#d-debut').value),fin=okDate($('#d-fin').value),c=S.profile.comptes.find(x=>x.id===cid);
+  if(!okUid(adv)||!candidats().includes(adv)){err.textContent='Choisissez contre qui vous jouez.';return}
+  if(!c){err.textContent='Choisissez votre compte.';return}
+  if(!debut||!fin||fin<debut){err.textContent='Vérifiez les dates : la fin doit être après le début.';return}
+  if(fin<iso(new Date())){err.textContent='La date de fin est déjà passée.';return}
+  if(DF.crit==='pct'&&!(c.capital>0)){err.textContent='Pour un défi en rendement %, indiquez d’abord le capital de départ de ce compte dans Réglages.';return}
+  const d={id:'d'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),titre:$('#d-titre').value.trim().slice(0,60),adversaire:adv,debut,fin,critere:DF.crit,min:Math.max(0,Math.min(100,Math.round(num($('#d-min').value)||0))),enjeu:$('#d-enjeu').value.trim().slice(0,120),cree:Date.now(),annule:false};
+  writeMy(cur=>{cur.crees.push(d);cur.part[d.id]={statut:'accepte',compte:{id:c.id,nom:c.nom,type:c.type},score:scoreFor(d,c.id)}});
+  closeDlg(dlgD);toast(`Défi envoyé à ${nameOfUid(adv)}.`);if(S.view!=='defis')go('defis');
+});
 
 /* ---------- formulaire de trade ---------- */
 const dlgT=$('#dlgT'),fmT=$('#fmT'),errT=$('#errT'),delT=$('#delT');
@@ -1114,7 +1274,7 @@ async function doImport(txt){
   if(S.demo){out.textContent='Quittez d’abord l’aperçu pour importer vos trades.';return}
   if(!S.loaded){out.textContent='Patientez, vos trades sont en cours de chargement.';return}
   const ts=fromCSV(txt);if(!ts.length){out.textContent='Aucun trade reconnu. Il faut une ligne d’en-tête avec au moins « date » et « resultat » (ou les prix et la quantité).';return}
-  if(S.mode==='db'){let i=0;try{for(const t of ts){await tCol.doc(t.id).set(body(t));i++;out.textContent=`Import… ${i}/${ts.length}`}scheduleShare()}catch(x){out.textContent=`${plural(i,'trade')} importé(s), puis arrêt : ${wErr(x)}`;return}}
+  if(S.mode==='db'){let i=0;try{for(const t of ts){await tCol.doc(t.id).set(body(t));i++;out.textContent=`Import… ${i}/${ts.length}`}scheduleShare();scheduleDefis()}catch(x){out.textContent=`${plural(i,'trade')} importé(s), puis arrêt : ${wErr(x)}`;return}}
   else{ts.forEach(t=>S.trades.push(t));persist();render()}
   out.textContent=`${plural(ts.length,'trade')} importé${ts.length>1?'s':''} dans « ${cpt().nom} ».`;$('#impText').value='';
 }
@@ -1155,7 +1315,7 @@ document.addEventListener('click',async e=>{
   if(b=c('img[data-view]')){$('#viewerImg').src='/_blob/'+b.dataset.view;const v=$('#viewer');if(v.showModal)v.showModal();else v.setAttribute('open','');return}
   if(b=c('#acct [data-c]')){if(S.viewing)S.vCompte=b.dataset.c;else{S.compte=b.dataset.c;pref.set('compte',S.compte)}S.asset='';S.calDay='';fc={};render();return}
   if(b=c('[data-p]')){S.period=b.dataset.p;render();return}
-  if(b=c('#nav [data-v]')){go(b.dataset.v);return}
+  if(b=c('#nav [data-v],.gear[data-v]')){go(b.dataset.v);return}
   if(b=c('.tc[data-id]')){openTrade(b.dataset.id);return}
   if(b=c('.cd[data-d]')){S.calDay=S.calDay===b.dataset.d?'':b.dataset.d;renderCal();return}
   if(c('#calPrev')||c('#calNext')){const[y,m]=S.calMonth.split('-').map(Number);S.calMonth=iso(new Date(y,m-1+(c('#calNext')?1:-1),1)).slice(0,7);S.calDay='';renderCal();return}
@@ -1163,7 +1323,7 @@ document.addEventListener('click',async e=>{
   if(c('[data-unview]')){closeViewing();return}
   if(b=c('[data-see]')){const[u,cid]=b.dataset.see.split('|');openViewing(u,cid);return}
   if(b=c('[data-legacy]')){const to=b.dataset.legacy,lg=S.trades.filter(x=>!x.compte);$$('[data-legacy]').forEach(x=>x.disabled=true);
-    try{if(S.mode==='db'){for(const x of lg)await tCol.doc(x.id).update({compte:to});scheduleShare()}else{lg.forEach(x=>x.compte=to);persist();render()}toast(`${plural(lg.length,'trade')} rangé${lg.length>1?'s':''} dans « ${to==='demo'?'Démo':'Réel'} ».`)}catch(x){toast(wErr(x));render()}return}
+    try{if(S.mode==='db'){for(const x of lg)await tCol.doc(x.id).update({compte:to});scheduleShare();scheduleDefis()}else{lg.forEach(x=>x.compte=to);persist();render()}toast(`${plural(lg.length,'trade')} rangé${lg.length>1?'s':''} dans « ${to==='demo'?'Démo':'Réel'} ».`)}catch(x){toast(wErr(x));render()}return}
   if(b=c('[data-edit-note]')){openNote(b.dataset.editNote);return}
   if(c('[data-note]')){openNote();return}
   if(b=c('[data-add-day]')){openTrade(null,b.dataset.addDay);return}
@@ -1178,6 +1338,13 @@ document.addEventListener('click',async e=>{
     if(p.actif){p.actif=false;clearTimeout(shareTimer);await saveProfile();try{await DBX.doc('partage/'+UIDV).delete();toast('Vos comptes sont de nouveau privés.')}catch(x){toast(wErr(x))}}
     else{if(!p.comptes.length){$('#sh-msg').textContent='Choisissez au moins un compte à rendre visible.';return}p.actif=true;await saveProfile();clearTimeout(shareTimer);await syncShare();toast('Vos comptes cochés sont maintenant visibles.')}return}
   if(c('#sh-sync')){clearTimeout(shareTimer);await syncShare();toast('Partage mis à jour.');return}
+  if(c('[data-defi-new]')){openDefi();return}
+  if(b=c('[data-revanche]')){const d=allDefis().find(x=>x.id===b.dataset.revanche);if(d)openDefi(d.moi==='a'?d.adversaire:d.createur,d);return}
+  if(b=c('[data-acc]')){const d=allDefis().find(x=>x.id===b.dataset.acc),sel=document.querySelector(`[data-acc-c="${CSS.escape(b.dataset.acc)}"]`),cc=S.profile.comptes.find(x=>x.id===(sel&&sel.value));
+    if(!d||!cc)return;if(d.critere==='pct'&&!(cc.capital>0)){toast('Indiquez d’abord le capital de départ de ce compte dans Réglages.');return}
+    writeMy(cur=>{cur.part[d.id]={statut:'accepte',compte:{id:cc.id,nom:cc.nom,type:cc.type},score:scoreFor(d,cc.id)}});toast('Défi accepté. Bonne chance !');return}
+  if(b=c('[data-ref]')){const id=b.dataset.ref;writeMy(cur=>{cur.part[id]={statut:'refuse',compte:null,score:null}});toast('Défi refusé.');return}
+  if(b=c('[data-cancel-defi]')){if(b.dataset.arm!=='1'){b.dataset.arm='1';b.textContent='Confirmer l’annulation';return}const id=b.dataset.cancelDefi;writeMy(cur=>{const x=cur.crees.find(y=>y.id===id);if(x)x.annule=true});toast('Défi annulé.');return}
   if(c('#fab')){if(S.view==='journal')openNote();else openTrade();return}
 });
 document.addEventListener('change',e=>{
