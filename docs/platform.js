@@ -31,10 +31,11 @@
   box.hidden = true;
   box.innerHTML = `<div class="a-top"><h1>Bilan trading</h1><p>Votre journal de trading : bilan, journal de bord, conseils et défis entre amis.</p></div>
 <form novalidate><h2 id="a-title">Connexion</h2>
-<label id="a-pseudoL">Prénom ou pseudo <span class="hint">visible par les personnes avec qui vous partagez</span><input id="a-pseudo" maxlength="40" autocomplete="nickname"></label>
+<label id="a-pseudoL">Prénom ou pseudo <span class="hint">visible par les autres membres</span><input id="a-pseudo" maxlength="40" autocomplete="nickname"></label>
 <label id="a-emailL">E-mail<input id="a-email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false"></label>
 <label id="a-passL"><span id="a-passT">Mot de passe</span><input id="a-pass" type="password" autocomplete="current-password"></label>
 <p class="a-msg" id="a-msg" role="alert"></p>
+<p class="hint" id="a-info" hidden>Vos comptes de trading restent privés tant que vous ne les rendez pas visibles. L’administrateur du site voit la liste des membres (pseudo, e-mail, date d’inscription, nombre de trades).</p>
 <button class="btn" type="submit" id="a-go">Se connecter</button>
 <div class="a-links" id="a-links"></div></form>`;
   document.body.appendChild(box);
@@ -53,7 +54,7 @@
   function show(m, msg, isErr) {
     mode = m; const d = MODES[m];
     $('#a-title').textContent = d.t; $('#a-go').textContent = d.go; $('#a-go').hidden = !d.go;
-    $('#a-pseudoL').hidden = !d.pseudo; $('#a-emailL').hidden = !d.email; $('#a-passL').hidden = !d.pass;
+    $('#a-pseudoL').hidden = !d.pseudo; $('#a-emailL').hidden = !d.email; $('#a-passL').hidden = !d.pass; $('#a-info').hidden = m !== 'signup';
     if (d.pass) { $('#a-passT').textContent = d.passT; $('#a-pass').autocomplete = d.ac; }
     $('#a-links').innerHTML = d.links.map(([k, l]) => `<button type="button" class="a-link" data-m="${k}">${l}</button>`).join('');
     say(msg || '', isErr);
@@ -137,7 +138,7 @@
     if (started) return;
     started = true; SESSION = s; P.email = s.user.email || '';
     hide();
-    db.doc('profils/' + uid()).set({ nom: pseudo() }).catch(() => {});
+    fetchDoc('profils/' + uid()).then(cur => { if (!cur || typeof cur.nom !== 'string') return db.doc('profils/' + uid()).set(Object.assign({ inscrit: new Date().toISOString() }, cur || {}, { nom: pseudo() })); }).catch(() => {});
     ready();
   }
 
@@ -274,6 +275,57 @@
       return { deleted: !error };
     },
     list: async () => ({ assets: [], usage: {} })
+  };
+
+  /* ---------- fonctions propres au site : communauté, discussions, administration, MT5 ---------- */
+  function apiErr(e) {
+    const c = String(e && e.code || ''), m = String(e && e.message || '');
+    if (c === 'PGRST205' || c === 'PGRST202' || c === '42P01' || c === '42883' || /could not find/i.test(m)) return { code: 'not_installed', message: m };
+    if (c === '42501' || /row-level security|permission/i.test(m)) return { code: 'forbidden', message: m };
+    if (/Réservé|retirer vous-même/.test(m)) return { code: 'forbidden', message: m };
+    return { code: 'unavailable', message: m };
+  }
+  const ok = ({ data, error }) => { if (error) throw apiErr(error); return data; };
+  const COLS = 'id,auteur,type,texte,images,stats,cree,expire';
+  P.uid = () => uid();
+  P.upload = blob => assets.upload(blob);
+  P.social = {
+    posts: async ({ avant, auteur, type, limite } = {}) => {
+      let q = sb.from('posts').select(COLS).neq('type', 'story').order('cree', { ascending: false }).limit(limite || 20);
+      if (avant) q = q.lt('cree', avant); if (auteur) q = q.eq('auteur', auteur); if (type) q = q.eq('type', type);
+      return ok(await q) || [];
+    },
+    stories: async () => ok(await sb.from('posts').select(COLS).eq('type', 'story').gt('expire', new Date().toISOString()).order('cree', { ascending: true }).limit(300)) || [],
+    publier: async ({ type, texte, images, stats, story }) => {
+      const row = { type: story ? 'story' : (type || 'libre'), texte: String(texte || '').slice(0, 4000), images: (images || []).slice(0, 10), stats: stats || null };
+      if (story) row.expire = new Date(Date.now() + 24 * 3600e3).toISOString();
+      return ok(await sb.from('posts').insert(row).select(COLS).single());
+    },
+    supprimer: async id => { ok(await sb.from('posts').delete().eq('id', id)); },
+    likes: async ids => ids.length ? ok(await sb.from('likes').select('post,auteur').in('post', ids)) || [] : [],
+    aimer: async (id, on) => { if (on) ok(await sb.from('likes').upsert({ post: id, auteur: uid() }, { ignoreDuplicates: true })); else ok(await sb.from('likes').delete().eq('post', id).eq('auteur', uid())); },
+    nbCommentaires: async ids => { const m = {}; if (!ids.length) return m; (ok(await sb.from('commentaires').select('post').in('post', ids)) || []).forEach(r => { m[r.post] = (m[r.post] || 0) + 1; }); return m; },
+    commentaires: async post => ok(await sb.from('commentaires').select('id,post,auteur,texte,cree').eq('post', post).order('cree', { ascending: true }).limit(300)) || [],
+    commenter: async (post, texte) => ok(await sb.from('commentaires').insert({ post, texte: String(texte).slice(0, 1000) }).select('id,post,auteur,texte,cree').single()),
+    supprimerCommentaire: async id => { ok(await sb.from('commentaires').delete().eq('id', id)); }
+  };
+  P.chat = {
+    messages: async defi => ok(await sb.from('messages').select('id,defi,auteur,texte,cree').eq('defi', defi).order('cree', { ascending: true }).limit(300)) || [],
+    envoyer: async (defi, texte) => ok(await sb.from('messages').insert({ defi, texte: String(texte).slice(0, 1000) }).select('id,defi,auteur,texte,cree').single()),
+    supprimer: async id => { ok(await sb.from('messages').delete().eq('id', id)); }
+  };
+  P.admin = {
+    statut: async () => { const r = await sb.rpc('devenir_admin'); if (r.error) throw apiErr(r.error); return r.data === true; },
+    membres: async () => ok(await sb.rpc('liste_membres')) || [],
+    bannis: async () => ok(await sb.rpc('liste_bannis')) || [],
+    retirer: async (id, bloquer) => ok(await sb.rpc('retirer_membre', { p_membre: id, p_bloquer: !!bloquer })),
+    debloquer: async email => ok(await sb.rpc('debloquer_membre', { p_email: email }))
+  };
+  P.mt5 = {
+    url: C.url, key: C.key,
+    cles: async () => ok(await sb.from('cles_mt5').select('cle,compte,cree,dernier').order('cree', { ascending: true })) || [],
+    creer: async compte => { const cle = rid(40); ok(await sb.from('cles_mt5').insert({ cle, compte })); return cle; },
+    supprimer: async cle => { ok(await sb.from('cles_mt5').delete().eq('cle', cle)); }
   };
 
   window.claude = { use: async n => { await authReady; return n === 'db' ? db : n === 'user' ? user : n === 'assets' ? assets : null; } };

@@ -27,11 +27,18 @@
 --bg:light-dark(#ffffff,#0e0e0e);--panel:light-dark(#ffffff,#141414);--soft:light-dark(#f3f3f1,#1d1d1d);
 --ink:light-dark(#111111,#f1f1f1);--ink2:light-dark(#5c5c5c,#a3a3a3);
 --line:light-dark(#e6e6e6,#2a2a2a);--axis:light-dark(#c4c4c4,#4a4a4a);
---field:light-dark(#b8f5d0,#0e0e0e);--fieldink:light-dark(#0b0b0b,#b8f5d0);
+--fr:light-dark(#b8f5d0,#0e0e0e);--frink:light-dark(#0b0b0b,#b8f5d0);--fd:light-dark(#e2dcff,#0e0e0e);--fdink:light-dark(#0b0b0b,#cdc2ff);
+--field:var(--fr);--fieldink:var(--frink);--hl:var(--ink);--acc2:var(--gain);
 --btn:light-dark(#111111,#f1f1f1);--btnink:light-dark(#ffffff,#0b0b0b);
 --gain:light-dark(#1a7fb5,#3b9be0);--loss:light-dark(#d9502e,#f07048);
 --gaintx:light-dark(#11618d,#7cbff2);--losstx:light-dark(#b03c1f,#f5906e)}
-:root[data-acct=demo]{--field:light-dark(#e2dcff,#0e0e0e);--fieldink:light-dark(#0b0b0b,#cdc2ff)}
+:root[data-acct=demo]{--field:var(--fd);--fieldink:var(--fdink)}
+/* thèmes de couleurs */
+:root[data-pal=lavande]{--bg:light-dark(#F7F4EF,#1C1820);--panel:light-dark(#FDFBF8,#221D27);--soft:light-dark(#EFE9F3,#2B2531);--ink:light-dark(#38313D,#F2EDF5);--ink2:light-dark(#665C6D,#B4AABD);--line:light-dark(#E7E0EA,#352E3B);--axis:light-dark(#C8BCD2,#544A5D);--btn:#B8A5CA;--btnink:light-dark(#2A2430,#1C1820);--hl:light-dark(#5F4D74,#CDBEDD);--acc2:#B8A5CA;--fr:light-dark(#D8CCE5,#2A2233);--frink:light-dark(#38313D,#E2D7EE);--fd:light-dark(#EDE5D8,#2A2620);--fdink:light-dark(#38313D,#EADFCB)}
+:root[data-pal=bordeaux]{--bg:light-dark(#F7F3ED,#1B1514);--panel:light-dark(#FCFAF7,#221A19);--soft:light-dark(#F1E4E1,#2C2221);--ink:light-dark(#352B2A,#F5ECEA);--ink2:light-dark(#685B59,#BEAEAB);--line:light-dark(#EADFDB,#3A2E2C);--axis:light-dark(#CFBDB9,#5A4744);--btn:light-dark(#702F3D,#D08A97);--btnink:light-dark(#FFFFFF,#1B1514);--hl:light-dark(#702F3D,#E3A3AE);--acc2:#B87568;--fr:light-dark(#E8D3D0,#2B1E1F);--frink:light-dark(#352B2A,#F0DCD9);--fd:light-dark(#F0DDCF,#2B2119);--fdink:light-dark(#352B2A,#EED3C2)}
+:root[data-pal=bleu]{--bg:light-dark(#F5F7FA,#0F151F);--panel:light-dark(#FFFFFF,#141C28);--soft:light-dark(#E9EFF6,#1A2433);--ink:light-dark(#1E2B3C,#EDF2F8);--ink2:light-dark(#53627A,#A2B1C4);--line:light-dark(#E1E7EF,#243246);--axis:light-dark(#BAC7D6,#3B4D66);--btn:light-dark(#243B5A,#9DB8D8);--btnink:light-dark(#FFFFFF,#0F151F);--hl:light-dark(#243B5A,#A9C2DE);--acc2:#7898BA;--fr:light-dark(#DCE7F2,#14233A);--frink:light-dark(#1E2B3C,#DCE7F2);--fd:light-dark(#ECE6F3,#221D33);--fdink:light-dark(#1E2B3C,#DDD3F0)}
+:root[data-pal=vert]{--bg:light-dark(#F4F6F1,#101611);--panel:light-dark(#FBFCF9,#151D17);--soft:light-dark(#E7EEE5,#1C271F);--ink:light-dark(#1F2E25,#EDF3EE);--ink2:light-dark(#55635A,#A4B4A8);--line:light-dark(#E0E6DC,#26342A);--axis:light-dark(#BECABB,#3D4F42);--btn:light-dark(#244B3A,#91AA91);--btnink:light-dark(#FFFFFF,#101611);--hl:light-dark(#244B3A,#A9C4A9);--acc2:#91AA91;--fr:light-dark(#DCE8DC,#16261B);--frink:light-dark(#1F2E25,#DCE8DC);--fd:light-dark(#EEE8DA,#262217);--fdink:light-dark(#1F2E25,#E8DDC4)}
+:root[data-pal=jaune]{--bg:light-dark(#FFFCF3,#17130B);--panel:light-dark(#FFFFFF,#1D1810);--soft:light-dark(#FAF2DC,#272013);--ink:light-dark(#2F2615,#FBF4E2);--ink2:light-dark(#645944,#BDB193);--line:light-dark(#EFE6CF,#352C1A);--axis:light-dark(#D7C9A3,#54472A);--btn:light-dark(#B88A24,#E6C96E);--btnink:light-dark(#1E170A,#17130B);--hl:light-dark(#7A5A12,#E6C96E);--acc2:#E6C96E;--fr:light-dark(#F5E9C7,#2A2210);--frink:light-dark(#2F2615,#F5E9C7);--fd:light-dark(#E8E4F1,#211E2C);--fdink:light-dark(#2F2615,#DCD5EE)}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}[hidden]{display:none!important}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip;-webkit-text-size-adjust:100%}
@@ -46,19 +53,19 @@ h2{font-size:20px;line-height:1.2;margin:0}h3{font-size:17px;line-height:1.25;ma
 .hrow{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap}
 .acct{display:flex;gap:6px;flex-wrap:wrap}
 .ac{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--axis);background:transparent;color:var(--ink);font:600 15px Inter,system-ui,sans-serif;cursor:pointer}
-.ac[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ac[aria-pressed=true]{background:var(--btn);color:var(--btnink);border-color:var(--btn)}
 .dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none;background:var(--axis)}.dot.reel{background:#3fcf86}.dot.demo{background:#9a88ff}
 .filters{display:grid;gap:8px;grid-template-columns:minmax(0,1fr);margin-top:14px}
 @media(min-width:760px){.filters{grid-template-columns:minmax(0,1fr) auto;align-items:center}}
 .chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:1px}.chips::-webkit-scrollbar{display:none}
 .chip,select,input,textarea{font:500 16px/1.3 Inter,system-ui,sans-serif;color:var(--ink)}
 .chip{flex:none;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--axis);background:transparent;cursor:pointer;white-space:nowrap}
-.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip[aria-pressed=true]{background:var(--btn);color:var(--btnink);border-color:var(--btn)}
 select,input,textarea{min-height:44px;padding:10px 12px;border:1px solid var(--axis);border-radius:8px;background:var(--bg);width:100%}
 .filters select{width:auto;max-width:100%;border-radius:999px;padding-inline:16px}
 textarea{min-height:76px;resize:vertical;font-weight:400}
 input:disabled,select:disabled,textarea:disabled{opacity:.75}
-:focus-visible{outline:2px solid var(--gain);outline-offset:2px}
+:focus-visible{outline:2px solid var(--hl);outline-offset:2px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:10px;border:1px solid transparent;background:var(--btn);color:var(--btnink);font:600 16px/1 Inter,system-ui,sans-serif;cursor:pointer;white-space:nowrap;text-decoration:none}
 .btn.ghost{background:transparent;color:var(--ink);border-color:var(--axis)}
 .btn.danger{background:transparent;color:var(--losstx);border-color:currentColor}
@@ -69,12 +76,12 @@ input:disabled,select:disabled,textarea:disabled{opacity:.75}
 .nav{position:fixed;left:0;right:0;bottom:0;z-index:25;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));background:var(--panel);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
 .nav button{appearance:none;border:0;background:transparent;color:var(--ink2);min-height:58px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font:600 13px/1 Inter,system-ui,sans-serif;cursor:pointer;padding:0 1px;letter-spacing:-.01em}
 .nav svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.nav button[aria-current=page]{color:var(--ink)}.nav button[aria-current=page] svg{stroke-width:2.4}
-@media(min-width:900px){.nav{position:sticky;top:0;bottom:auto;display:flex;justify-content:center;gap:4px;border-top:0;border-bottom:1px solid var(--line);padding:0 max(5vw,16px)}.nav button{flex-direction:row;min-height:52px;padding:0 16px;font-size:15px;gap:8px;border-bottom:2px solid transparent}.nav button[aria-current=page]{border-bottom-color:var(--ink)}}
+.nav button[aria-current=page]{color:var(--hl)}.nav button[aria-current=page] svg{stroke-width:2.4}
+@media(min-width:900px){.nav{position:sticky;top:0;bottom:auto;display:flex;justify-content:center;gap:4px;border-top:0;border-bottom:1px solid var(--line);padding:0 max(5vw,16px)}.nav button{flex-direction:row;min-height:52px;padding:0 16px;font-size:15px;gap:8px;border-bottom:2px solid transparent}.nav button[aria-current=page]{border-bottom-color:var(--hl)}}
 @media(max-width:899px){body{padding-bottom:150px}.nav .nav-set{display:none}}
 .trow{display:flex;align-items:center;justify-content:space-between;gap:12px}@media(max-width:899px){.trow{flex:1 1 100%}}
 .gear{width:44px;height:44px;border-radius:999px;border:1px solid var(--axis);background:transparent;color:var(--ink);display:grid;place-items:center;cursor:pointer;flex:none}
-.gear svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}.gear[aria-current=page]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.gear svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}.gear[aria-current=page]{background:var(--btn);color:var(--btnink);border-color:var(--btn)}
 @media(min-width:900px){.gear{display:none}}
 .nav button{position:relative}.badge{position:absolute;top:6px;left:calc(50% + 6px);min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:#dc3c3d;color:#fff;font:700 12px/18px Inter,sans-serif;text-align:center}
 @media(min-width:900px){.badge{position:static;margin-left:2px}}
@@ -185,11 +192,11 @@ dialog::backdrop{background:rgba(0,0,0,.5)}
 .seg{border:0;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}.seg legend{font-size:14px;font-weight:600;padding:0;margin-bottom:6px}
 .seg label{display:block;position:relative}.seg input{position:absolute;opacity:0;width:1px;height:1px;min-height:0}
 .seg span{display:flex;align-items:center;justify-content:center;min-height:44px;border:1px solid var(--axis);border-radius:8px;font-weight:600;cursor:pointer}
-.seg input:checked+span{background:var(--ink);color:var(--bg);border-color:var(--ink)}.seg input:focus-visible+span{outline:2px solid var(--gain);outline-offset:2px}
+.seg input:checked+span{background:var(--btn);color:var(--btnink);border-color:var(--btn)}.seg input:focus-visible+span{outline:2px solid var(--gain);outline-offset:2px}
 .fl{display:grid;gap:6px}.fl-l{font-size:14px;font-weight:600}
 .cg{display:flex;flex-wrap:wrap;gap:6px}
 .cg button{min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--axis);background:transparent;color:var(--ink);font:500 15px Inter,sans-serif;cursor:pointer}
-.cg button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.cg button[aria-pressed=true]{background:var(--btn);color:var(--btnink);border-color:var(--btn)}
 .info{margin:0;font-size:14px;font-weight:600}.info:empty{display:none}
 .help{margin:0;font-size:14px;color:var(--ink2)}
 .err{margin:0;color:var(--losstx);font-weight:600}.err:empty{display:none}
@@ -201,7 +208,70 @@ dialog::backdrop{background:rgba(0,0,0,.5)}
 dialog.viewer{background:#000;width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border-radius:0;display:none;place-items:center;padding:16px}
 dialog.viewer[open]{display:grid}dialog.viewer img{max-width:100%;max-height:calc(100dvh - 90px);object-fit:contain}
 dialog.viewer .btn{position:absolute;top:calc(12px + env(safe-area-inset-top));right:12px;background:#fff;color:#000}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* graphiques */
+.gtypes{margin-top:-2px}.chip.sm{min-height:36px;padding:0 12px;font-size:14px}
+.bg{fill:var(--gain)}.bl{fill:var(--loss)}.bz{fill:var(--axis)}.hvb{fill:var(--soft)}
+.aA{fill:url(#gA)}.gA0{stop-color:var(--hl);stop-opacity:.32}.gA1{stop-color:var(--hl);stop-opacity:.02}.line.la{stroke:var(--hl)}
+.sg{stroke:var(--gain)}.sl{stroke:var(--loss)}.sz{stroke:var(--axis)}.sgf{fill:var(--gain)}.slf{fill:var(--loss)}.szf{fill:var(--axis)}
+.lgt{font:600 14px Inter,system-ui,sans-serif;fill:var(--ink)}.dn-big{font:700 26px "Space Grotesk",Inter,sans-serif;fill:var(--ink)}
+/* lots */
+.toolbox{margin-top:24px;border-top:1px solid var(--ink)}.toolbox .crow{justify-content:space-between;padding:14px 0}
+.lrisk{display:grid;grid-template-columns:minmax(0,9em) 1fr;gap:10px;align-items:end}.lrisk .cg{flex-wrap:nowrap}
+.lres{background:var(--soft);border-radius:12px;padding:14px 16px;display:grid;gap:6px}.lres p{margin:0}.lres:empty{display:none}
+.lbig{font:700 34px/1.1 "Space Grotesk",Inter,sans-serif}.lrows{display:grid;border-top:1px solid var(--line);margin-top:6px}
+.lrow{display:grid;grid-template-columns:7.5em auto 1fr;gap:12px;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--line)}.lrow .hint{text-align:right}
+/* défis en groupe */
+.rk{display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:999px;background:var(--soft);font:700 13px Inter,sans-serif;margin-right:8px;padding:0 5px}
+.drow.wait{opacity:.75}.team{border-top:1px solid var(--line)}.team-h{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:4px 12px;align-items:center;padding:12px 8px 6px}.team-h>b:first-child{font:700 16px "Space Grotesk",Inter,sans-serif}.team-h .dv{font-size:18px;text-align:right;min-width:5em}.team-h .kind{grid-column:1/-1}.team.lead .team-h{background:var(--soft)}
+.tlist{display:grid;gap:4px}.trow2{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:6px 0;border-bottom:1px solid var(--line)}
+/* discussions */
+dialog.chat{width:min(560px,calc(100vw - 16px))}.msgs{display:grid;gap:10px;align-content:start;max-height:min(56dvh,520px);min-height:160px;overflow:auto;padding:4px 2px}
+.msg{display:flex;gap:8px;align-items:flex-end;max-width:88%}.msg.me{margin-left:auto;flex-direction:row-reverse}
+.bub{background:var(--soft);border-radius:14px 14px 14px 4px;padding:8px 12px;min-width:0}.msg.me .bub{background:var(--btn);color:var(--btnink);border-radius:14px 14px 4px 14px}.msg.me .bub .hint{color:inherit;opacity:.8}
+.bub p{margin:2px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}.mh{display:flex;gap:6px;align-items:baseline;font-size:13px}
+.mdel{border:0;background:transparent;color:inherit;font:600 13px Inter,sans-serif;cursor:pointer;margin-left:auto;min-height:28px;padding:0 4px}
+.sendrow{display:flex;gap:8px;align-items:flex-end}.sendrow textarea{min-height:44px;max-height:140px}
+/* réseau */
+.subtabs{margin:14px 0 6px}.av{border-radius:50%;object-fit:cover;flex:none;display:inline-grid;place-items:center;font-weight:700;background:light-dark(hsl(var(--h,200) 55% 86%),hsl(var(--h,200) 30% 28%));color:light-dark(#222,#f1f1f1)}
+.stories{display:flex;gap:14px;overflow-x:auto;padding:14px 2px 8px;scrollbar-width:none}.stories::-webkit-scrollbar{display:none}.stories:empty{display:none}
+.story{flex:none;display:grid;justify-items:center;gap:6px;width:76px;border:0;background:transparent;color:var(--ink);font:500 13px Inter,sans-serif;cursor:pointer;padding:0}
+.story>span:last-child{max-width:76px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ring{position:relative;padding:3px;border-radius:50%;background:conic-gradient(var(--btn),var(--acc2),var(--btn))}.ring>.av{border:2px solid var(--bg)}.ring.seen{background:var(--axis)}.ring.add{background:var(--line)}
+.ring i{position:absolute;right:-2px;bottom:-2px;width:24px;height:24px;border-radius:50%;background:var(--btn);color:var(--btnink);font:700 18px/22px Inter,sans-serif;text-align:center;font-style:normal;border:2px solid var(--bg)}
+.composer{display:grid;gap:10px;padding:14px 0 18px;border-bottom:1px solid var(--ink)}
+.comp-in{display:flex;gap:12px;align-items:center;width:100%;min-height:52px;border:1px solid var(--axis);border-radius:999px;background:var(--panel);color:var(--ink2);font:500 15px Inter,sans-serif;padding:5px 16px 5px 6px;cursor:pointer;text-align:left}
+.post{padding:16px 0;border-bottom:1px solid var(--line);display:grid;gap:10px}.post-h{display:flex;gap:10px;align-items:center;justify-content:space-between}
+.plink{display:flex;gap:10px;align-items:center;color:var(--ink);text-decoration:none;min-width:0}.plink>span{display:grid;min-width:0}.plink b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ptxt{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+.pimgs{display:grid;gap:4px;grid-template-columns:1fr 1fr;border-radius:12px;overflow:hidden}.pimgs.n1{grid-template-columns:1fr}.pimgs.n3 .pim:first-child{grid-row:span 2}
+.pim{position:relative;display:block;background:var(--soft)}.pim img{width:100%;height:100%;max-height:420px;aspect-ratio:4/3;object-fit:cover;display:block;cursor:zoom-in}.pimgs.n1 .pim img{aspect-ratio:auto}
+.pim b{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.45);color:#fff;font:700 24px Inter,sans-serif;pointer-events:none}
+.pact{display:flex;gap:6px}.pbtn{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);font:600 14px Inter,sans-serif;cursor:pointer}
+.pbtn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round}.pbtn[aria-pressed=true]{color:var(--losstx);border-color:currentColor}.pbtn[aria-pressed=true] svg{fill:currentColor}
+.pstat{display:flex;gap:14px;align-items:center;justify-content:space-between;border-radius:12px;padding:14px 16px;background:var(--fr);color:var(--frink);border:1px solid var(--line)}.pstat.demo{background:var(--fd);color:var(--fdink)}
+.ps-l{display:grid;gap:2px;min-width:0;font-size:14px}.ps-c{font-weight:600}.ps-big{font:700 28px/1.15 "Space Grotesk",Inter,sans-serif;white-space:nowrap}
+.spark{width:120px;height:40px;flex:none;overflow:visible}.spark polyline{fill:none;stroke:currentColor;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}.spark .sp0{stroke:currentColor;stroke-opacity:.35;stroke-dasharray:3 3}
+@media(max-width:420px){.spark{width:84px}}
+.member{padding:14px 0;border-bottom:1px solid var(--line)}.m-top{display:flex;gap:10px;align-items:center;justify-content:space-between}
+.prof-h{display:flex;gap:16px;align-items:center;margin:16px 0 12px}.prof-h h2{font-size:24px}.prof-h p{margin:4px 0 0}.bio{white-space:pre-wrap;overflow-wrap:anywhere}
+.prof-edit{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+dialog.storyv{background:#000;color:#fff;width:min(480px,100vw);max-width:100vw;height:min(860px,100dvh);max-height:100dvh;border-radius:0;padding:0;display:none;grid-template-rows:auto auto 1fr auto;overflow:hidden}
+dialog.storyv[open]{display:grid}@media(min-width:520px){dialog.storyv{border-radius:14px}}
+.sv-bars{display:flex;gap:4px;padding:calc(10px + env(safe-area-inset-top)) 12px 0}.sv-bars i{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.35);overflow:hidden}.sv-bars i b{display:block;height:100%;width:0;background:#fff}.sv-bars i.done b{width:100%}.sv-bars i.cur b{animation:svfill 7s linear forwards}
+@keyframes svfill{to{width:100%}}
+.sv-h{display:flex;gap:10px;align-items:center;padding:10px 14px;font-size:15px}.sv-h span{opacity:.75;font-size:13px}.sv-h .av{color:#222;background:hsl(var(--h,200) 55% 86%)}
+.sv-body{display:grid;place-items:center;align-content:center;gap:12px;padding:0 14px;min-height:0;overflow:hidden;position:relative}.sv-body img{max-width:100%;max-height:62dvh;object-fit:contain;border-radius:8px}
+.sv-body p{margin:0;font-size:17px;text-align:center;white-space:pre-wrap;overflow-wrap:anywhere;max-width:40ch}.sv-body p.solo{font:700 24px/1.3 "Space Grotesk",Inter,sans-serif}.sv-body .pstat{width:100%;color:#0b0b0b;background:#b8f5d0}.sv-body .pstat.demo{background:#e2dcff}
+.sv-nav{position:absolute;top:80px;bottom:80px;width:40%;border:0;background:transparent;cursor:pointer;z-index:1}.sv-nav.prev{left:0}.sv-nav.next{right:0}
+.sv-act{display:flex;justify-content:flex-end;gap:8px;padding:10px 14px calc(14px + env(safe-area-inset-bottom));position:relative;z-index:2}.sv-act .btn{background:#fff;color:#000}.sv-act .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+/* réglages : apparence, MT5, administration */
+.pals{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
+.pal{display:grid;gap:8px;justify-items:start;padding:10px;border-radius:12px;border:1px solid var(--axis);background:transparent;color:var(--ink);font:600 14px Inter,sans-serif;cursor:pointer;text-align:left}
+.pal[aria-pressed=true]{border-color:var(--hl);box-shadow:inset 0 0 0 1.5px var(--hl)}.sw{display:flex}.sw i{width:22px;height:22px;border-radius:50%;border:2px solid var(--panel);margin-right:-6px;box-shadow:0 0 0 1px var(--line)}
+.wide{grid-column:1/-1}.mlist{display:grid}.mrow{display:flex;gap:10px 16px;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid var(--line)}.mr-l{display:grid;gap:2px;min-width:0}.mr-l .hint{overflow-wrap:anywhere}
+code{font:500 13px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--soft);padding:2px 6px;border-radius:6px;overflow-wrap:anywhere}
+.keybox{background:var(--soft);border-radius:12px;padding:12px;display:grid;gap:8px}.keybox code{background:var(--panel);font-size:14px;padding:8px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.sv-bars i.cur b{animation:none;width:100%}}
 </style>
 </head>
 <body>
@@ -236,7 +306,8 @@ dialog.viewer .btn{position:absolute;top:calc(12px + env(safe-area-inset-top));r
       <div class="goal" id="goal" hidden><div class="goal-h"><span>Objectif du mois</span><b id="goalTxt"></b></div><div class="goal-bar"><i id="goalBar"></i></div></div>
     </div>
     <div class="chartbox">
-      <div class="chart-h"><h2>Résultat cumulé</h2><span>trade après trade · touchez la courbe pour le détail</span></div>
+      <div class="chart-h"><h2 id="chartT">Résultat cumulé</h2><span id="chartSub">trade après trade · touchez le graphique pour le détail</span></div>
+      <div class="chips gtypes" id="gtypes" role="group" aria-label="Type de graphique"></div>
       <div class="fig" id="fig">
         <svg id="curve" role="img" aria-label="Courbe du résultat cumulé"></svg>
         <div class="tip" id="tip" hidden></div>
@@ -270,6 +341,7 @@ dialog.viewer .btn{position:absolute;top:calc(12px + env(safe-area-inset-top));r
 <section data-view="conseils" hidden><div class="band"><div class="wrap">
   <div class="sec-h"><h2>Conseils sur vos chiffres</h2><span id="tipsCtx"></span></div>
   <div id="tips"></div>
+  <div class="toolbox"><div class="crow"><span class="hint"><b style="color:var(--ink);font-size:16px">Calculateur de lots</b><br>Combien de lots prendre selon votre capital, votre risque et votre stop.</span><button class="btn ghost" type="button" data-lots>Calculer mes lots</button></div></div>
   <div class="claude" id="claudeBox">
     <div class="sec-h"><h2>L’avis de Claude</h2><span id="advDate"></span></div>
     <p class="lead" id="advLead">Claude lit vos chiffres, vos derniers trades et votre journal de bord, puis vous propose un bilan et 3 actions concrètes. Ce n’est pas un conseil financier : il ne vous dit pas quoi acheter ou vendre.</p>
@@ -302,6 +374,9 @@ dialog.viewer .btn{position:absolute;top:calc(12px + env(safe-area-inset-top));r
   <p class="muted" id="roSet" hidden>Revenez à vos comptes pour modifier vos réglages.</p>
   <div class="setgrid" id="setgrid">
     <div class="stack-f" id="webAcct" hidden><h3>Mon compte</h3><p id="webEmail"></p><div class="actions"><button class="btn ghost" type="button" id="logout">Se déconnecter</button></div></div>
+    <div class="stack-f" id="lookBox"></div>
+    <div class="stack-f" id="mt5Box" hidden></div>
+    <div class="stack-f wide" id="adminBox" hidden></div>
     <div class="stack-f" id="cset">
       <h3 id="csetT">Compte</h3>
       <label>Nom du compte<input id="c-nom" maxlength="30" autocomplete="off"></label>
@@ -380,16 +455,20 @@ dialog.viewer .btn{position:absolute;top:calc(12px + env(safe-area-inset-top));r
       <label>Prix de sortie<input id="f-sortie" inputmode="decimal" autocomplete="off"></label>
       <label>Quantité<input id="f-qte" inputmode="decimal" autocomplete="off"></label>
       <label>Frais<input id="f-frais" inputmode="decimal" placeholder="0" autocomplete="off"></label>
+      <label>Lots <span class="hint">facultatif</span><input id="f-lots" inputmode="decimal" placeholder="ex. 0,10" autocomplete="off"></label>
+      <label>Somme risquée <span class="hint">facultatif</span><input id="f-risque" inputmode="decimal" placeholder="ex. 50" autocomplete="off"></label>
     </div>
+    <div class="actions"><button type="button" class="btn ghost sm" id="f-lotcalc">Calculer mes lots</button><span class="hint">selon votre capital et votre stop</span></div>
     <label><span>Résultat <span class="hint" id="resHint"></span></span><input id="f-res" inputmode="decimal" placeholder="ex. 120 ou -45" autocomplete="off"></label>
     <p class="info" id="f-info"></p>
-    <p class="help">Avec les prix et la quantité, le résultat se calcule tout seul (frais déduits). Sinon, tapez directement votre gain (120) ou votre perte (-45). Avec un stop loss, l’outil calcule votre risque et votre résultat en R (1 R = la somme risquée).</p>
+    <p class="help">Avec les prix et la quantité, le résultat se calcule tout seul (frais déduits). Sinon, tapez directement votre gain (120) ou votre perte (-45). Avec un stop loss, l’outil calcule votre risque et votre résultat en R (1 R = la somme risquée). En forex ou avec des lots, notez plutôt la somme risquée : ce que vous perdez si le stop est touché.</p>
     <h3 class="fh">Discipline</h3>
     <label>Setup ou stratégie<input id="f-setup" list="dl-setups" placeholder="ex. Cassure, Rebond" autocomplete="off"></label>
     <div class="fl"><span class="fl-l">Comment vous sentiez-vous ?</span><div class="cg" id="cg-emo"></div></div>
     <div class="fl"><span class="fl-l">Avez-vous suivi votre plan ?</span><div class="cg" id="cg-plan"></div></div>
     <div class="fl"><span class="fl-l">Erreurs <span class="hint">plusieurs choix possibles</span></span><div class="cg" id="cg-err"></div></div>
     <label>Note<textarea id="f-note" rows="2" placeholder="Pourquoi ce trade ? Qu’en retenez-vous ?"></textarea></label>
+    <div id="f-defisBox" hidden><h3 class="fh">Défis</h3><div class="fl" style="margin-top:14px"><span class="fl-l">Ce trade compte pour <span class="hint">touchez pour l’ajouter ou le retirer</span></span><div class="cg" id="cg-defis"></div></div></div>
     <h3 class="fh">Captures d’écran</h3>
     <div class="thumbs" id="f-thumbs"></div>
     <div id="f-up"><label class="btn ghost" style="display:inline-flex">Ajouter une capture<input type="file" id="f-file" accept="image/*" multiple class="vh"></label></div>
@@ -421,8 +500,10 @@ dialog.viewer .btn{position:absolute;top:calc(12px + env(safe-area-inset-top));r
 <dialog id="dlgD" aria-labelledby="ddT">
 <form class="fm" id="fmD" novalidate>
   <div class="dh"><h2 id="ddT">Nouveau défi</h2><button type="button" class="x" data-close aria-label="Fermer">×</button></div>
-  <label>Contre qui ?<select id="d-adv"></select></label>
+  <div class="fl"><span class="fl-l">Type de défi</span><div class="cg" id="cg-mode"></div></div>
+  <div id="d-who"></div>
   <p class="hint" id="d-advHint"></p>
+  <div class="fgrid" id="d-teams" hidden><label>Nom de l’équipe 1<input id="d-ta" maxlength="30" placeholder="Équipe 1" autocomplete="off"></label><label>Nom de l’équipe 2<input id="d-tb" maxlength="30" placeholder="Équipe 2" autocomplete="off"></label></div>
   <label>Avec quel compte ?<select id="d-compte"></select></label>
   <div class="fl"><span class="fl-l">Qui gagne ?</span><div class="cg" id="cg-crit"></div></div>
   <p class="help" id="d-critHelp"></p>
@@ -434,6 +515,70 @@ dialog.viewer .btn{position:absolute;top:calc(12px + env(safe-area-inset-top));r
   <p class="help">Seuls les scores du défi sont partagés, pas vos trades. Les défis et leurs scores sont visibles par les personnes qui ont accès à l’appli.</p>
   <p class="err" id="errD" role="alert"></p>
   <div class="actions sticky-actions"><span class="sp"></span><button type="button" class="btn ghost" data-close>Annuler</button><button class="btn" type="submit" id="saveD">Lancer le défi</button></div>
+</form>
+</dialog>
+
+<dialog id="dlgC" aria-labelledby="dcT" class="chat">
+<div class="fm">
+  <div class="dh"><h2 id="dcT">Discussion</h2><button type="button" class="x" data-close aria-label="Fermer">×</button></div>
+  <p class="hint" id="dcSub" style="margin:-10px 0 0"></p>
+  <div class="msgs" id="dcList" aria-live="polite"></div>
+  <form class="sendrow sticky-actions" id="fmC" novalidate><label class="vh" for="c-txt">Votre message</label><textarea id="c-txt" rows="1" maxlength="1000" placeholder="Écrire un message…"></textarea><button class="btn" type="submit" id="c-send">Envoyer</button></form>
+  <p class="err" id="errC" role="alert"></p>
+</div>
+</dialog>
+
+<dialog id="dlgP" aria-labelledby="dpT">
+<form class="fm" id="fmP" novalidate>
+  <div class="dh"><h2 id="dpT">Publier</h2><button type="button" class="x" data-close aria-label="Fermer">×</button></div>
+  <div class="fl"><span class="fl-l">Quoi ?</span><div class="cg" id="cg-ptype"></div></div>
+  <div id="p-statsBox" hidden>
+    <div class="fgrid"><label>Compte<select id="p-compte"></select></label><label>Période<select id="p-per"><option value="week">Cette semaine</option><option value="last">La semaine dernière</option><option value="month">Ce mois</option><option value="all">Depuis le début</option></select></label></div>
+    <div id="p-prev" style="margin-top:12px"></div>
+    <p class="hint">Seuls ces chiffres sont publiés, pas le détail de vos trades.</p>
+  </div>
+  <label>Texte<textarea id="p-txt" rows="4" maxlength="4000"></textarea></label>
+  <div class="thumbs" id="p-thumbs"></div>
+  <div class="actions"><label class="btn ghost sm" style="display:inline-flex">Ajouter des photos<input type="file" id="p-file" accept="image/*" multiple class="vh"></label><span class="hint">4 au maximum</span></div>
+  <label class="check"><input type="checkbox" id="p-story"> En story : visible 24 heures en haut du fil, puis elle disparaît</label>
+  <p class="hint" id="p-msg" aria-live="polite"></p>
+  <p class="help">Tout le monde dans l’appli voit ce que vous publiez. Pas de conseil d’achat ou de vente : partagez votre expérience.</p>
+  <p class="err" id="errP" role="alert"></p>
+  <div class="actions sticky-actions"><span class="sp"></span><button type="button" class="btn ghost" data-close>Annuler</button><button class="btn" type="submit" id="p-send">Publier</button></div>
+</form>
+</dialog>
+
+<dialog id="dlgPr" aria-labelledby="dprT">
+<form class="fm" id="fmPr" novalidate>
+  <div class="dh"><h2 id="dprT">Mon profil</h2><button type="button" class="x" data-close aria-label="Fermer">×</button></div>
+  <div class="prof-edit"><span id="pr-av"></span><div class="actions"><label class="btn ghost sm" style="display:inline-flex">Changer la photo<input type="file" id="pr-file" accept="image/*" class="vh"></label><button type="button" class="btn ghost sm" id="pr-rm">Retirer la photo</button></div></div>
+  <label>Nom affiché<input id="pr-nom" maxlength="40" autocomplete="nickname"></label>
+  <label><span>Présentation <span class="hint">facultatif · 300 caractères</span></span><textarea id="pr-bio" maxlength="300" rows="3" placeholder="ex. Je trade l’or et le Nasdaq, en démo depuis 3 mois."></textarea></label>
+  <p class="hint" id="pr-msg" aria-live="polite"></p><p class="err" id="errPr" role="alert"></p>
+  <div class="actions sticky-actions"><span class="sp"></span><button type="button" class="btn ghost" data-close>Annuler</button><button class="btn" type="submit" id="pr-save">Enregistrer</button></div>
+</form>
+</dialog>
+
+<dialog id="dlgS" class="storyv" aria-label="Story">
+  <div class="sv-bars" id="svBars"></div><div class="sv-h" id="svH"></div>
+  <div class="sv-body" id="svBody"></div>
+  <button type="button" class="sv-nav prev" data-sv="-1" aria-label="Story précédente"></button><button type="button" class="sv-nav next" data-sv="1" aria-label="Story suivante"></button>
+  <div class="sv-act"><button type="button" class="btn ghost sm" id="svDel" hidden>Supprimer</button><button type="button" class="btn sm" data-close>Fermer</button></div>
+</dialog>
+
+<dialog id="dlgL" aria-labelledby="dlT">
+<form class="fm" id="fmL" novalidate>
+  <div class="dh"><h2 id="dlT">Calculer mes lots</h2><button type="button" class="x" data-close aria-label="Fermer">×</button></div>
+  <p class="help">Combien de lots prendre pour ne perdre qu’un petit pourcentage de votre capital si le stop est touché.</p>
+  <div class="fgrid"><label>Compte<select id="l-compte"></select></label><label><span>Capital <span class="hint" id="l-capH"></span></span><input id="l-cap" inputmode="decimal" autocomplete="off"></label></div>
+  <div class="lrisk"><label>Risque par trade (%)<input id="l-rp" inputmode="decimal" autocomplete="off"></label><div class="cg" id="cg-lr" aria-label="Choix rapide du risque"><button type="button" data-lr="0.5">0,5 %</button><button type="button" data-lr="1">1 %</button><button type="button" data-lr="2">2 %</button></div></div>
+  <div class="fl"><span class="fl-l">Type d’actif</span><div class="cg" id="cg-lt"></div></div>
+  <div class="fgrid"><label>Prix d’entrée<input id="l-e" inputmode="decimal" autocomplete="off"></label><label>Stop loss<input id="l-s" inputmode="decimal" autocomplete="off"></label></div>
+  <div class="fgrid"><label><span>Taille d’un lot <span class="hint">unités</span></span><input id="l-cs" inputmode="decimal" autocomplete="off"></label><label>Devise de l’actif<select id="l-q"></select></label><label id="l-fxL"><span id="l-fxLab">Taux</span><input id="l-fx" inputmode="decimal" autocomplete="off"></label></div>
+  <p class="hint" id="l-fxH"></p>
+  <div class="lres" id="l-res" aria-live="polite"></div>
+  <p class="hint">Vérifiez la taille d’un lot chez votre courtier : dans MetaTrader, clic droit sur le symbole, puis « Spécification » (taille du contrat). Ce calcul vous aide à limiter votre risque, ce n’est pas un conseil d’investissement.</p>
+  <div class="actions sticky-actions"><span class="sp"></span><button type="button" class="btn ghost" data-close>Fermer</button><button type="button" class="btn" id="l-use" hidden>Utiliser ces lots</button></div>
 </form>
 </dialog>
 
@@ -450,6 +595,7 @@ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const CONF=window.BT_CONF||{},WEB=CONF.web===true,PLAT=window.BT_PLATFORM||null;
 const KEY='bilan-trading-v1',APP_URL=CONF.appUrl||'https://claude.ai/artifact/CpJnoLdQskqmD7uYmU3dNJ';
 const blobUrl=id=>WEB&&typeof CONF.imgUrl==='function'?CONF.imgUrl(id):'/_blob/'+id;
+const PALS=[['classique','Classique',['#ffffff','#b8f5d0','#e2dcff','#111111']],['lavande','Lavande',['#F7F4EF','#D8CCE5','#B8A5CA','#38313D']],['bordeaux','Bordeaux',['#F7F3ED','#E8D3D0','#702F3D','#B87568']],['bleu','Bleu nuit',['#F5F7FA','#DCE7F2','#243B5A','#7898BA']],['vert','Vert forêt',['#F4F6F1','#DCE8DC','#244B3A','#91AA91']],['jaune','Ocre doré',['#FFFCF3','#F5E9C7','#B88A24','#E6C96E']]];
 const DEVISES=['CHF','EUR','USD','GBP','CAD','XOF','XAF','JPY','USDT'];
 const EMO=[['calme','Calme'],['confiant','Confiant'],['concentre','Concentré'],['stresse','Stressé'],['impatient','Impatient'],['fomo','Peur de rater'],['revanche','Envie de revanche'],['fatigue','Fatigué'],['euphorique','Euphorique']];
 const PLAN=[['oui','Oui'],['partiel','En partie'],['non','Non']];
@@ -460,7 +606,7 @@ const PER=[['all','Tout'],['day','Aujourd’hui'],['week','Cette semaine'],['mon
 const VIEWS=['bilan','trades','journal','conseils','defis','partage','reglages'];
 const CRIT=[['net','Le plus gros gain','Le résultat net en argent. Équitable si vous avez la même devise et un capital proche.'],['pct','Le meilleur rendement %','Le résultat divisé par le capital de départ : équitable même avec des comptes de tailles différentes. Chacun doit avoir indiqué son capital dans Réglages.'],['r','Le plus de R','La somme des résultats en R (1 R = la somme risquée) : récompense la qualité des trades, pas leur taille. Il faut noter ses stop loss.'],['rate','La meilleure réussite','La part de trades gagnants, avec un minimum de trades.'],['plan','La meilleure discipline','La part de trades où le plan a été suivi, avec un minimum de trades.']];
 const critLab=k=>(CRIT.find(c=>c[0]===k)||CRIT[0])[1];
-const ST={attente:'En attente',avenir:'À venir',encours:'En cours',fini:'Terminé',refuse:'Refusé',annule:'Annulé'};
+const ST={attente:'En attente',avenir:'À venir',encours:'En cours',fini:'Terminé',refuse:'Refusé',annule:'Annulé',expire:'Expiré'};
 const lab=(arr,k)=>(arr.find(x=>x[0]===k)||[0,''])[1];
 const inClaude=typeof window.claude==='object'&&!!window.claude&&typeof window.claude.use==='function';
 const pref={get(k){try{return localStorage.getItem('bt-'+k)}catch(e){return null}},set(k,v){try{localStorage.setItem('bt-'+k,v)}catch(e){}}};
@@ -492,6 +638,7 @@ function money(v,signed=true,compact=false,cur){
 }
 const pct=(v,signed)=>v==null||!Number.isFinite(v)?'—':(signed&&v>0?'+':'')+new Intl.NumberFormat('fr-FR',{maximumFractionDigits:1}).format(v*100).replace(/-/g,'−')+' %';
 const fR=v=>v==null||!Number.isFinite(v)?'—':(v>0?'+':v<0?'−':'')+f1.format(Math.abs(v))+' R';
+const fLotN=l=>new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2}).format(l)+(l>=2?' lots':' lot');
 const kf=v=>{const a=Math.abs(v),s=v>0?'+':v<0?'−':'';return s+(a>=1000?new Intl.NumberFormat('fr-FR',{maximumFractionDigits:1}).format(a/1000)+'k':String(Math.round(a)))};
 const tone=v=>v>0?'g-tx':v<0?'l-tx':'';
 const plural=(n,w)=>n+' '+w+(n>1?'s':'');
@@ -499,7 +646,7 @@ const hashStr=s=>{let h=5381;for(let i=0;i<s.length;i++)h=(h*33^s.charCodeAt(i))
 
 /* ---------- état ---------- */
 const defComptes=()=>[{id:'reel',nom:'Réel',type:'reel',devise:'CHF',capital:null,objMois:null,perteJour:null,tradesJour:null,risqueMax:1},{id:'demo',nom:'Démo',type:'demo',devise:'CHF',capital:null,objMois:null,perteJour:null,tradesJour:null,risqueMax:1}];
-const S={mode:'loading',loaded:false,trades:[],notes:[],profile:{v:2,comptes:defComptes(),partage:{actif:false,pseudo:'',comptes:['reel','demo'],notes:false}},conseils:{},compte:pref.get('compte')||'reel',period:'all',asset:'',q:'',view:'bilan',calMonth:'',calDay:'',demo:null,viewing:null,vCompte:'',visitor:false,community:[],names:{},lc:false,note:'',migrated:false,shareChecked:false,defisDocs:[],ld:false,defInit:false,defChecked:false,profils:{}};
+const S={mode:'loading',loaded:false,trades:[],notes:[],profile:{v:2,comptes:defComptes(),partage:{actif:false,pseudo:'',comptes:['reel','demo'],notes:false}},conseils:{},compte:pref.get('compte')||'reel',period:'all',asset:'',q:'',view:'bilan',calMonth:'',calDay:'',demo:null,viewing:null,vCompte:'',visitor:false,community:[],names:{},lc:false,note:'',migrated:false,shareChecked:false,defisDocs:[],ld:false,defInit:false,defChecked:false,profils:{},prof:{},admin:false,v2:null,ctab:pref.get('ctab')||'fil',profilView:'',graph:'courbe'};
 let B=null,tCol=null,nCol=null,DBX=null,UIDV=null,USR=null,ASSETS=null,SAMPLE=null,IMG_OK=false;
 
 const okId=v=>typeof v==='string'&&/^[A-Za-z0-9_-]{1,40}$/.test(v);
@@ -510,7 +657,7 @@ function clean(o,id){
   if(!o||typeof o!=='object')return null;
   const r=num(o.resultat),d=okDate(o.date);if(r==null||!d)return null;
   const av=o.avis&&typeof o.avis==='object'&&typeof o.avis.texte==='string'?{texte:o.avis.texte.slice(0,8000),date:str(o.avis.date,40)}:null;
-  return{id:String(id||o.id||uid()).slice(0,60),compte:okId(o.compte)?o.compte:'',date:d,heure:typeof o.heure==='string'&&/^\d{2}:\d{2}$/.test(o.heure)?o.heure:'',actif:str(o.actif,60).trim()||'—',sens:o.sens==='short'?'short':'long',entree:num(o.entree),sortie:num(o.sortie),qte:num(o.qte),frais:num(o.frais),stop:num(o.stop),tp:num(o.tp),resultat:r,setup:str(o.setup,80),emotion:pick(EMO,o.emotion),plan:pick(PLAN,o.plan),erreurs:Array.isArray(o.erreurs)?[...new Set(o.erreurs.filter(x=>ERR.some(e=>e[0]===x)))]:[],images:Array.isArray(o.images)?o.images.filter(okImg).slice(0,6):[],note:str(o.note,2000),avis:av,cree:Number(o.cree)||0};
+  return{id:String(id||o.id||uid()).slice(0,60),compte:okId(o.compte)?o.compte:'',date:d,heure:typeof o.heure==='string'&&/^\d{2}:\d{2}$/.test(o.heure)?o.heure:'',actif:str(o.actif,60).trim()||'—',sens:o.sens==='short'?'short':'long',entree:num(o.entree),sortie:num(o.sortie),qte:num(o.qte),frais:num(o.frais),stop:num(o.stop),tp:num(o.tp),resultat:r,setup:str(o.setup,80),emotion:pick(EMO,o.emotion),plan:pick(PLAN,o.plan),erreurs:Array.isArray(o.erreurs)?[...new Set(o.erreurs.filter(x=>ERR.some(e=>e[0]===x)))]:[],images:Array.isArray(o.images)?o.images.filter(okImg).slice(0,6):[],note:str(o.note,2000),avis:av,cree:Number(o.cree)||0,lots:pos(o.lots),risque:pos(o.risque),source:o.source==='mt5'?'mt5':'',ticket:str(o.ticket,30),defisIn:Array.isArray(o.defisIn)?o.defisIn.filter(okId).slice(0,30):[],defisOut:Array.isArray(o.defisOut)?o.defisOut.filter(okId).slice(0,30):[]};
 }
 function cleanNote(o,id){
   if(!o||typeof o!=='object')return null;const d=okDate(o.date);if(!d)return null;
@@ -526,7 +673,8 @@ function normProfile(o){
   const seen=new Set();cs=cs.filter(c=>!seen.has(c.id)&&seen.add(c.id));
   if(!cs.length){cs=defComptes();if(o){const dv=okDev(o.devise);if(dv){cs[0].devise=dv;cs[1].devise=dv}cs[0].capital=pos(o.capital)}}
   const p=o&&o.partage&&typeof o.partage==='object'?o.partage:{};
-  return{v:2,comptes:cs,partage:{actif:p.actif===true,pseudo:str(p.pseudo,40),comptes:Array.isArray(p.comptes)?p.comptes.filter(okId):['reel','demo'],notes:p.notes===true}};
+  const u=o&&o.ui&&typeof o.ui==='object'?o.ui:{};
+  return{v:2,comptes:cs,partage:{actif:p.actif===true,pseudo:str(p.pseudo,40),comptes:Array.isArray(p.comptes)?p.comptes.filter(okId):['reel','demo'],notes:p.notes===true},ui:{pal:PALS.some(x=>x[0]===u.pal)?u.pal:'',graph:['ligne','courbe','barres','donut','aire'].includes(u.graph)?u.graph:'',mode:['auto','clair','sombre'].includes(u.mode)?u.mode:''}};
 }
 function cleanShare(o,uidv){
   if(!o||typeof o!=='object'||!Array.isArray(o.comptes))return null;
@@ -549,7 +697,7 @@ const list=()=>sortT(tOf(cpt().id));
 function startOf(p){const n=new Date(),y=n.getFullYear(),m=n.getMonth(),d=n.getDate();if(p==='day')return iso(n);if(p==='week')return iso(new Date(y,m,d-(n.getDay()+6)%7));if(p==='month')return iso(new Date(y,m,1));if(p==='3m')return iso(new Date(y,m-3,d));if(p==='year')return iso(new Date(y,0,1));return ''}
 const view=()=>{const s=startOf(S.period);return list().filter(t=>(!s||t.date>=s)&&(!S.asset||t.actif===S.asset))};
 const perLabel=()=>S.period==='all'?'toute la période':lab(PER,S.period).toLowerCase();
-const risk=t=>t.entree!=null&&t.stop!=null&&t.qte!=null&&t.entree!==t.stop?Math.abs(t.entree-t.stop)*Math.abs(t.qte):null;
+const risk=t=>t.risque>0?t.risque:t.entree!=null&&t.stop!=null&&t.qte!=null&&t.entree!==t.stop?Math.abs(t.entree-t.stop)*Math.abs(t.qte):null;
 const rOf=t=>{const k=risk(t);return k?t.resultat/k:null};
 const rrOf=t=>t.entree!=null&&t.stop!=null&&t.tp!=null&&t.entree!==t.stop?Math.abs(t.tp-t.entree)/Math.abs(t.entree-t.stop):null;
 const compteOf=t=>comptes().find(c=>c.id===(t.compte||'reel'))||cpt();
@@ -602,7 +750,8 @@ function renderHeader(){
   if(S.asset&&!assets.includes(S.asset))S.asset='';
   const sel=$('#asset');sel.replaceChildren(new Option('Tous les actifs',''),...assets.map(a=>new Option(a,a)));sel.value=S.asset;
   $$('[data-v]').forEach(b=>{if(b.dataset.v===S.view)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
-  const nb=S.mode==='db'?allDefis().filter(d=>d.status==='attente'&&d.moi==='b').length:0,bd=$('#defBadge');bd.hidden=!nb;bd.textContent=nb;
+  const nb=S.mode==='db'?allDefis().filter(d=>d.me&&d.me.st==='invite'&&['attente','avenir','encours'].includes(d.status)).length:0,bd=$('#defBadge');bd.hidden=!nb;bd.textContent=nb;
+  $('#nav [data-v=partage] span').textContent=social()?'Réseau':'Partage';
   const fab=$('#fab');fab.hidden=ro()||['partage','reglages','defis'].includes(S.view)||!S.loaded;fab.textContent=S.view==='journal'?'+ Note':'+ Trade';
 }
 function renderBanners(){
@@ -643,42 +792,91 @@ function renderAlerts(){
   $('#alerts').hidden=!out.length;$('#alertsIn').innerHTML=out.map(tipHTML).join('');
 }
 function ticks(lo,hi,n){const st0=(hi-lo)/n,mag=10**Math.floor(Math.log10(st0)),st=[1,2,2.5,5,10].map(k=>k*mag).find(x=>x>=st0);const out=[];for(let v=Math.ceil(lo/st)*st;v<=hi+1e-9;v+=st)out.push(Math.round(v/st)*st||0);return out}
-const svg=$('#curve'),fig=$('#fig'),tip=$('#tip');let G=null,drawn=false,curvePts=[0],curveTs=[];
+const GTYPES=[['ligne','Linéaire','Graphique linéaire'],['courbe','Courbe remplie','Graphique en courbe avec remplissage'],['barres','Barres','Graphique en barres'],['donut','Donut','Graphique circulaire (donut)'],['aire','Aire','Graphique en aire']];
+const svg=$('#curve'),fig=$('#fig'),tip=$('#tip');let G=null,drawn='',curvePts=[0],curveTs=[];
+function smoothPath(xs,ys){const n=xs.length;if(n<3)return xs.map((x,i)=>(i?'L':'M')+x.toFixed(1)+' '+ys[i].toFixed(1)).join('');
+  const dx=[],m=[],t=[];for(let i=0;i<n-1;i++){dx[i]=xs[i+1]-xs[i];m[i]=dx[i]?(ys[i+1]-ys[i])/dx[i]:0}
+  t[0]=m[0];t[n-1]=m[n-2];for(let i=1;i<n-1;i++)t[i]=m[i-1]*m[i]<=0?0:(m[i-1]+m[i])/2;
+  for(let i=0;i<n-1;i++){if(m[i]===0){t[i]=0;t[i+1]=0;continue}const a=t[i]/m[i],b=t[i+1]/m[i],h=a*a+b*b;if(h>9){const k=3/Math.sqrt(h);t[i]=k*a*m[i];t[i+1]=k*b*m[i]}}
+  let d=`M${xs[0].toFixed(1)} ${ys[0].toFixed(1)}`;for(let i=0;i<n-1;i++){const h=dx[i]/3;d+=`C${(xs[i]+h).toFixed(1)} ${(ys[i]+t[i]*h).toFixed(1)} ${(xs[i+1]-h).toFixed(1)} ${(ys[i+1]-t[i+1]*h).toFixed(1)} ${xs[i+1].toFixed(1)} ${ys[i+1].toFixed(1)}`}return d}
+function barItems(){const ts=curveTs;if(ts.length<=60)return{unit:'trade',items:ts.map(t=>({v:t.resultat,lab:`${fDY.format(pd(t.date))} · ${t.actif}`,sub:rOf(t)!=null?fR(rOf(t)):'',d:t.date}))};
+  const by=(kf,lf)=>{const m=new Map();for(const t of ts){const k=kf(t);let g=m.get(k);if(!g){g={k,v:0,n:0};m.set(k,g)}g.v+=t.resultat;g.n++}return[...m.values()].map(g=>({v:r2(g.v),lab:lf(g.k),sub:plural(g.n,'trade'),d:g.k}))};
+  const days=by(t=>t.date,k=>cap1(fDL.format(pd(k))));if(days.length<=90)return{unit:'jour',items:days};
+  return{unit:'semaine',items:by(t=>{const d=pd(t.date);return iso(new Date(d.getFullYear(),d.getMonth(),d.getDate()-(d.getDay()+6)%7))},k=>'Semaine du '+fD.format(pd(k)))}}
+function chartHead(){const k=S.graph,n=curveTs.length;let t='Résultat cumulé',sub='trade après trade · touchez le graphique pour le détail';
+  if(k==='barres'){const u=n<=60?'trade':barItems().unit;t=u==='trade'?'Résultat par trade':u==='jour'?'Résultat par jour':'Résultat par semaine';sub='bleu : gain · rouge : perte · touchez une barre'}
+  else if(k==='donut'){t='Trades gagnants et perdants';sub='sur la période choisie · touchez une part'}
+  $('#chartT').textContent=t;$('#chartSub').textContent=sub;
+  chips('#gtypes',GTYPES.map(x=>[x[0],x[1]]),x=>S.graph===x,'graph');$$('#gtypes button').forEach(b=>{const g=GTYPES.find(x=>x[0]===b.dataset.graph);b.title=g[2];b.className='chip sm'})}
 function drawCurve(){
-  const W=fig.clientWidth,H=fig.clientHeight,P=curvePts,n=P.length;if(!W||!H)return;
+  chartHead();const W=fig.clientWidth,H=fig.clientHeight,P=curvePts,n=P.length,kind=S.graph;if(!W||!H)return;
   $('#empty').hidden=!(S.loaded&&n<2);tip.hidden=true;
   if(n<2){svg.innerHTML='';G=null;return}
-  const small=W<520,m={l:2,r:small?4:8,t:14,b:30};
-  let lo=Math.min(0,...P),hi=Math.max(0,...P);if(hi-lo<1e-9){hi+=1;lo-=1}const pad=(hi-lo)*.12;lo-=pad;hi+=pad;
-  const X=i=>m.l+(W-m.l-m.r)*i/(n-1),Y=v=>m.t+(H-m.t-m.b)*(1-(v-lo)/(hi-lo)),y0=Y(0);
-  let line='';P.forEach((v,i)=>{line+=(i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1)});
-  const area=line+`L${X(n-1).toFixed(1)} ${y0.toFixed(1)}L${X(0).toFixed(1)} ${y0.toFixed(1)}Z`;
+  const small=W<520,m={l:2,r:small?4:8,t:14,b:30},anim=drawn!==kind&&!matchMedia('(prefers-reduced-motion: reduce)').matches;drawn=kind;
   const d0=fD.format(pd(curveTs[0].date)),d1=fD.format(pd(curveTs[curveTs.length-1].date));
+  if(kind==='donut'){
+    const w=curveTs.filter(t=>t.resultat>0),l=curveTs.filter(t=>t.resultat<0),z=curveTs.length-w.length-l.length,sum=a=>r2(a.reduce((x,t)=>x+t.resultat,0));
+    const seg=[['g','Gagnants',w.length,sum(w),'sg'],['l','Perdants',l.length,sum(l),'sl'],['z','À zéro',z,0,'sz']].filter(x=>x[2]>0),N=curveTs.length;
+    const D=Math.max(80,Math.min(H-24,small?W*.46:W*.42,260)),R=D/2,ri=R*.62,rm=(R+ri)/2,sw=R-ri,cx=m.l+R+(small?0:12),cy=H/2,C=2*Math.PI*rm,gap=seg.length>1?2:0;
+    let acc=0,arcs='';const A=[];
+    for(const s of seg){const len=s[2]/N*C;A.push({s,a0:acc/C,a1:(acc+len)/C});arcs+=`<circle class="${s[4]}" cx="${cx}" cy="${cy}" r="${rm}" stroke-width="${sw}" fill="none" stroke-dasharray="${Math.max(0,len-gap).toFixed(2)} ${(C-Math.max(0,len-gap)).toFixed(2)}" stroke-dashoffset="${(-acc).toFixed(2)}" transform="rotate(-90 ${cx} ${cy})"/>`;acc+=len}
+    const rate=w.length+l.length?w.length/(w.length+l.length):null,lx=cx+R+(small?18:32),dev=cpt().devise;
+    const leg=seg.map((s,i)=>{const y=cy-((seg.length-1)*42)/2+i*42;return`<rect x="${lx}" y="${y-13}" width="12" height="12" rx="3" class="${s[4]}f"/><text class="lgt" x="${lx+20}" y="${y-2}">${esc(s[1])} · ${s[2]}</text>${s[0]!=='z'?`<text class="tick" x="${lx+20}" y="${y+16}">${esc(money(s[3],true,small,dev))}</text>`:''}`}).join('');
+    svg.innerHTML=arcs+`<text class="dn-big" x="${cx}" y="${cy+4}" text-anchor="middle">${esc(rate==null?'—':pct(rate))}</text><text class="tick" x="${cx}" y="${cy+24}" text-anchor="middle">réussite</text>`+(lx+60<W?leg:'');
+    svg.setAttribute('aria-label',`Répartition de ${plural(N,'trade')} : ${seg.map(s=>s[1].toLowerCase()+' '+s[2]).join(', ')}`);
+    G={kind,W,H,cx,cy,R,ri,A,N};
+    if(anim)svg.querySelectorAll('circle').forEach((c,i)=>{c.style.opacity='0';c.style.transition=`opacity .4s ease-out ${i*.12}s`;c.getBoundingClientRect();c.style.opacity='1'});
+    return;
+  }
+  if(kind==='barres'){
+    const{unit,items}=barItems(),N=items.length,vs=items.map(x=>x.v);let lo=Math.min(0,...vs),hi=Math.max(0,...vs);if(hi-lo<1e-9){hi+=1;lo-=1}const pad=(hi-lo)*.1;lo-=lo<0?pad:0;hi+=hi>0?pad:0;
+    const Y=v=>m.t+(H-m.t-m.b)*(1-(v-lo)/(hi-lo)),y0=Y(0),bw=(W-m.l-m.r)/N,gp=bw>6?2:bw>3?1:0,w=Math.max(1,bw-gp);
+    const bar=(i,v)=>{const x=m.l+i*bw+gp/2,y=Y(v),h=Math.abs(y-y0),r=Math.min(4,w/2,h);if(h<.5)return`<rect class="bz" x="${x.toFixed(1)}" y="${(y0-.75).toFixed(1)}" width="${w.toFixed(1)}" height="1.5"/>`;
+      return v>0?`<path class="bg" d="M${x.toFixed(1)} ${y0.toFixed(1)}V${(y+r).toFixed(1)}Q${x.toFixed(1)} ${y.toFixed(1)} ${(x+r).toFixed(1)} ${y.toFixed(1)}H${(x+w-r).toFixed(1)}Q${(x+w).toFixed(1)} ${y.toFixed(1)} ${(x+w).toFixed(1)} ${(y+r).toFixed(1)}V${y0.toFixed(1)}Z"/>`
+        :`<path class="bl" d="M${x.toFixed(1)} ${y0.toFixed(1)}V${(y-r).toFixed(1)}Q${x.toFixed(1)} ${y.toFixed(1)} ${(x+r).toFixed(1)} ${y.toFixed(1)}H${(x+w-r).toFixed(1)}Q${(x+w).toFixed(1)} ${y.toFixed(1)} ${(x+w).toFixed(1)} ${(y-r).toFixed(1)}V${y0.toFixed(1)}Z"/>`};
+    svg.innerHTML=`<rect id="hvb" class="hvb" x="0" y="${m.t}" width="${bw}" height="${H-m.t-m.b}" visibility="hidden"/>`+ticks(lo,hi,small?3:4).map(v=>(v?`<line class="gridl" x1="${m.l}" x2="${W-m.r}" y1="${Y(v)}" y2="${Y(v)}"/>`:'')+`<text class="tick" x="${m.l}" y="${Y(v)-5}">${esc(money(v,!!v,true))}</text>`).join('')+
+      `<g class="bars">${items.map((x,i)=>bar(i,x.v)).join('')}</g><line class="base" x1="${m.l}" x2="${W-m.r}" y1="${y0}" y2="${y0}"/>`+
+      `<text class="tick" x="${m.l}" y="${H-8}">${esc(d0)}</text><text class="tick" x="${W-m.r}" y="${H-8}" text-anchor="end">${esc(d1)}</text>`;
+    svg.setAttribute('aria-label',`Résultat par ${unit}, ${plural(N,unit)}, du ${d0} au ${d1}`);
+    G={kind,W,H,m,N,bw,Y,items,unit};
+    if(anim){const g=svg.querySelector('.bars');g.style.transformOrigin=`0 ${y0}px`;g.style.transform='scaleY(0)';g.getBoundingClientRect();g.style.transition='transform .6s ease-out';g.style.transform='scaleY(1)'}
+    return;
+  }
+  let lo=Math.min(0,...P),hi=Math.max(0,...P);if(hi-lo<1e-9){hi+=1;lo-=1}const pad=(hi-lo)*.12;lo-=pad;hi+=pad;
+  const X=i=>m.l+(W-m.l-m.r)*i/(n-1),Y=v=>m.t+(H-m.t-m.b)*(1-(v-lo)/(hi-lo)),y0=Y(0),yb=H-m.b;
+  const xs=P.map((_,i)=>X(i)),ys=P.map(Y);
+  const line=kind==='courbe'?smoothPath(xs,ys):xs.map((x,i)=>(i?'L':'M')+x.toFixed(1)+' '+ys[i].toFixed(1)).join('');
+  const area=line+`L${X(n-1).toFixed(1)} ${y0.toFixed(1)}L${X(0).toFixed(1)} ${y0.toFixed(1)}Z`,areaB=line+`L${X(n-1).toFixed(1)} ${yb.toFixed(1)}L${X(0).toFixed(1)} ${yb.toFixed(1)}Z`;
   svg.setAttribute('aria-label',`Résultat cumulé de ${plural(n-1,'trade')}, du ${d0} au ${d1} : ${money(P[n-1])}`);
-  svg.innerHTML=`<defs><clipPath id="cpU"><rect x="0" y="-20" width="${W}" height="${Math.max(0,y0+20)}"/></clipPath><clipPath id="cpD"><rect x="0" y="${y0}" width="${W}" height="${Math.max(0,H-y0+20)}"/></clipPath></defs>`+
+  const fill=kind==='courbe'?`<path class="aU" d="${area}" clip-path="url(#cpU)"/><path class="aD" d="${area}" clip-path="url(#cpD)"/>`:kind==='aire'?`<path class="aA" d="${areaB}"/>`:'';
+  svg.innerHTML=`<defs><clipPath id="cpU"><rect x="0" y="-20" width="${W}" height="${Math.max(0,y0+20)}"/></clipPath><clipPath id="cpD"><rect x="0" y="${y0}" width="${W}" height="${Math.max(0,H-y0+20)}"/></clipPath><linearGradient id="gA" x1="0" x2="0" y1="0" y2="1"><stop offset="0" class="gA0"/><stop offset="1" class="gA1"/></linearGradient></defs>`+
     ticks(lo,hi,small?3:4).map(v=>(v?`<line class="gridl" x1="${m.l}" x2="${W-m.r}" y1="${Y(v)}" y2="${Y(v)}"/>`:'')+`<text class="tick" x="${m.l}" y="${Y(v)-5}">${esc(money(v,!!v,true))}</text>`).join('')+
-    `<path class="aU" d="${area}" clip-path="url(#cpU)"/><path class="aD" d="${area}" clip-path="url(#cpD)"/>`+
-    `<line class="base" x1="${m.l}" x2="${W-m.r}" y1="${y0}" y2="${y0}"/><path class="line" d="${line}"/>`+
+    fill+`<line class="base" x1="${m.l}" x2="${W-m.r}" y1="${y0}" y2="${y0}"/><path class="line${kind==='aire'?' la':''}" d="${line}"/>`+
     `<circle class="cdot" cx="${X(n-1)}" cy="${Y(P[n-1])}" r="5"/>`+
     `<text class="tick" x="${m.l}" y="${H-8}">${esc(d0)}</text><text class="tick" x="${W-m.r}" y="${H-8}" text-anchor="end">${esc(d1)}</text>`+
     `<g id="hov" visibility="hidden"><line id="hvl" class="hv" y1="${m.t}" y2="${H-m.b}"/><circle id="hvc" class="cdot" r="5"/></g>`;
-  G={W,H,m,n,P,X,Y};
-  if(!drawn&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const p=svg.querySelector('.line');try{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L;p.getBoundingClientRect();p.style.transition='stroke-dashoffset .9s ease-out';p.style.strokeDashoffset='0'}catch(e){}}
-  drawn=true;
+  G={kind,W,H,m,n,P,X,Y};
+  if(anim){const p=svg.querySelector('.line');try{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L;p.getBoundingClientRect();p.style.transition='stroke-dashoffset .9s ease-out';p.style.strokeDashoffset='0'}catch(e){}}
 }
+function placeTip(x,y){tip.hidden=false;const tw=tip.offsetWidth,th=tip.offsetHeight;let left=x+14;if(left+tw>G.W)left=x-14-tw;tip.style.left=Math.max(0,left)+'px';tip.style.top=Math.max(0,Math.min(G.H-th,y-th-12))+'px'}
+const tel=(tag,txt)=>{const n=document.createElement(tag);n.textContent=txt;return n};
 function hover(e){
-  if(!G)return;const r=svg.getBoundingClientRect();
-  let i=Math.round((e.clientX-r.left-G.m.l)/(G.W-G.m.l-G.m.r)*(G.n-1));i=Math.max(0,Math.min(G.n-1,i));
+  if(!G)return;const r=svg.getBoundingClientRect(),px=e.clientX-r.left,py=e.clientY-r.top;
+  if(G.kind==='donut'){const dx=px-G.cx,dy=py-G.cy,d=Math.hypot(dx,dy);if(d<G.ri-4||d>G.R+4){tip.hidden=true;return}let a=Math.atan2(dy,dx)/(2*Math.PI)+.25;if(a<0)a+=1;const s=G.A.find(x=>a>=x.a0&&a<x.a1)||G.A[G.A.length-1];if(!s)return;
+    tip.replaceChildren(tel('b',`${s.s[1]} : ${plural(s.s[2],'trade')}`),tel('span',`${pct(s.s[2]/G.N)} des trades`),...(s.s[0]!=='z'?[tel('span','Total : '+money(s.s[3]))]:[]));placeTip(px,py);return}
+  if(G.kind==='barres'){let i=Math.floor((px-G.m.l)/G.bw);i=Math.max(0,Math.min(G.N-1,i));const it=G.items[i],hb=svg.querySelector('#hvb');if(hb){hb.setAttribute('x',G.m.l+i*G.bw);hb.setAttribute('visibility','visible')}
+    tip.replaceChildren(tel('b',it.lab),tel('span','Résultat : '+money(it.v)),...(it.sub?[tel('span',it.sub)]:[]));placeTip(G.m.l+(i+.5)*G.bw,G.Y(Math.max(0,it.v)));return}
+  let i=Math.round((px-G.m.l)/(G.W-G.m.l-G.m.r)*(G.n-1));i=Math.max(0,Math.min(G.n-1,i));
   const x=G.X(i),y=G.Y(G.P[i]),h=svg.querySelector('#hov');if(!h)return;
   h.setAttribute('visibility','visible');const l=svg.querySelector('#hvl');l.setAttribute('x1',x);l.setAttribute('x2',x);
   const c=svg.querySelector('#hvc');c.setAttribute('cx',x);c.setAttribute('cy',y);
-  const t=i?curveTs[i-1]:null,el=(tag,txt)=>{const n=document.createElement(tag);n.textContent=txt;return n};
-  tip.replaceChildren(el('b',t?`${fDY.format(pd(t.date))} · ${t.actif}`:'Départ'),...(t?[el('span','Ce trade : '+money(t.resultat)+(rOf(t)!=null?' ('+fR(rOf(t))+')':''))]:[]),el('span','Cumul : '+money(G.P[i])));
-  tip.hidden=false;const tw=tip.offsetWidth,th=tip.offsetHeight;let left=x+14;if(left+tw>G.W)left=x-14-tw;
-  tip.style.left=Math.max(0,left)+'px';tip.style.top=Math.max(0,Math.min(G.H-th,y-th-12))+'px';
+  const t=i?curveTs[i-1]:null;
+  tip.replaceChildren(tel('b',t?`${fDY.format(pd(t.date))} · ${t.actif}`:'Départ'),...(t?[tel('span','Ce trade : '+money(t.resultat)+(rOf(t)!=null?' ('+fR(rOf(t))+')':''))]:[]),tel('span','Cumul : '+money(G.P[i])));
+  placeTip(x,y);
 }
 svg.addEventListener('pointermove',hover);svg.addEventListener('pointerdown',hover);
-svg.addEventListener('pointerleave',()=>{tip.hidden=true;const h=svg.querySelector('#hov');if(h)h.setAttribute('visibility','hidden')});
+svg.addEventListener('pointerleave',()=>{tip.hidden=true;const h=svg.querySelector('#hov');if(h)h.setAttribute('visibility','hidden');const hb=svg.querySelector('#hvb');if(hb)hb.setAttribute('visibility','hidden')});
+$('#gtypes').addEventListener('click',e=>{const b=e.target.closest('[data-graph]');if(!b)return;setLook({graph:b.dataset.graph})});
 new ResizeObserver(()=>drawCurve()).observe(fig);
 
 function renderKpis(s){
@@ -750,7 +948,7 @@ function renderCal(){
   else $('#calDay').innerHTML='<p class="hint">Touchez un jour pour voir ses trades.</p>';
 }
 function cardHTML(t){
-  const R=rOf(t),tags=[t.sens==='short'?'Vente':'Achat',R!=null?fR(R):'',t.setup].filter(Boolean);
+  const R=rOf(t),tags=[t.source==='mt5'?'MT5':'',t.sens==='short'?'Vente':'Achat',t.lots?fLotN(t.lots):'',R!=null?fR(R):'',t.setup].filter(Boolean);
   const meta=[lab(EMO,t.emotion),t.plan?'Plan : '+lab(PLAN,t.plan).toLowerCase():'',...t.erreurs.map(e=>lab(ERR,e))].filter(Boolean);
   return `<button type="button" class="tc" data-id="${esc(t.id)}"><span class="tc-l"><span class="tc-d">${esc(fDY.format(pd(t.date)))}${t.heure?' · '+esc(t.heure):''}</span><b class="tc-a">${esc(t.actif)}</b><span class="tc-t">${tags.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</span>${meta.length?`<span class="tc-m">${esc(meta.join(' · '))}</span>`:''}${t.note?`<span class="tc-n">${esc(t.note.slice(0,140))}${t.note.length>140?'…':''}</span>`:''}</span><span class="tc-r"><b class="${tone(t.resultat)}">${esc(money(t.resultat,true,false,compteOf(t).devise))}</b>${t.images.length?`<img src="${esc(blobUrl(t.images[0]))}" alt="" loading="lazy">`:''}</span></button>`;
 }
@@ -888,7 +1086,7 @@ $('#copyBtn').addEventListener('click',()=>{const c=cpt(),ts=view();if(!ts.lengt
 
 /* ---------- partage ---------- */
 const nameOf=p=>(p&&p.pseudo)||S.profils[p&&p.uid]||S.names[p&&p.uid]||'Trader';
-const shareTrade=(t,withNotes)=>{const o={id:t.id,date:t.date,heure:t.heure,actif:t.actif,sens:t.sens,entree:t.entree,sortie:t.sortie,qte:t.qte,frais:t.frais,stop:t.stop,tp:t.tp,resultat:t.resultat,setup:t.setup,emotion:t.emotion,plan:t.plan,erreurs:t.erreurs,images:t.images,cree:t.cree};if(withNotes)o.note=t.note.slice(0,500);return o};
+const shareTrade=(t,withNotes)=>{const o={id:t.id,date:t.date,heure:t.heure,actif:t.actif,sens:t.sens,entree:t.entree,sortie:t.sortie,qte:t.qte,frais:t.frais,stop:t.stop,tp:t.tp,resultat:t.resultat,setup:t.setup,emotion:t.emotion,plan:t.plan,erreurs:t.erreurs,images:t.images,cree:t.cree,lots:t.lots,risque:t.risque,source:t.source};if(withNotes)o.note=t.note.slice(0,500);return o};
 function buildShare(){
   const p=S.profile.partage,ids=new Set(p.comptes);
   const doc={v:1,pseudo:p.pseudo||'',notesPartagees:!!p.notes,comptes:S.profile.comptes.filter(c=>ids.has(c.id)).map(c=>({id:c.id,nom:c.nom,type:c.type,devise:c.devise,capital:c.capital,trades:sortT(S.trades.filter(t=>(t.compte||'reel')===c.id)).slice(-500).map(t=>shareTrade(t,p.notes))})),
@@ -905,6 +1103,7 @@ async function syncShare(){
   finally{shareBusy=false;if(shareAgain){shareAgain=false;syncShare()}}
 }
 function renderPartage(){
+  if(social()){renderReseau();return}
   const pv=$('#pv');
   if(S.mode!=='db'){pv.innerHTML=`<div class="sec-h"><h2>Partage</h2></div><p class="muted">${S.mode==='loading'?'Chargement…':'Le partage fonctionne seulement quand l’appli est ouverte dans Claude.'}</p>`;return}
   const p=S.profile.partage,on=p.actif,me=S.community.find(x=>x.uid===UIDV);
@@ -931,12 +1130,200 @@ function renderPartage(){
     <p class="hint">Avec un simple lien en lecture, la personne pourra voir les comptes rendus visibles, mais pas enregistrer ses trades.</p></details>`;
   pv.innerHTML=h;
 }
+/* ---------- réseau : fil, stories, membres, profils (version web) ---------- */
+const R={posts:[],likes:{},nbc:{},stories:[],ld:false,busy:false,more:true,err:'',t:0,dirty:false},RP={uid:'',posts:[],ld:false,t:0,busy:false};
+const PT={libre:'',semaine:'Bilan de la semaine',strategie:'Stratégie',evolution:'Évolution',story:'Story'};
+let SEEN=new Set();try{SEEN=new Set(JSON.parse(localStorage.getItem('bt-seen')||'[]'))}catch(e){}
+const saveSeen=()=>{try{localStorage.setItem('bt-seen',JSON.stringify([...SEEN].slice(-400)))}catch(e){}};
+const social=()=>WEB&&S.mode==='db'&&PLAT&&PLAT.social;
+function memberIds(){const s=new Set(Object.keys(S.prof));S.community.forEach(x=>s.add(x.uid));S.defisDocs.forEach(x=>s.add(x.uid));if(UIDV)s.add(UIDV);return[...s].filter(okUid)}
+const cleanPost=p=>p&&typeof p==='object'&&typeof p.id==='string'&&okUid(p.auteur)?{id:p.id,auteur:p.auteur,type:PT[p.type]!==undefined?p.type:'libre',texte:str(p.texte,4000),images:Array.isArray(p.images)?p.images.filter(okImg).slice(0,10):[],stats:p.stats&&typeof p.stats==='object'?p.stats:null,cree:str(p.cree,40),expire:str(p.expire,40)}:null;
+async function postMeta(ps){const ids=ps.map(p=>p.id);if(!ids.length)return;const[lk,nc]=await Promise.all([PLAT.social.likes(ids),PLAT.social.nbCommentaires(ids)]);ids.forEach(id=>{R.likes[id]=new Set();R.nbc[id]=nc[id]||0});(lk||[]).forEach(r=>{(R.likes[r.post]||(R.likes[r.post]=new Set())).add(r.auteur)})}
+async function loadFeed(reset){
+  if(R.busy||!social())return;R.busy=true;
+  try{const avant=reset?null:(R.posts.length?R.posts[R.posts.length-1].cree:null);
+    const[ps0,st0]=await Promise.all([PLAT.social.posts({avant,limite:20}),reset?PLAT.social.stories():Promise.resolve(null)]);
+    const ps=ps0.map(cleanPost).filter(Boolean),sts=st0?st0.map(cleanPost).filter(Boolean):null;await postMeta(ps);
+    R.posts=reset?ps:R.posts.concat(ps.filter(p=>!R.posts.some(x=>x.id===p.id)));R.more=ps0.length===20;if(sts)R.stories=sts;R.err='';S.v2=true}
+  catch(e){R.err=apiMsg(e);if(e&&e.code==='not_installed')S.v2=false}
+  finally{R.ld=true;R.t=Date.now();R.busy=false;renderReseauSoft()}
+}
+async function loadProfil(u){
+  if(RP.busy||!social())return;RP.busy=true;
+  try{const ps=(await PLAT.social.posts({auteur:u,limite:30})).map(cleanPost).filter(Boolean);await postMeta(ps);Object.assign(RP,{uid:u,posts:ps,ld:true})}catch(e){Object.assign(RP,{uid:u,posts:[],ld:true})}
+  finally{RP.t=Date.now();RP.busy=false;renderReseauSoft()}
+}
+function renderReseauSoft(){if(S.view==='partage')renderPartage()}
+setInterval(()=>{if(document.hidden||S.view!=='partage'||!social())return;if(S.profilView){if(Date.now()-RP.t>60000)loadProfil(S.profilView)}else if(S.ctab==='fil'&&R.posts.length<=20&&Date.now()-R.t>55000)loadFeed(true)},15000);
+const pfOf=v=>v==='inf'?'∞':num(v)==null?'—':f2.format(num(v));
+function sparkHTML(pts){if(pts.length<2)return'';const lo=Math.min(0,...pts),hi=Math.max(0,...pts),sp=hi-lo||1,X=i=>(i/(pts.length-1)*116+2).toFixed(1),Y=v=>(38-(v-lo)/sp*34).toFixed(1);
+  return`<svg class="spark" viewBox="0 0 120 40" role="img" aria-label="Courbe du résultat cumulé"><line x1="2" x2="118" y1="${Y(0)}" y2="${Y(0)}" class="sp0"/><polyline points="${pts.map((v,i)=>X(i)+','+Y(v)).join(' ')}"/></svg>`}
+function statsHTML(st){
+  if(!st||typeof st!=='object')return'';const dev=okDev(st.devise)||'CHF',net=num(st.net),n=Math.max(0,Math.round(num(st.n)||0)),pts=Array.isArray(st.pts)?st.pts.map(num).filter(v=>v!=null).slice(0,80):[];
+  const bits=[plural(n,'trade'),num(st.rate)!=null?'réussite '+pct(num(st.rate)):'',st.pf!=null?'PF '+pfOf(st.pf):'',num(st.r)!=null?fR(num(st.r)):'',num(st.plan)!=null?'plan suivi '+pct(num(st.plan)):''].filter(Boolean);
+  return`<div class="pstat ${st.type==='demo'?'demo':'reel'}"><div class="ps-l"><span class="ps-c"><i class="dot ${st.type==='demo'?'demo':'reel'}"></i> ${esc(str(st.compte,30)||'Compte')}${['réel','démo','reel','demo'].includes(str(st.compte,30).toLowerCase())?'':st.type==='demo'?' · démo':' · réel'} · ${esc(str(st.periode,60))}</span><b class="ps-big">${esc(net==null?'—':money(net,true,false,dev))}</b>${num(st.pct)!=null?`<span>${esc(pct(num(st.pct),true))} du capital</span>`:''}<span>${esc(bits.join(' · '))}</span></div>${sparkHTML(pts)}</div>`;
+}
+function postHTML(p){
+  const mine=p.auteur===UIDV,lk=R.likes[p.id]||new Set(),liked=lk.has(UIDV),nc=R.nbc[p.id]||0,im=p.images;
+  return`<article class="post"><div class="post-h"><a class="plink" href="#profil-${esc(p.auteur)}">${avatarHTML(p.auteur,40)}<span><b>${esc(nameReal(p.auteur))}</b><span class="hint">${esc(ago(p.cree))}${PT[p.type]?' · '+esc(PT[p.type]):''}</span></span></a>${mine||S.admin?`<button class="btn ghost sm" type="button" data-delpost="${esc(p.id)}">Supprimer</button>`:''}</div>
+  ${p.texte?`<p class="ptxt">${esc(p.texte)}</p>`:''}${statsHTML(p.stats)}
+  ${im.length?`<div class="pimgs n${Math.min(im.length,4)}">${im.slice(0,4).map((id,i)=>`<span class="pim">${`<img src="${esc(blobUrl(id))}" alt="Photo de la publication" data-view="${esc(id)}" loading="lazy">`}${i===3&&im.length>4?`<b>+${im.length-4}</b>`:''}</span>`).join('')}</div>`:''}
+  <div class="pact"><button type="button" class="pbtn" data-like="${esc(p.id)}" aria-pressed="${liked}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>J’aime${lk.size?` · ${lk.size}`:''}</button><button type="button" class="pbtn" data-com="${esc(p.id)}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>Commenter${nc?` · ${nc}`:''}</button></div></article>`;
+}
+function storyGroups(){const m=new Map();for(const p of R.stories){if(!m.has(p.auteur))m.set(p.auteur,[]);m.get(p.auteur).push(p)}
+  return[...m.entries()].map(([u,ps])=>({u,ps,last:ps[ps.length-1].cree,seen:ps.every(p=>SEEN.has(p.id))})).sort((a,b)=>(a.u===UIDV?-1:b.u===UIDV?1:0)||(a.seen-b.seen)||(a.last<b.last?1:-1))}
+function storiesHTML(){const G=storyGroups();let h='';
+  if(!S.visitor&&!G.some(g=>g.u===UIDV))h+=`<button type="button" class="story" data-post="story"><span class="ring add">${avatarHTML(UIDV,56)}<i aria-hidden="true">+</i></span><span>Ma story</span></button>`;
+  return h+G.map(g=>`<button type="button" class="story" data-story="${esc(g.u)}"><span class="ring${g.seen?' seen':''}">${avatarHTML(g.u,56)}</span><span>${esc(g.u===UIDV?'Ma story':nameReal(g.u))}</span></button>`).join('')}
+function feedHTML(){
+  let h=`<div class="stories" aria-label="Stories">${storiesHTML()}</div>`;
+  if(!S.visitor)h+=`<div class="composer"><button type="button" class="comp-in" data-post="libre">${avatarHTML(UIDV,40)}<span>Partagez une idée, un trade, une photo…</span></button><div class="actions"><button class="btn" type="button" data-post="semaine">Mon bilan de la semaine en 1 clic</button><button class="btn ghost sm" type="button" data-post="strategie">Ma stratégie</button><button class="btn ghost sm" type="button" data-post="evolution">Mon évolution</button></div></div>`;
+  if(R.err&&!R.posts.length)h+=`<p class="muted">${esc(R.err)}</p>`;
+  else if(!R.ld)h+='<p class="muted">Chargement du fil…</p>';
+  else if(!R.posts.length)h+='<p class="muted">Rien pour l’instant. Lancez le fil : votre bilan de la semaine, une capture de trade, votre stratégie…</p>';
+  else h+=R.posts.map(postHTML).join('')+(R.more?`<div class="actions" style="margin-top:16px"><button class="btn ghost" type="button" data-more-posts${R.busy?' disabled':''}>Voir plus</button></div>`:'');
+  return h;
+}
+const accRow=(o,c)=>{const ts=o.trades.filter(t=>t.compte===c.id),s=stats(ts,c);return`<div class="pacc"><span><i class="dot ${c.type}"></i> <b style="color:var(--ink)">${esc(c.nom)}</b> · ${c.type==='demo'?'démo':'réel'} · ${plural(s.n,'trade')} · réussite ${pct(s.rate)} · PF ${s.pf==null?'—':s.pf===Infinity?'∞':f2.format(s.pf)}</span><span class="val ${tone(s.net)}">${esc(money(s.net,true,false,c.devise))}</span>${o.uid===UIDV?'':`<button class="btn ghost sm" type="button" data-see="${esc(o.uid)}|${esc(c.id)}">Voir</button>`}</div>`};
+function membersHTML(){
+  const ids=memberIds().sort((a,b)=>a===UIDV?-1:b===UIDV?1:nameReal(a).localeCompare(nameReal(b),'fr'));
+  return`<p class="lead">Tous les membres inscrits. Les comptes ne s’affichent que si la personne les a rendus visibles.</p>`+ids.map(u=>{const p=S.prof[u]||{},o=S.community.find(x=>x.uid===u);return`<div class="member"><div class="m-top"><a class="plink" href="#profil-${esc(u)}">${avatarHTML(u,48)}<span><b>${esc(nameReal(u))}${u===UIDV?' <span class="hint">(vous)</span>':''}</b><span class="hint">${esc(p.bio?p.bio.slice(0,110)+(p.bio.length>110?'…':''):o?'Comptes visibles':'Comptes privés')}</span></span></a>${u!==UIDV&&!S.visitor?`<button class="btn ghost sm" type="button" data-defi-with="${esc(u)}">Défier</button>`:''}</div>${o?o.comptes.map(c=>accRow(o,c)).join(''):''}</div>`}).join('');
+}
+function shareMeHTML(){
+  const p=S.profile.partage,on=p.actif,me=S.community.find(x=>x.uid===UIDV);
+  return`<div class="share-me"><div class="sec-h"><h2>Mon partage</h2><span><i class="dot ${on?'reel':''}"></i> ${on?'Visible par les autres':'Privé'}</span></div>
+    <p class="lead" style="margin:0">${on?'Les membres voient les comptes cochés ci-dessous, en lecture seule. Personne ne peut rien modifier chez vous.':'Vos comptes sont privés : personne d’autre ne les voit. Rendez-les visibles quand vous le souhaitez, et repassez en privé à tout moment.'}</p>
+    <label>Nom affiché<input id="sh-pseudo" maxlength="40" autocomplete="off" placeholder="${esc(S.profils[UIDV]||S.names[UIDV]||'ex. Urielle')}" value="${esc(p.pseudo||S.profils[UIDV]||'')}"></label>
+    <div class="fl"><span class="fl-l">Comptes visibles</span><div class="cg">${S.profile.comptes.map(c=>`<button type="button" data-shc="${esc(c.id)}" aria-pressed="${p.comptes.includes(c.id)}">${esc(c.nom)}</button>`).join('')}</div></div>
+    <label class="check"><input type="checkbox" id="sh-notes"${p.notes?' checked':''}> Partager aussi mes notes (journal de bord et notes des trades)</label>
+    <div class="actions"><button class="btn" type="button" id="sh-toggle">${on?'Repasser en privé':'Rendre visible'}</button>${on?'<button class="btn ghost" type="button" id="sh-sync">Mettre à jour maintenant</button>':''}${WEB?`<a class="btn ghost" href="#profil-${esc(UIDV)}">Mon profil</a>`:''}</div>
+    <p class="hint" id="sh-msg">${on?(me?'Dernière mise à jour : '+esc(fDT(me.maj)):'Publication en cours…'):''}</p></div>`;
+}
+const inviteHTML=()=>`<details class="more" style="margin-top:28px"><summary>Inviter quelqu’un à utiliser l’appli</summary>
+    <ol class="steps" style="margin-top:12px"><li>Envoyez-lui le lien de l’appli : <a href="${esc(APP_URL)}" target="_blank" rel="noopener">${esc(APP_URL.replace('https://',''))}</a></li><li>Elle crée son compte avec son e-mail et un mot de passe, sans besoin de compte Claude.</li><li>Chacun a ses propres comptes, <b>privés par défaut</b>. Personne ne voit les comptes des autres tant qu’ils ne sont pas rendus visibles ici.</li></ol>
+    <div class="actions"><button class="btn ghost" type="button" data-copy-link>Copier le lien</button></div></details>`;
+function profilHTML(u){
+  const p=S.prof[u]||{},me=u===UIDV,sh=S.community.find(x=>x.uid===u);
+  let h=`<div class="actions"><button class="btn ghost sm" type="button" data-back>‹ Retour</button></div>
+  <div class="prof-h">${avatarHTML(u,88)}<div><h2>${esc(nameReal(u))}</h2>${p.inscrit&&!isNaN(new Date(p.inscrit))?`<p class="hint">Membre depuis ${esc(fML.format(new Date(p.inscrit)))}</p>`:''}${p.bio?`<p class="bio">${esc(p.bio)}</p>`:me?'<p class="hint">Ajoutez une petite présentation : votre style, vos marchés, vos objectifs…</p>':''}</div></div>
+  <div class="actions">${me?'<button class="btn" type="button" data-edit-prof>Modifier mon profil</button><button class="btn ghost" type="button" data-post="libre">Publier</button>':S.visitor?'':`<button class="btn" type="button" data-defi-with="${esc(u)}">Lancer un défi</button>`}</div>`;
+  h+=`<div class="sec-h" style="margin-top:28px"><h2>Comptes visibles</h2></div>`+(sh?sh.comptes.map(c=>accRow(sh,c)).join(''):`<p class="muted">${me?'Vos comptes sont privés. Vous pouvez en rendre visibles dans « Mon partage ».':'Pas de compte visible.'}</p>`);
+  h+=`<div class="sec-h" style="margin-top:28px"><h2>Publications</h2><span>${RP.uid===u&&RP.ld?plural(RP.posts.length,'publication'):''}</span></div>`+(RP.uid!==u||!RP.ld?'<p class="muted">Chargement…</p>':RP.posts.length?RP.posts.map(postHTML).join(''):'<p class="muted">Aucune publication pour l’instant.</p>');
+  return h;
+}
+function renderReseau(){
+  const pv=$('#pv'),ae=document.activeElement;
+  if(pv.contains(ae)&&/^(INPUT|TEXTAREA|SELECT)$/.test(ae.tagName)){R.dirty=true;return}R.dirty=false;
+  if(S.profilView){const u=S.profilView;pv.innerHTML=profilHTML(u);if(RP.uid!==u||Date.now()-RP.t>60000)loadProfil(u);return}
+  const tab=['fil','membres','moi'].includes(S.ctab)?S.ctab:'fil';
+  let h=`<div class="sec-h"><h2>Réseau</h2><span>${plural(memberIds().length,'membre')}</span></div>
+  <div class="chips subtabs" role="group" aria-label="Rubriques">${[['fil','Fil'],['membres','Membres'],['moi','Mon partage']].map(([k,l])=>`<button type="button" class="chip" data-ctab="${k}" aria-pressed="${tab===k}">${l}</button>`).join('')}</div>`;
+  if(S.v2===false&&tab==='fil')h+='<p class="muted">Le fil, les stories, les j’aime et les commentaires arrivent dès que l’administrateur aura mis à jour la base (script v2 dans Supabase).</p>';
+  else if(tab==='fil')h+=feedHTML();
+  else if(tab==='membres')h+=membersHTML();
+  else h+=(S.visitor?'':shareMeHTML())+inviteHTML();
+  pv.innerHTML=h;
+  if(tab==='fil'&&S.v2!==false&&!R.busy&&(!R.ld||Date.now()-R.t>60000))loadFeed(true);
+}
+$('#pv').addEventListener('focusout',()=>setTimeout(()=>{if(R.dirty&&!$('#pv').contains(document.activeElement))renderReseauSoft()},0));
+function findPost(id){return R.posts.find(p=>p.id===id)||RP.posts.find(p=>p.id===id)||R.stories.find(p=>p.id===id)}
+async function toggleLike(id){const set=R.likes[id]||(R.likes[id]=new Set()),on=!set.has(UIDV);if(on)set.add(UIDV);else set.delete(UIDV);renderReseauSoft();
+  try{await PLAT.social.aimer(id,on)}catch(e){if(on)set.delete(UIDV);else set.add(UIDV);renderReseauSoft();toast(apiMsg(e))}}
+async function deletePost(id){const p=findPost(id);try{await PLAT.social.supprimer(id);R.posts=R.posts.filter(x=>x.id!==id);RP.posts=RP.posts.filter(x=>x.id!==id);R.stories=R.stories.filter(x=>x.id!==id);if(p&&p.auteur===UIDV&&ASSETS)p.images.forEach(i=>ASSETS.delete(i).catch(()=>{}));renderReseauSoft();toast('Publication supprimée.')}catch(e){toast(apiMsg(e))}}
+
+/* publier */
+const dlgP=$('#dlgP'),PF={type:'libre',imgs:[],added:[],auto:'',saved:false};
+const PTYPES=[['libre','Libre'],['semaine','Bilan de la semaine'],['strategie','Ma stratégie'],['evolution','Mon évolution']];
+function postStats(){
+  const c=S.profile.comptes.find(x=>x.id===$('#p-compte').value)||S.profile.comptes[0],per=$('#p-per').value,now=new Date(),y=now.getFullYear(),m=now.getMonth(),d=now.getDate(),wd=(now.getDay()+6)%7;let a='',b=iso(now),lb;
+  if(per==='week'){a=iso(new Date(y,m,d-wd));lb='semaine du '+fD.format(pd(a))+' au '+fD.format(now)}
+  else if(per==='last'){a=iso(new Date(y,m,d-wd-7));b=iso(new Date(y,m,d-wd-1));lb='semaine du '+fD.format(pd(a))+' au '+fD.format(pd(b))}
+  else if(per==='month'){a=iso(new Date(y,m,1));lb=fML.format(now)}else lb='depuis le début';
+  const ts=sortT(S.trades.filter(t=>(t.compte||'reel')===c.id&&(!a||t.date>=a)&&t.date<=b)),s=stats(ts,c),rs=ts.map(rOf).filter(x=>x!=null);
+  let pts=s.pts;if(pts.length>60){const k=Math.ceil(pts.length/60);pts=pts.filter((_,i)=>i%k===0||i===pts.length-1)}
+  return{c,s,per,st:{v:1,compte:c.nom,type:c.type,devise:c.devise,periode:lb,n:s.n,net:s.net,rate:s.rate==null?null:Math.round(s.rate*1000)/1000,pf:s.pf===Infinity?'inf':s.pf==null?null:r2(s.pf),r:rs.length?r2(rs.reduce((x,v)=>x+v,0)):null,pct:c.capital>0?Math.round(s.net/c.capital*10000)/10000:null,plan:s.planRate==null?null:Math.round(s.planRate*100)/100,pts}};
+}
+function autoText(){const{c,s,per}=postStats(),pl=per==='week'?'de la semaine':per==='last'?'de la semaine dernière':per==='month'?'du mois':'depuis le début';
+  if(PF.type==='evolution')return s.n?`Mon évolution ${per==='all'?'depuis le début':pl.replace('de la ','cette ').replace('du ','ce ')} sur mon compte ${c.nom} : ${money(s.net,true,false,c.devise)} en ${plural(s.n,'trade')}${c.capital>0?` (${pct(s.net/c.capital,true)} du capital)`:''}.`:'';
+  return s.n?`Mon bilan ${pl} sur mon compte ${c.nom} : ${money(s.net,true,false,c.devise)} sur ${plural(s.n,'trade')}, ${pct(s.rate)} de réussite.${s.planRate!=null?` Plan suivi ${pct(s.planRate)} du temps.`:''}`:`Pas de trade ${pl.replace('de la ','cette ').replace('du ','ce ')} : je reste patient.`}
+function renderPostForm(){
+  chips('#cg-ptype',PTYPES,k=>PF.type===k,'ptype');const ws=['semaine','evolution'].includes(PF.type);$('#p-statsBox').hidden=!ws;
+  const ta=$('#p-txt');ta.placeholder=PF.type==='strategie'?'Mon setup, quand j’entre, où je place mon stop, mon objectif, ce que j’évite…':PF.type==='libre'?'Quoi de neuf dans votre trading ?':'Ajoutez un mot sur votre semaine…';
+  if(ws){$('#p-prev').innerHTML=statsHTML(postStats().st);const at=autoText();if(!ta.value.trim()||ta.value===PF.auto){ta.value=at}PF.auto=at}else if(ta.value===PF.auto){ta.value='';PF.auto=''}
+  $('#p-thumbs').replaceChildren(...PF.imgs.map(id=>{const d=document.createElement('div');d.className='thumb';const im=document.createElement('img');im.src=blobUrl(id);im.alt='Photo à publier';d.append(im);const b=document.createElement('button');b.type='button';b.textContent='×';b.setAttribute('aria-label','Retirer cette photo');b.dataset.prm=id;d.append(b);return d}));
+  $('#dpT').textContent=$('#p-story').checked?'Nouvelle story':'Publier';$('#p-send').textContent=$('#p-story').checked?'Publier la story':'Publier';
+}
+function openPost(type){
+  if(!social())return;if(S.v2===false){toast(apiMsg({code:'not_installed'}));return}if(S.demo){toast('Quittez d’abord l’aperçu pour publier.');return}if(S.visitor)return;
+  Object.assign(PF,{type:type==='story'?'libre':type||'libre',imgs:[],added:[],auto:'',saved:false});
+  $('#p-compte').replaceChildren(...S.profile.comptes.map(c=>new Option(c.nom+(c.type==='demo'?' (démo)':''),c.id)));$('#p-compte').value=S.profile.comptes.some(c=>c.id===S.compte)?S.compte:S.profile.comptes[0].id;
+  $('#p-per').value=PF.type==='evolution'?'all':'week';$('#p-txt').value='';$('#p-story').checked=type==='story';$('#errP').textContent='';$('#p-msg').textContent='';
+  renderPostForm();if(dlgP.showModal)dlgP.showModal();else dlgP.setAttribute('open','');
+}
+$('#fmP').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.ptype){PF.type=b.dataset.ptype;if(PF.type==='evolution'&&$('#p-per').value==='week')$('#p-per').value='all';else if(PF.type==='semaine'&&$('#p-per').value==='all')$('#p-per').value='week';renderPostForm()}
+  else if(b.dataset.prm){const id=b.dataset.prm;PF.imgs=PF.imgs.filter(x=>x!==id);PF.added=PF.added.filter(x=>x!==id);if(ASSETS)ASSETS.delete(id).catch(()=>{});renderPostForm()}});
+$('#fmP').addEventListener('change',e=>{if(['p-compte','p-per','p-story'].includes(e.target.id))renderPostForm()});
+$('#p-file').addEventListener('change',async e=>{const files=[...(e.target.files||[])];e.target.value='';if(!ASSETS||!files.length)return;const msg=$('#p-msg');
+  for(const f of files){if(PF.imgs.length>=4){msg.textContent='4 photos au maximum.';break}if(f.type&&!/^image\//.test(f.type)){msg.textContent='Ce fichier n’est pas une image.';continue}msg.textContent='Envoi de la photo…';
+    try{const b=await shrink(f),r=/^image\/(png|jpeg|gif|webp)$/.test(b.type)?await ASSETS.upload(b):await ASSETS.upload(b,{type:'image/jpeg'});if(r&&okImg(r.id)){PF.imgs.push(r.id);PF.added.push(r.id);renderPostForm()}msg.textContent=''}catch(x){msg.textContent=aErr(x)}}});
+dlgP.addEventListener('close',()=>{if(!PF.saved&&ASSETS)PF.added.forEach(id=>ASSETS.delete(id).catch(()=>{}));PF.added=[]});
+$('#fmP').addEventListener('submit',async e=>{e.preventDefault();const tx=$('#p-txt').value.trim(),ws=['semaine','evolution'].includes(PF.type),story=$('#p-story').checked,err=$('#errP');
+  if(!tx&&!PF.imgs.length&&!ws){err.textContent=story?'Ajoutez une photo ou quelques mots.':'Écrivez quelques mots ou ajoutez une photo.';return}
+  const b=$('#p-send');b.disabled=true;
+  try{await PLAT.social.publier({type:PF.type,texte:tx,images:PF.imgs,stats:ws?postStats().st:null,story});PF.saved=true;closeDlg(dlgP);toast(story?'Story publiée pour 24 heures.':'Publication envoyée.');if(S.view!=='partage'||S.profilView){S.ctab='fil';go('partage')}R.t=0;RP.t=0;loadFeed(true)}
+  catch(x){err.textContent=apiMsg(x)}finally{b.disabled=false}});
+
+/* stories */
+const dlgS=$('#dlgS'),SV={G:[],gi:0,i:0,timer:0};
+function openStories(u){SV.G=storyGroups();SV.gi=Math.max(0,SV.G.findIndex(g=>g.u===u));SV.i=Math.max(0,SV.G[SV.gi]?SV.G[SV.gi].ps.findIndex(p=>!SEEN.has(p.id)):0);if(!SV.G.length)return;if(dlgS.showModal)dlgS.showModal();else dlgS.setAttribute('open','');showStory()}
+function showStory(){
+  clearTimeout(SV.timer);const g=SV.G[SV.gi];if(!g){closeDlg(dlgS);return}const p=g.ps[SV.i];if(!p){closeDlg(dlgS);return}
+  SEEN.add(p.id);saveSeen();
+  $('#svBars').innerHTML=g.ps.map((x,i)=>`<i class="${i<SV.i?'done':i===SV.i?'cur':''}"><b></b></i>`).join('');
+  $('#svH').innerHTML=`${avatarHTML(g.u,36)}<b>${esc(g.u===UIDV?'Vous':nameReal(g.u))}</b><span>${esc(ago(p.cree))}</span>`;
+  $('#svBody').innerHTML=(p.images.length?`<img src="${esc(blobUrl(p.images[0]))}" alt="Story de ${esc(nameReal(g.u))}">`:'')+(p.stats?statsHTML(p.stats):'')+(p.texte?`<p class="${p.images.length?'cap':'solo'}">${esc(p.texte)}</p>`:'');
+  $('#svDel').hidden=!(p.auteur===UIDV||S.admin);$('#svDel').textContent='Supprimer';$('#svDel').dataset.arm='';
+  SV.timer=setTimeout(()=>stepStory(1),7000);
+}
+function stepStory(k){const g=SV.G[SV.gi];if(!g)return;SV.i+=k;if(SV.i>=g.ps.length){SV.gi++;SV.i=0}else if(SV.i<0){SV.gi--;SV.i=SV.G[SV.gi]?SV.G[SV.gi].ps.length-1:0}if(SV.gi<0||SV.gi>=SV.G.length){closeDlg(dlgS);return}showStory()}
+dlgS.addEventListener('click',e=>{const b=e.target.closest('[data-sv]');if(b)stepStory(+b.dataset.sv)});
+dlgS.addEventListener('close',()=>{clearTimeout(SV.timer);renderReseauSoft()});
+dlgS.addEventListener('keydown',e=>{if(e.key==='ArrowRight')stepStory(1);else if(e.key==='ArrowLeft')stepStory(-1)});
+$('#svDel').addEventListener('click',async()=>{const b=$('#svDel'),g=SV.G[SV.gi],p=g&&g.ps[SV.i];if(!p)return;if(b.dataset.arm!=='1'){clearTimeout(SV.timer);b.dataset.arm='1';b.textContent='Confirmer';return}
+  await deletePost(p.id);g.ps.splice(SV.i,1);if(!g.ps.length){SV.G.splice(SV.gi,1);SV.i=0}else if(SV.i>=g.ps.length)SV.i=g.ps.length-1;showStory()});
+
+/* profil */
+const dlgPr=$('#dlgPr'),PR={avatar:'',old:'',added:[],saved:false};
+function renderPrAv(){$('#pr-av').innerHTML=PR.avatar?`<img class="av" src="${esc(blobUrl(PR.avatar))}" alt="Votre photo" style="width:88px;height:88px">`:avatarHTML(UIDV,88);$('#pr-rm').hidden=!PR.avatar}
+function openProfEdit(){const p=S.prof[UIDV]||{};Object.assign(PR,{avatar:p.avatar||'',old:p.avatar||'',added:[],saved:false});$('#pr-nom').value=p.nom||S.profile.partage.pseudo||S.names[UIDV]||'';$('#pr-bio').value=p.bio||'';$('#errPr').textContent='';$('#pr-msg').textContent='';renderPrAv();if(dlgPr.showModal)dlgPr.showModal();else dlgPr.setAttribute('open','')}
+$('#pr-file').addEventListener('change',async e=>{const f=e.target.files&&e.target.files[0];e.target.value='';if(!f||!ASSETS)return;if(f.type&&!/^image\//.test(f.type)){$('#pr-msg').textContent='Ce fichier n’est pas une image.';return}$('#pr-msg').textContent='Envoi de la photo…';
+  try{const b=await shrink(f,512),r=/^image\/(png|jpeg|gif|webp)$/.test(b.type)?await ASSETS.upload(b):await ASSETS.upload(b,{type:'image/jpeg'});if(r&&okImg(r.id)){PR.avatar=r.id;PR.added.push(r.id);renderPrAv()}$('#pr-msg').textContent=''}catch(x){$('#pr-msg').textContent=aErr(x)}});
+$('#pr-rm').addEventListener('click',()=>{PR.avatar='';renderPrAv()});
+dlgPr.addEventListener('close',()=>{if(ASSETS)PR.added.filter(id=>!PR.saved||id!==PR.avatar).forEach(id=>ASSETS.delete(id).catch(()=>{}));PR.added=[]});
+$('#fmPr').addEventListener('submit',async e=>{e.preventDefault();const nom=$('#pr-nom').value.trim().slice(0,40),bio=$('#pr-bio').value.trim().slice(0,300);if(!nom){$('#errPr').textContent='Indiquez un nom.';return}
+  const cur=S.prof[UIDV]||{},doc={nom,bio,avatar:PR.avatar||'',inscrit:cur.inscrit||new Date().toISOString()},b=$('#pr-save');b.disabled=true;
+  try{await DBX.doc('profils/'+UIDV).set(doc);PR.saved=true;S.prof[UIDV]={...doc};S.profils[UIDV]=nom;if(PR.old&&PR.old!==PR.avatar&&ASSETS)ASSETS.delete(PR.old).catch(()=>{});
+    if(S.profile.partage.pseudo!==nom){S.profile.partage.pseudo=nom;saveProfile()}closeDlg(dlgPr);toast('Profil enregistré.');render()}catch(x){$('#errPr').textContent='Impossible d’enregistrer : '+wErr(x)}finally{b.disabled=false}});
+
 function openViewing(u,cid){
-  const o=S.community.find(x=>x.uid===u);if(!o)return;
+  const o=S.community.find(x=>x.uid===u);if(!o)return;S.profilFrom=S.profilView||'';
   S.viewing={uid:o.uid,nom:nameOf(o),comptes:o.comptes,trades:o.trades,notes:o.notes,notesPartagees:o.notesPartagees};S.vCompte=cid;S.asset='';S.calDay='';S.calMonth='';
   go('bilan');
 }
-function closeViewing(){S.viewing=null;S.asset='';S.calDay='';S.calMonth='';go('partage')}
+function closeViewing(){const u=S.viewing&&S.viewing.uid;S.viewing=null;S.asset='';S.calDay='';S.calMonth='';if(WEB&&u&&S.profilFrom===u){S.profilFrom='';go('profil-'+u)}else go('partage')}
+
+/* ---------- apparence ---------- */
+function applyLook(){const r=document.documentElement,u=S.profile.ui||{},pal=u.pal||pref.get('pal')||'classique',mode=u.mode||pref.get('mode')||'auto',gr=u.graph||pref.get('graph')||'courbe';
+  if(pal==='classique'||!PALS.some(x=>x[0]===pal))delete r.dataset.pal;else r.dataset.pal=pal;
+  if(mode==='clair')r.dataset.theme='light';else if(mode==='sombre')r.dataset.theme='dark';else delete r.dataset.theme;
+  S.graph=['ligne','courbe','barres','donut','aire'].includes(gr)?gr:'courbe';
+  if(u.pal&&u.pal!==pref.get('pal'))pref.set('pal',u.pal);if(u.mode&&u.mode!==pref.get('mode'))pref.set('mode',u.mode);if(u.graph&&u.graph!==pref.get('graph'))pref.set('graph',u.graph)}
+function setLook(o){S.profile.ui={...(S.profile.ui||{}),...o};for(const k in o)pref.set(k,o[k]);applyLook();if(S.visitor){render();return}saveProfile()}
+function renderLook(){const pal=document.documentElement.dataset.pal||'classique',mode=(S.profile.ui&&S.profile.ui.mode)||pref.get('mode')||'auto';
+  $('#lookBox').innerHTML=`<h3>Apparence</h3><p>Choisissez les couleurs de l’appli. Votre choix vous suit sur tous vos appareils.</p><div class="pals">${PALS.map(([k,l,cols])=>`<button type="button" class="pal" data-pal="${k}" aria-pressed="${pal===k}"><span class="sw" aria-hidden="true">${cols.map(c=>`<i style="background:${c}"></i>`).join('')}</span>${esc(l)}</button>`).join('')}</div>
+  <div class="fl"><span class="fl-l">Clair ou sombre</span><div class="cg">${[['auto','Comme le téléphone'],['clair','Clair'],['sombre','Sombre']].map(([k,l])=>`<button type="button" data-look-mode="${k}" aria-pressed="${mode===k}">${l}</button>`).join('')}</div></div>
+  <p>Le type de graphique se choisit directement dans le Bilan, au-dessus de la courbe.</p>`}
 
 /* ---------- réglages ---------- */
 function renderSettings(){
@@ -951,6 +1338,7 @@ function renderSettings(){
   const a=$('#appLink');a.href=APP_URL;a.textContent=APP_URL.replace('https://','');
   $('#homeLogin').textContent=WEB?'Connectez-vous avec votre e-mail et votre mot de passe.':'Connectez-vous à Claude si Safari vous le demande (avec le même compte qu’ici).';
   $('#webAcct').hidden=!(WEB&&PLAT);if(WEB&&PLAT)$('#webEmail').textContent='Connecté avec '+(PLAT.email||'votre e-mail');
+  renderLook();if(WEB&&S.mode==='db'&&PLAT&&PLAT.admin){renderMt5();renderAdmin()}
   $('#dl').hidden=inClaude&&!WEB;$('#bkDl').hidden=inClaude&&!WEB;$('#demoToggle').textContent=S.demo?'Quitter l’aperçu':'Voir avec des trades fictifs';
 }
 const CF={'c-nom':'nom','c-devise':'devise','c-capital':'capital','c-obj':'objMois','c-perte':'perteJour','c-trades':'tradesJour','c-risque':'risqueMax'};
@@ -981,7 +1369,7 @@ function wErr(x){const c=x&&x.code;if(c==='quota_exceeded')return 'l’espace de
 function aErr(x){const c=x&&x.code;return c==='too_large'?'Image trop lourde (20 Mo maximum).':c==='unsupported_type'?'Format d’image non accepté (JPEG, PNG, WebP ou GIF).':c==='quota_or_state'?'L’espace de stockage des captures est plein.':c==='rate_limited'?'Trop d’envois d’un coup, réessayez dans un instant.':'Envoi impossible, réessayez.'}
 function loadLocal(){
   try{const raw=localStorage.getItem(KEY);S.mode='local';if(raw){const o=JSON.parse(raw);
-    S.profile=normProfile(o.profile||(o.settings?{devise:o.settings.devise,capital:o.settings.capital}:null));
+    S.profile=normProfile(o.profile||(o.settings?{devise:o.settings.devise,capital:o.settings.capital}:null));applyLook();
     S.trades=(Array.isArray(o.trades)?o.trades:[]).map(t=>clean(t,t&&t.id)).filter(Boolean);
     S.notes=(Array.isArray(o.notes)?o.notes:[]).map(n=>cleanNote(n,n&&n.id)).filter(Boolean);
     S.conseils=o.conseils&&typeof o.conseils==='object'?o.conseils:{}}}catch(e){S.mode='mem'}
@@ -996,7 +1384,7 @@ async function initStore(){
     if(d&&id){DBX=d;UIDV=id;B=d.doc('data/users/'+id+'/journal');tCol=B.collection('trades');nCol=B.collection('notes');S.mode='db';
       try{if(typeof u.can==='function'&&(await u.can('data.write'))===false){S.visitor=true;if(!location.hash)S.view='partage'}}catch(e){}
       try{const me=await u.me();if(me&&me.name)S.names[id]=me.name}catch(e){}
-      render();subscribe();return}
+      render();subscribe();if(WEB)checkAdmin();return}
   }catch(e){}}
   loadLocal();
 }
@@ -1004,7 +1392,7 @@ function subscribe(){
   const timer=setTimeout(()=>{if(!S.loaded){S.note='Vos données ne répondent pas encore : vérifiez votre connexion.';render()}},10000);
   let lp=false,lt=false;
   const ready=()=>{if(lp&&lt&&S.lc&&!S.shareChecked){S.shareChecked=true;setTimeout(()=>{if(S.profile.partage.actif&&!S.demo&&!S.visitor){const me=S.community.find(x=>x.uid===UIDV),want=buildShare();if(!me||me.h!==want.h)syncShare()}},1200)}};
-  B.onSnapshot(s=>{const raw=s.exists?s.data():null;S.profile=normProfile(raw);fc={};lp=true;
+  B.onSnapshot(s=>{const raw=s.exists?s.data():null;S.profile=normProfile(raw);applyLook();fc={};lp=true;
     if(raw&&!Array.isArray(raw.comptes)&&!S.migrated&&!S.visitor){S.migrated=true;B.set(JSON.parse(JSON.stringify(S.profile))).catch(()=>{})}
     render();ready()},()=>{lp=true});
   tCol.onSnapshot(s=>{if(!s.metadata.fromCache){clearTimeout(timer);S.note=''}S.trades=s.docs.map(d=>clean(d.data(),d.id)).filter(Boolean);S.loaded=true;lt=true;render();ready()},
@@ -1017,18 +1405,27 @@ function subscribe(){
     render();ready()},()=>{S.lc=true;render()});
   DBX.collection('defis').onSnapshot(s=>{
     S.defisDocs=s.docs.map(d=>cleanDefisDoc(d.data(),d.id)).filter(Boolean);if(!defBusy)MY=S.defisDocs.find(x=>x.uid===UIDV)||null;S.ld=true;
-    resolveNames(S.defisDocs.map(x=>x.uid).concat(...S.defisDocs.map(x=>x.crees.map(d=>d.adversaire))));
+    resolveNames(S.defisDocs.map(x=>x.uid).concat(...S.defisDocs.map(x=>[].concat(...x.crees.map(d=>d.participants)))));
     render();if(lp&&lt&&!S.defChecked){S.defChecked=true;setTimeout(syncDefis,1500)}},()=>{S.ld=true;render()});
-  if(WEB)DBX.collection('profils').onSnapshot(s=>{const m={};for(const d of s.docs){const x=d.data();if(okUid(d.id)&&x&&typeof x.nom==='string')m[d.id]=x.nom.slice(0,40)}S.profils=m;if(['partage','defis'].includes(S.view))render()},()=>{});
+  if(WEB)DBX.collection('profils').onSnapshot(s=>{const m={},pr={};for(const d of s.docs){const x=d.data();if(okUid(d.id)&&x&&typeof x.nom==='string'){m[d.id]=x.nom.slice(0,40);pr[d.id]={nom:m[d.id],bio:str(x.bio,300),avatar:okImg(x.avatar)?x.avatar:'',inscrit:str(x.inscrit,40)}}}S.profils=m;S.prof=pr;if(['partage','defis'].includes(S.view))render()},()=>{});
 }
 
 /* ---------- défis ---------- */
 const okUid=v=>typeof v==='string'&&v.length>0&&v.length<=200&&!v.includes('/');
 function resolveNames(ids){const need=[...new Set(ids)].filter(x=>okUid(x)&&!S.names[x]);if(!need.length||!USR||typeof USR.profiles!=='function')return;
   Promise.resolve(USR.profiles(need)).then(ps=>{let ch=false;for(const id of need){const p=ps&&ps[id];if(p&&p.name){S.names[id]=p.name;ch=true}}if(ch&&['partage','defis'].includes(S.view)||S.viewing)render()}).catch(()=>{})}
+const MODES=[['duel','Face à face'],['groupe','Tous contre tous'],['equipes','Équipe contre équipe']];
+function cleanDefi(d){
+  if(!d||typeof d!=='object'||!okId(d.id)||!okDate(d.debut)||!okDate(d.fin))return null;
+  let ps=Array.isArray(d.participants)?d.participants.filter(okUid).slice(0,30):[];if(!ps.length&&okUid(d.adversaire))ps=[d.adversaire];ps=[...new Set(ps)];if(!ps.length)return null;
+  let mode=MODES.some(m=>m[0]===d.mode)?d.mode:ps.length>1?'groupe':'duel';if(mode==='duel'&&ps.length>1)mode='groupe';
+  const eq={};if(mode==='equipes'&&d.equipes&&typeof d.equipes==='object')for(const[k,v]of Object.entries(d.equipes).slice(0,40))if(okUid(k)&&(v==='A'||v==='B'))eq[k]=v;
+  const ne=d.nomsEquipes&&typeof d.nomsEquipes==='object'?d.nomsEquipes:{};
+  return{id:d.id,titre:str(d.titre,60),mode,adversaire:ps[0],participants:ps,equipes:eq,nomsEquipes:{A:str(ne.A,30).trim()||'Équipe 1',B:str(ne.B,30).trim()||'Équipe 2'},debut:d.debut,fin:d.fin,critere:CRIT.some(c=>c[0]===d.critere)?d.critere:'net',min:Math.max(0,Math.min(100,Math.round(num(d.min)||0))),enjeu:str(d.enjeu,120),cree:Number(d.cree)||0,annule:d.annule===true};
+}
 function cleanDefisDoc(o,uidv){
   if(!o||typeof o!=='object'||!okUid(uidv))return null;
-  const crees=(Array.isArray(o.crees)?o.crees.slice(-200):[]).map(d=>d&&typeof d==='object'&&okId(d.id)&&okUid(d.adversaire)&&okDate(d.debut)&&okDate(d.fin)?{id:d.id,titre:str(d.titre,60),adversaire:d.adversaire,debut:d.debut,fin:d.fin,critere:CRIT.some(c=>c[0]===d.critere)?d.critere:'net',min:Math.max(0,Math.min(100,Math.round(num(d.min)||0))),enjeu:str(d.enjeu,120),cree:Number(d.cree)||0,annule:d.annule===true}:null).filter(Boolean);
+  const crees=(Array.isArray(o.crees)?o.crees.slice(-200):[]).map(cleanDefi).filter(Boolean);
   const part={};
   if(o.part&&typeof o.part==='object')for(const[k,p]of Object.entries(o.part).slice(0,400)){if(!okId(k)||!p||typeof p!=='object')continue;
     const sc=p.score&&typeof p.score==='object'?{n:Math.max(0,Math.round(num(p.score.n)||0)),v:num(p.score.v),devise:okDev(p.score.devise)||'CHF',maj:str(p.score.maj,40)}:null;
@@ -1038,27 +1435,41 @@ function cleanDefisDoc(o,uidv){
 let MY=null,defBusy=0,defQ=Promise.resolve();
 const myDefis=()=>MY||{uid:UIDV,pseudo:'',crees:[],part:{}};
 function writeMy(mut){
-  defBusy++;const cur=JSON.parse(JSON.stringify(myDefis()));mut(cur);cur.crees=cur.crees.slice(-150);cur.pseudo=S.profile.partage.pseudo||'';MY=cur;if(S.view==='defis')render();
-  defQ=defQ.then(()=>DBX.doc('defis/'+UIDV).set({v:1,pseudo:MY.pseudo,crees:MY.crees,part:MY.part})).catch(e=>toast('Défis : '+wErr(e))).finally(()=>{defBusy--});return defQ;
+  defBusy++;const cur=JSON.parse(JSON.stringify(myDefis()));mut(cur);cur.crees=cur.crees.slice(-150);cur.pseudo=S.profile.partage.pseudo||S.profils[UIDV]||'';MY=cur;if(S.view==='defis')render();
+  defQ=defQ.then(()=>DBX.doc('defis/'+UIDV).set({v:2,pseudo:MY.pseudo,crees:MY.crees,part:MY.part})).catch(e=>toast('Défis : '+wErr(e))).finally(()=>{defBusy--});return defQ;
 }
-const nameOfUid=u=>{if(u===UIDV)return 'Vous';const c=S.community.find(x=>x.uid===u),d=S.defisDocs.find(x=>x.uid===u);return(c&&c.pseudo)||(d&&d.pseudo)||S.profils[u]||S.names[u]||'Trader'};
-function candidats(){const s=new Set();S.community.forEach(x=>s.add(x.uid));S.defisDocs.forEach(x=>s.add(x.uid));Object.keys(S.profils).forEach(u=>s.add(u));s.delete(UIDV);return[...s].sort((a,b)=>nameOfUid(a).localeCompare(nameOfUid(b),'fr'))}
+const nameReal=u=>{const c=S.community.find(x=>x.uid===u),d=S.defisDocs.find(x=>x.uid===u);return S.profils[u]||(c&&c.pseudo)||(d&&d.pseudo)||S.names[u]||(u===UIDV&&S.profile.partage.pseudo)||'Trader'};
+const nameOfUid=u=>u===UIDV?'Vous':nameReal(u);
+function candidats(){const s=new Set();S.community.forEach(x=>s.add(x.uid));S.defisDocs.forEach(x=>s.add(x.uid));Object.keys(S.profils).forEach(u=>s.add(u));s.delete(UIDV);return[...s].filter(okUid).sort((a,b)=>nameOfUid(a).localeCompare(nameOfUid(b),'fr'))}
 function allDefis(){
   if(!UIDV)return[];const today=iso(new Date()),out=[],docs=S.defisDocs.filter(x=>x.uid!==UIDV).concat([myDefis()]);
-  const partOf=(u,id)=>{const d=u===UIDV?myDefis():S.defisDocs.find(x=>x.uid===u);return d&&d.part[id]||null};
+  const docOf=u=>u===UIDV?myDefis():S.defisDocs.find(x=>x.uid===u);
   for(const doc of docs)for(const d of doc.crees){
-    const a=doc.uid,b=d.adversaire;if(a!==UIDV&&b!==UIDV)continue;
-    const pa=partOf(a,d.id),pb=partOf(b,d.id);
-    const status=d.annule?'annule':pb&&pb.statut==='refuse'?'refuse':!(pb&&pb.statut==='accepte')?'attente':today<d.debut?'avenir':today>d.fin?'fini':'encours';
-    out.push({...d,createur:a,pa,pb,status,moi:a===UIDV?'a':'b'});
+    const a=doc.uid,mem=[a,...d.participants.filter(u=>u!==a)];if(!mem.includes(UIDV))continue;
+    const M=mem.map(u=>{const dd=docOf(u),p=dd&&dd.part[d.id]||null;return{uid:u,p,st:u===a||p&&p.statut==='accepte'?'accepte':p&&p.statut==='refuse'?'refuse':'invite',eq:d.mode==='equipes'?(d.equipes[u]||'A'):''}});
+    const acc=M.filter(m=>m.st==='accepte'),pend=M.filter(m=>m.st==='invite');
+    const ready=acc.length>=2&&(d.mode!=='equipes'||acc.some(m=>m.eq==='A')&&acc.some(m=>m.eq==='B'));
+    const status=d.annule?'annule':!ready?(pend.length?(today>d.fin?'expire':'attente'):'refuse'):today<d.debut?'avenir':today>d.fin?'fini':'encours';
+    out.push({...d,createur:a,M,acc,pend,status,me:M.find(m=>m.uid===UIDV),moi:a===UIDV?'a':'b'});
   }
   return out.sort((x,y)=>y.cree-x.cree);
 }
-function verdict(d){const va=d.pa&&d.pa.score?d.pa.score.v:null,vb=d.pb&&d.pb.score?d.pb.score.v:null;if(va==null&&vb==null)return 0;if(vb==null)return 1;if(va==null)return -1;return va>vb?1:va<vb?-1:0}
+const vOf=m=>m.p&&m.p.score&&m.p.score.v!=null?m.p.score.v:null;
+function classement(d){
+  const rows=d.acc.map(m=>({uid:m.uid,p:m.p,eq:m.eq,v:vOf(m)})).sort((x,y)=>(y.v==null?-Infinity:y.v)-(x.v==null?-Infinity:x.v)||nameOfUid(x.uid).localeCompare(nameOfUid(y.uid),'fr'));
+  let rk=0,prev;rows.forEach((r,i)=>{if(i===0||r.v!==prev)rk=i+1;r.rank=r.v==null?null:rk;prev=r.v});
+  const top=rows.length&&rows[0].v!=null?rows[0].v:null,leaders=top==null?[]:rows.filter(r=>r.v===top).map(r=>r.uid);
+  let teams=null,res=0;const me=rows.find(r=>r.uid===UIDV);
+  if(d.mode==='equipes'){const T=k=>{const ms=rows.filter(r=>r.eq===k),vs=ms.map(r=>r.v).filter(v=>v!=null);return{k,nom:d.nomsEquipes[k],rows:ms,v:vs.length?vs.reduce((a,x)=>a+x,0)/vs.length:null}};
+    teams=[T('A'),T('B')];const[A,B]=teams,win=A.v==null&&B.v==null?'':B.v==null?'A':A.v==null?'B':A.v>B.v?'A':A.v<B.v?'B':'';teams.win=win;
+    res=!me||!win?0:me.eq===win?1:-1}
+  else if(me&&top!=null)res=me.v===top?(leaders.length>1?0:1):-1;
+  return{rows,leaders,teams,res,top};
+}
 const fmtCrit=(k,v,dev)=>v==null?'—':k==='net'?money(v,true,false,dev):k==='pct'?pct(v,true):k==='r'?fR(v):pct(v);
 function scoreFor(d,cid){
   const c=S.profile.comptes.find(x=>x.id===cid);if(!c)return null;
-  const ts=S.trades.filter(t=>(t.compte||'reel')===cid&&t.date>=d.debut&&t.date<=d.fin),s=stats(ts,c);
+  const ts=sortT(S.trades.filter(t=>t.date>=d.debut&&t.date<=d.fin&&!t.defisOut.includes(d.id)&&((t.compte||'reel')===cid||t.defisIn.includes(d.id)))),s=stats(ts,c);
   let v=null;const rs=ts.map(rOf).filter(x=>x!=null);
   if(d.critere==='net')v=s.net;else if(d.critere==='pct')v=c.capital>0?s.net/c.capital:null;else if(d.critere==='r')v=rs.length?rs.reduce((a,x)=>a+x,0):null;
   else if(d.critere==='rate')v=s.n>=d.min?s.rate:null;else if(d.critere==='plan')v=s.planN>=Math.max(1,d.min)?s.planRate:null;
@@ -1069,81 +1480,118 @@ function scheduleDefis(){if(S.mode!=='db'||S.visitor)return;clearTimeout(defTime
 function syncDefis(){
   if(S.mode!=='db'||S.visitor||!S.ld)return;const up={};
   const gel=iso(new Date(Date.now()-3*864e5));
-  for(const d of allDefis()){if(d.status==='annule'||d.status==='refuse'||d.fin<gel)continue;const p=d.moi==='a'?d.pa:d.pb;if(!p||p.statut!=='accepte'||!p.compte)continue;
+  for(const d of allDefis()){if(['annule','refuse','expire'].includes(d.status)||d.fin<gel)continue;const p=d.me&&d.me.st==='accepte'?d.me.p:null;if(!p||!p.compte)continue;
     const sc=scoreFor(d,p.compte.id);if(!sc)continue;const o=p.score;if(!o||o.n!==sc.n||o.v!==sc.v||o.devise!==sc.devise)up[d.id]=sc}
   if(Object.keys(up).length)writeMy(cur=>{for(const id in up)if(cur.part[id])cur.part[id].score=up[id]});
 }
+const avTxt=u=>{const n=nameReal(u).trim();return(n.match(/\p{L}|\p{N}/gu)||['?']).slice(0,2).join('').toUpperCase()};
+function avatarHTML(u,size){const p=S.prof[u],z=size||40;if(p&&p.avatar)return`<img class="av" src="${esc(blobUrl(p.avatar))}" alt="" width="${z}" height="${z}" style="width:${z}px;height:${z}px" loading="lazy">`;
+  return`<span class="av" aria-hidden="true" style="width:${z}px;height:${z}px;--h:${parseInt(hashStr(String(u)),36)%360};font-size:${Math.round(z*.38)}px">${esc(avTxt(u))}</span>`}
 function defiCard(d){
-  const meA=d.moi==='a',me=meA?d.pa:d.pb,op=meA?d.pb:d.pa,opU=meA?d.adversaire:d.createur,v=verdict(d)*(meA?1:-1);
+  const C=classement(d),me=d.me,live=d.status==='encours'||d.status==='fini',fini=d.status==='fini';
   const today=iso(new Date()),D=x=>pd(x).getTime(),tot=Math.round((D(d.fin)-D(d.debut))/864e5)+1,el=Math.max(0,Math.min(tot,Math.round((D(today)-D(d.debut))/864e5)+1)),left=tot-el;
-  const live=d.status==='encours'||d.status==='fini';
-  const row=(who,p,lead)=>{const sc=p&&p.score;return`<div class="drow${lead?' lead':''}"><span class="dn"><b>${esc(who)}</b>${p&&p.compte?` <i class="dot ${p.compte.type}"></i> <span class="hint">${esc(p.compte.nom)}</span>`:''}</span><span class="hint">${sc?plural(sc.n,'trade'):''}</span><b class="dv ${sc&&live&&['net','pct','r'].includes(d.critere)?tone(sc.v):''}">${esc(sc&&live?fmtCrit(d.critere,sc.v,sc.devise):'—')}</b>${lead?`<span class="kind k-good"><i></i>${d.status==='fini'?'Gagnant':'En tête'}</span>`:''}</div>`};
-  let act='';
-  if(!S.visitor){
-    if(d.status==='attente'&&!meA)act=`<label>Avec quel compte ?<select data-acc-c="${esc(d.id)}">${S.profile.comptes.map(c=>`<option value="${esc(c.id)}">${esc(c.nom)}${c.type==='demo'?' (démo)':''}</option>`).join('')}</select></label><div class="actions"><button class="btn" type="button" data-acc="${esc(d.id)}">Accepter le défi</button><button class="btn ghost" type="button" data-ref="${esc(d.id)}">Refuser</button></div>`;
-    else if(meA&&['attente','avenir','encours'].includes(d.status))act=`<div class="actions"><button class="btn ghost sm" type="button" data-cancel-defi="${esc(d.id)}">Annuler le défi</button></div>`;
-    else if(d.status==='fini')act=`<div class="actions"><button class="btn ghost sm" type="button" data-revanche="${esc(d.id)}">Revanche</button></div>`;
+  const showV=v=>live?fmtCrit(d.critere,v,null):'—',tn=v=>live&&['net','pct','r'].includes(d.critere)?tone(v):'';
+  const row=(r,lead)=>{const sc=r.p&&r.p.score;return`<div class="drow${lead?' lead':''}"><span class="dn">${r.rank&&live&&d.mode!=='duel'?`<span class="rk">${r.rank}</span>`:''}<b>${esc(nameOfUid(r.uid))}</b>${r.p&&r.p.compte?` <i class="dot ${r.p.compte.type}"></i> <span class="hint">${esc(r.p.compte.nom)}</span>`:''}</span><span class="hint">${sc?plural(sc.n,'trade'):''}</span><b class="dv ${tn(sc&&sc.v)}">${esc(sc&&live?fmtCrit(d.critere,sc.v,sc.devise):'—')}</b>${lead?`<span class="kind k-good"><i></i>${fini?'Gagnant':'En tête'}</span>`:''}</div>`};
+  const waitRows=d.pend.map(m=>`<div class="drow wait"><span class="dn"><b>${esc(nameOfUid(m.uid))}</b>${d.mode==='equipes'?` <span class="hint">${esc(d.nomsEquipes[m.eq])}</span>`:''}</span><span class="hint">invité</span><b class="dv">—</b></div>`).join('');
+  let body='';
+  if(C.teams){body=C.teams.map(T=>{const lead=live&&C.teams.win===T.k;return`<div class="team${lead?' lead':''}"><div class="team-h"><b>${esc(T.nom)}</b><span class="hint">${plural(T.rows.length,'membre')} · moyenne</span><b class="dv ${tn(T.v)}">${esc(T.v==null?'—':showV(T.v))}</b>${lead?`<span class="kind k-good"><i></i>${fini?'Équipe gagnante':'En tête'}</span>`:''}</div>${T.rows.map(r=>row(r,false)).join('')}</div>`}).join('')+(waitRows?`<div class="drows">${waitRows}</div>`:'')}
+  else body=`<div class="drows">${C.rows.map(r=>row(r,live&&C.leaders.includes(r.uid)&&(C.leaders.length===1||!fini))).join('')}${waitRows}</div>`;
+  let pre='';const btns=[];
+  if(!S.visitor&&me){
+    if(me.st==='invite'&&['attente','avenir','encours'].includes(d.status)){pre=`${d.mode==='equipes'?`<p class="hint">Vous êtes dans l’équipe « ${esc(d.nomsEquipes[me.eq])} ».</p>`:''}<label>Avec quel compte ?<select data-acc-c="${esc(d.id)}">${S.profile.comptes.map(c=>`<option value="${esc(c.id)}">${esc(c.nom)}${c.type==='demo'?' (démo)':''}</option>`).join('')}</select></label>`;btns.push(`<button class="btn" type="button" data-acc="${esc(d.id)}">${d.status==='encours'?'Rejoindre le défi':'Accepter le défi'}</button>`,`<button class="btn ghost" type="button" data-ref="${esc(d.id)}">Refuser</button>`)}
+    else if(d.moi==='a'&&['attente','avenir','encours'].includes(d.status))btns.push(`<button class="btn ghost sm" type="button" data-cancel-defi="${esc(d.id)}">Annuler le défi</button>`);
+    else if(fini&&me.st==='accepte')btns.push(`<button class="btn ghost sm" type="button" data-revanche="${esc(d.id)}">Revanche</button>`);
+    if(WEB&&me.st!=='refuse'&&!['annule','refuse','expire'].includes(d.status))btns.unshift(`<button class="btn ghost sm" type="button" data-chat="${esc(d.id)}">Discussion</button>`);
   }
-  const res=d.status==='fini'?(v>0?'Vous avez gagné':v<0?`${nameOfUid(opU)} a gagné`:'Égalité'):'';
+  const act=pre+(btns.length?`<div class="actions">${btns.join('')}</div>`:'');
+  let res='';if(fini&&me&&me.st==='accepte'){if(C.teams){res=C.teams.win?(C.res>0?`Votre équipe a gagné : ${C.teams.find(t=>t.k===C.teams.win).nom}`:`L’équipe « ${C.teams.find(t=>t.k===C.teams.win).nom} » a gagné`):'Égalité entre les équipes'}else{res=C.res>0?'Vous avez gagné':C.leaders.length>1?(C.leaders.includes(UIDV)?'Égalité en tête':`Égalité en tête : ${C.leaders.map(nameOfUid).join(', ')}`):C.leaders.length?`${nameOfUid(C.leaders[0])} a gagné`:'Pas de gagnant (aucun score)';if(d.mode!=='duel'){const mine=C.rows.find(r=>r.uid===UIDV);if(mine&&mine.rank&&C.res<=0)res+=` · vous finissez ${mine.rank===1?'1er':mine.rank+'e'} sur ${C.rows.length}`}}}
   const when=d.status==='encours'?(left>0?` · encore ${plural(left,'jour')}`:' · dernier jour'):d.status==='avenir'?` · commence dans ${plural(Math.round((D(d.debut)-D(today))/864e5),'jour')}`:'';
-  return`<article class="defi"><div class="defi-h"><b>${esc(d.titre||critLab(d.critere))}</b><span class="tag">${ST[d.status]}</span></div>
-  <p class="hint">${esc(meA?'Vous défiez '+nameOfUid(opU):nameOfUid(opU)+' vous défie')} · ${esc(fDY.format(pd(d.debut)))} → ${esc(fDY.format(pd(d.fin)))} · ${esc(critLab(d.critere).charAt(0).toLowerCase()+critLab(d.critere).slice(1))}${['rate','plan'].includes(d.critere)&&d.min?` · ${plural(d.min,'trade')} minimum`:''}${when}</p>
+  const opU=d.moi==='a'?d.adversaire:d.createur;
+  const who=d.mode==='duel'?(d.moi==='a'?'Vous défiez '+nameOfUid(opU):nameOfUid(opU)+' vous défie'):d.mode==='equipes'?`${d.nomsEquipes.A} contre ${d.nomsEquipes.B} · lancé par ${nameOfUid(d.createur)}`:`${plural(d.M.length,'participant')} · lancé par ${nameOfUid(d.createur)}`;
+  return`<article class="defi"><div class="defi-h"><b>${esc(d.titre||critLab(d.critere))}</b><span class="tag">${d.mode==='duel'?'':lab(MODES,d.mode)+' · '}${ST[d.status]}</span></div>
+  <p class="hint">${esc(who)} · ${esc(fDY.format(pd(d.debut)))} → ${esc(fDY.format(pd(d.fin)))} · ${esc(critLab(d.critere).charAt(0).toLowerCase()+critLab(d.critere).slice(1))}${['rate','plan'].includes(d.critere)&&d.min?` · ${plural(d.min,'trade')} minimum`:''}${esc(when)}</p>
   ${d.enjeu?`<p class="enjeu">Enjeu : ${esc(d.enjeu)}</p>`:''}${d.status==='encours'?`<div class="goal-bar dbar"><i style="width:${(el/tot*100).toFixed(1)}%"></i></div>`:''}${res?`<p class="dres">${esc(res)}</p>`:''}
-  <div class="drows">${row('Vous',me,live&&v>0)}${row(nameOfUid(opU),op,live&&v<0)}</div>
-  ${d.status==='attente'&&meA?`<p class="hint">En attente de la réponse de ${esc(nameOfUid(opU))}.</p>`:''}${act}</article>`;
+  ${body}
+  ${d.status==='attente'&&me&&me.st==='accepte'?`<p class="hint">En attente de réponse${d.mode==='equipes'?' : il faut au moins une personne par équipe':d.pend.length>1?' des personnes invitées':` de ${esc(nameOfUid(d.pend[0]?d.pend[0].uid:opU))}`}.</p>`:''}${act}</article>`;
 }
 function renderDefis(){
   const box=$('#dv');
   if(S.mode!=='db'){box.innerHTML=`<div class="sec-h"><h2>Défis</h2></div><p class="muted">${S.mode==='loading'?'Chargement…':'Les défis fonctionnent seulement quand l’appli est ouverte dans Claude.'}</p>`;return}
   if(!S.ld){box.innerHTML='<div class="sec-h"><h2>Défis</h2></div><p class="muted">Chargement…</p>';return}
   if(!S.visitor&&!S.defInit&&!S.defisDocs.some(x=>x.uid===UIDV)&&!MY){S.defInit=true;writeMy(()=>{});return}
-  const L=allDefis(),g=k=>L.filter(d=>d.status===k),fin=g('fini');let w=0,l=0,e=0;fin.forEach(d=>{const v=verdict(d)*(d.moi==='a'?1:-1);if(v>0)w++;else if(v<0)l++;else e++});
+  const L=allDefis(),mine=d=>d.me&&d.me.st==='accepte',g=k=>L.filter(d=>d.status===k&&mine(d)),fin=g('fini');let w=0,l=0,e=0;fin.forEach(d=>{const v=classement(d).res;if(v>0)w++;else if(v<0)l++;else e++});
   const sec=(t,a,empty)=>a.length?`<h3 class="dsec">${t}</h3>`+a.map(defiCard).join(''):empty?`<h3 class="dsec">${t}</h3><p class="muted">${empty}</p>`:'';
   let h=`<div class="sec-h"><h2>Défis</h2><span>${fin.length?`${plural(w,'victoire')} · ${plural(l,'défaite')} · ${plural(e,'égalité')}`:''}</span></div>
-  <p class="lead">Mesurez-vous à quelqu’un sur la même période : le plus gros gain, le meilleur rendement, le plus de R, la meilleure réussite ou la meilleure discipline. Seuls les scores du défi sont partagés, pas vos trades.</p>`;
+  <p class="lead">À deux, tous contre tous ou en équipes : le plus gros gain, le meilleur rendement, le plus de R, la meilleure réussite ou la meilleure discipline sur la même période. Seuls les scores du défi sont partagés, pas vos trades.</p>`;
   if(!S.visitor)h+='<div class="actions"><button class="btn" type="button" data-defi-new>+ Nouveau défi</button></div>';
-  h+=sec('À accepter',L.filter(d=>d.status==='attente'&&d.moi==='b'))+sec('En cours',g('encours'),L.length?'':'Aucun défi pour l’instant. Lancez-en un : la personne le verra ici et pourra l’accepter.')+sec('À venir',g('avenir'))+sec('En attente de réponse',L.filter(d=>d.status==='attente'&&d.moi==='a'))+sec('Terminés',fin.slice(0,20));
-  const old=L.filter(d=>d.status==='refuse'||d.status==='annule');
-  if(old.length)h+=`<details class="more" style="margin-top:24px"><summary>Refusés ou annulés (${old.length})</summary>${old.slice(0,20).map(defiCard).join('')}</details>`;
-  h+='<p class="hint" style="margin-top:20px">Les défis et leurs scores sont visibles par les personnes qui ont accès à l’appli. '+(WEB?'Pour défier quelqu’un, il doit avoir créé son compte dans l’appli.':'Pour défier quelqu’un, il doit avoir ouvert l’appli au moins une fois.')+'</p>';
+  const inv=L.filter(d=>d.me&&d.me.st==='invite'&&['attente','avenir','encours'].includes(d.status));
+  h+=sec('À accepter',inv)+sec('En cours',g('encours'),L.length?'':'Aucun défi pour l’instant. Lancez-en un : les personnes invitées le verront ici et pourront l’accepter.')+sec('À venir',g('avenir'))+sec('En attente de réponse',g('attente'))+sec('Terminés',fin.slice(0,20));
+  const old=L.filter(d=>!inv.includes(d)&&(['refuse','annule','expire'].includes(d.status)||!mine(d)));
+  if(old.length)h+=`<details class="more" style="margin-top:24px"><summary>Refusés, annulés ou expirés (${old.length})</summary>${old.slice(0,20).map(defiCard).join('')}</details>`;
+  h+='<p class="hint" style="margin-top:20px">Les défis et leurs scores sont visibles par les personnes qui ont accès à l’appli. Dans le formulaire d’un trade, vous pouvez choisir s’il compte pour un défi. '+(WEB?'Pour défier quelqu’un, il doit avoir créé son compte dans l’appli.':'Pour défier quelqu’un, il doit avoir ouvert l’appli au moins une fois.')+'</p>';
   box.innerHTML=h;
 }
-const dlgD=$('#dlgD'),fmD=$('#fmD');const DF={crit:'net'};
-function renderCrit(){chips('#cg-crit',CRIT.map(c=>[c[0],c[1]]),k=>DF.crit===k,'crit');$('#d-critHelp').textContent=(CRIT.find(c=>c[0]===DF.crit)||CRIT[0])[2];$('#d-minL').hidden=!['rate','plan'].includes(DF.crit)}
+const dlgD=$('#dlgD'),fmD=$('#fmD');const DF={crit:'net',mode:'duel',adv:'',sel:new Set(),team:{}};
+function renderCrit(){chips('#cg-crit',CRIT.map(c=>[c[0],c[1]]),k=>DF.crit===k,'crit');$('#d-critHelp').textContent=(CRIT.find(c=>c[0]===DF.crit)||CRIT[0])[2]+(DF.mode==='equipes'?' En équipes, c’est la moyenne des membres qui compte.':'');$('#d-minL').hidden=!['rate','plan'].includes(DF.crit)}
+function renderWho(){
+  const cands=candidats();chips('#cg-mode',MODES,k=>DF.mode===k,'mode');$('#d-teams').hidden=DF.mode!=='equipes';
+  let h='';
+  if(DF.mode==='duel'){if(!cands.includes(DF.adv))DF.adv=cands[0]||'';h=`<label>Contre qui ?<select id="d-adv">${cands.map(u=>`<option value="${esc(u)}"${u===DF.adv?' selected':''}>${esc(nameOfUid(u))}</option>`).join('')}</select></label>`}
+  else{for(const u of[...DF.sel])if(!cands.includes(u))DF.sel.delete(u);
+    h=`<div class="fl"><span class="fl-l">Avec qui ? <span class="hint">touchez pour inviter · ${plural(DF.sel.size,'personne')}</span></span><div class="cg">${cands.map(u=>`<button type="button" data-pick="${esc(u)}" aria-pressed="${DF.sel.has(u)}">${esc(nameOfUid(u))}</button>`).join('')}</div></div>`;
+    if(DF.mode==='equipes'){const ms=[UIDV,...DF.sel],na=$('#d-ta').value.trim()||'Équipe 1',nb=$('#d-tb').value.trim()||'Équipe 2';ms.forEach(u=>{if(!DF.team[u])DF.team[u]=u===UIDV?'A':(ms.filter(x=>DF.team[x]==='A').length>ms.filter(x=>DF.team[x]==='B').length?'B':'A')});
+      h+=`<div class="fl"><span class="fl-l">Les équipes</span><div class="tlist">${ms.map(u=>`<div class="trow2"><b>${esc(nameOfUid(u))}</b><div class="cg"><button type="button" data-team="${esc(u)}|A" aria-pressed="${DF.team[u]==='A'}">${esc(na)}</button><button type="button" data-team="${esc(u)}|B" aria-pressed="${DF.team[u]==='B'}">${esc(nb)}</button></div></div>`).join('')}</div></div>`}}
+  $('#d-who').innerHTML=h;
+  $('#d-advHint').textContent=cands.length?'':WEB?'Personne à défier pour l’instant : la personne doit d’abord créer son compte dans l’appli.':'Personne à défier pour l’instant : la personne doit d’abord ouvrir l’appli (onglet Défis ou Partage).';
+  $('#saveD').disabled=!cands.length;renderCrit();
+}
 function setDur(n){const a=pd(okDate($('#d-debut').value)||iso(new Date()));$('#d-fin').value=iso(new Date(a.getFullYear(),a.getMonth(),a.getDate()+n-1))}
 function openDefi(op,base){
-  const cands=candidats();
-  $('#d-adv').replaceChildren(...cands.map(u=>new Option(nameOfUid(u),u)));if(op&&cands.includes(op))$('#d-adv').value=op;
-  $('#d-advHint').textContent=cands.length?'':WEB?'Personne à défier pour l’instant : la personne doit d’abord créer son compte dans l’appli.':'Personne à défier pour l’instant : la personne doit d’abord ouvrir l’appli (onglet Défis ou Partage).';
+  const cands=candidats();DF.sel=new Set();DF.team={};DF.adv=op&&cands.includes(op)?op:'';
+  if(base){const others=[base.createur,...base.participants].filter(u=>u!==UIDV&&cands.includes(u));DF.mode=base.mode==='duel'&&others.length===1?'duel':base.mode==='duel'?'groupe':base.mode;DF.adv=others[0]||'';others.forEach(u=>DF.sel.add(u));if(base.mode==='equipes')DF.team={...base.equipes};$('#d-ta').value=base.nomsEquipes.A;$('#d-tb').value=base.nomsEquipes.B}
+  else{DF.mode='duel';if(DF.adv)DF.sel.add(DF.adv);$('#d-ta').value='';$('#d-tb').value=''}
   $('#d-compte').replaceChildren(...S.profile.comptes.map(c=>new Option(c.nom+(c.type==='demo'?' (démo)':''),c.id)));
-  const mp=base&&(base.moi==='a'?base.pa:base.pb);$('#d-compte').value=mp&&mp.compte&&S.profile.comptes.some(c=>c.id===mp.compte.id)?mp.compte.id:(S.profile.comptes.some(c=>c.id===S.compte)?S.compte:S.profile.comptes[0].id);
+  const mp=base&&base.me&&base.me.p;$('#d-compte').value=mp&&mp.compte&&S.profile.comptes.some(c=>c.id===mp.compte.id)?mp.compte.id:(S.profile.comptes.some(c=>c.id===S.compte)?S.compte:S.profile.comptes[0].id);
   DF.crit=base?base.critere:'net';$('#d-debut').value=iso(new Date());setDur(base?Math.round((pd(base.fin)-pd(base.debut))/864e5)+1:7);
   $('#d-min').value=String(base?base.min||5:5);$('#d-enjeu').value=base?base.enjeu:'';$('#d-titre').value=base&&base.titre?('Revanche : '+base.titre).slice(0,60):base?'Revanche':'';
-  $('#ddT').textContent=base?'Revanche':'Nouveau défi';$('#errD').textContent='';$('#saveD').disabled=!cands.length;renderCrit();
+  $('#ddT').textContent=base?'Revanche':'Nouveau défi';$('#errD').textContent='';renderWho();
   if(dlgD.showModal)dlgD.showModal();else dlgD.setAttribute('open','');
 }
-fmD.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.crit){DF.crit=b.dataset.crit;renderCrit()}else if(b.dataset.dur)setDur(+b.dataset.dur)});
+fmD.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.crit){DF.crit=b.dataset.crit;renderCrit()}else if(b.dataset.dur)setDur(+b.dataset.dur);
+  else if(b.dataset.mode){DF.mode=b.dataset.mode;if(DF.mode!=='duel'&&DF.adv&&!DF.sel.size)DF.sel.add(DF.adv);if(DF.mode==='duel'&&DF.sel.size&&!DF.adv)DF.adv=[...DF.sel][0];renderWho()}
+  else if(b.dataset.pick){const u=b.dataset.pick;if(DF.sel.has(u))DF.sel.delete(u);else if(DF.sel.size<20)DF.sel.add(u);else $('#errD').textContent='20 personnes au maximum.';renderWho()}
+  else if(b.dataset.team){const[u,k]=b.dataset.team.split('|');DF.team[u]=k==='B'?'B':'A';renderWho()}});
+fmD.addEventListener('change',e=>{if(e.target.id==='d-adv')DF.adv=e.target.value;else if(e.target.id==='d-ta'||e.target.id==='d-tb')renderWho()});
 $('#d-debut').addEventListener('change',()=>{const a=okDate($('#d-debut').value),f=okDate($('#d-fin').value);if(a&&f&&f<a)setDur(7)});
 fmD.addEventListener('submit',async e=>{
   e.preventDefault();if(S.visitor||S.mode!=='db')return;const err=$('#errD');
-  const adv=$('#d-adv').value,cid=$('#d-compte').value,debut=okDate($('#d-debut').value),fin=okDate($('#d-fin').value),c=S.profile.comptes.find(x=>x.id===cid);
-  if(!okUid(adv)||!candidats().includes(adv)){err.textContent='Choisissez contre qui vous jouez.';return}
+  const cands=candidats(),cid=$('#d-compte').value,debut=okDate($('#d-debut').value),fin=okDate($('#d-fin').value),c=S.profile.comptes.find(x=>x.id===cid);
+  let ps=[];if(DF.mode==='duel'){const adv=$('#d-adv')?$('#d-adv').value:DF.adv;if(!okUid(adv)||!cands.includes(adv)){err.textContent='Choisissez contre qui vous jouez.';return}ps=[adv]}
+  else{ps=[...DF.sel].filter(u=>cands.includes(u));if(!ps.length){err.textContent='Invitez au moins une personne.';return}}
+  const eq={};if(DF.mode==='equipes'){[UIDV,...ps].forEach(u=>eq[u]=DF.team[u]==='B'?'B':'A');const vs=Object.values(eq);if(!vs.includes('A')||!vs.includes('B')){err.textContent='Mettez au moins une personne dans chaque équipe.';return}}
   if(!c){err.textContent='Choisissez votre compte.';return}
   if(!debut||!fin||fin<debut){err.textContent='Vérifiez les dates : la fin doit être après le début.';return}
   if(fin<iso(new Date())){err.textContent='La date de fin est déjà passée.';return}
   if(DF.crit==='pct'&&!(c.capital>0)){err.textContent='Pour un défi en rendement %, indiquez d’abord le capital de départ de ce compte dans Réglages.';return}
-  const d={id:'d'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),titre:$('#d-titre').value.trim().slice(0,60),adversaire:adv,debut,fin,critere:DF.crit,min:Math.max(0,Math.min(100,Math.round(num($('#d-min').value)||0))),enjeu:$('#d-enjeu').value.trim().slice(0,120),cree:Date.now(),annule:false};
+  const d={id:'d'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),titre:$('#d-titre').value.trim().slice(0,60),mode:DF.mode,adversaire:ps[0],participants:ps,equipes:eq,nomsEquipes:{A:$('#d-ta').value.trim().slice(0,30)||'Équipe 1',B:$('#d-tb').value.trim().slice(0,30)||'Équipe 2'},debut,fin,critere:DF.crit,min:Math.max(0,Math.min(100,Math.round(num($('#d-min').value)||0))),enjeu:$('#d-enjeu').value.trim().slice(0,120),cree:Date.now(),annule:false};
   writeMy(cur=>{cur.crees.push(d);cur.part[d.id]={statut:'accepte',compte:{id:c.id,nom:c.nom,type:c.type},score:scoreFor(d,c.id)}});
-  closeDlg(dlgD);toast(`Défi envoyé à ${nameOfUid(adv)}.`);if(S.view!=='defis')go('defis');
+  closeDlg(dlgD);toast(ps.length>1?`Défi envoyé à ${plural(ps.length,'personne')}.`:`Défi envoyé à ${nameOfUid(ps[0])}.`);if(S.view!=='defis')go('defis');
 });
 
 /* ---------- formulaire de trade ---------- */
 const dlgT=$('#dlgT'),fmT=$('#fmT'),errT=$('#errT'),delT=$('#delT');
-const F={t:null,imgs:[],added:[],removed:[],emo:'',plan:'',err:new Set(),saved:false,manual:false,arm:false};
+const F={t:null,imgs:[],added:[],removed:[],emo:'',plan:'',err:new Set(),saved:false,manual:false,arm:false,dIn:new Set(),dOut:new Set()};
 function chips(box,arr,isOn,attr){$(box).innerHTML=arr.map(([k,l])=>`<button type="button" data-${attr}="${k}" aria-pressed="${isOn(k)}">${esc(l)}</button>`).join('')}
 function renderChipsT(){chips('#cg-emo',EMO,k=>F.emo===k,'emo');chips('#cg-plan',PLAN,k=>F.plan===k,'plan');chips('#cg-err',ERR,k=>F.err.has(k),'err')}
 function calc(){const e=num($('#f-entree').value),s=num($('#f-sortie').value),q=num($('#f-qte').value),f=num($('#f-frais').value)||0;if(e==null||s==null||q==null)return null;return r2((fmT.elements.sens.value==='short'?e-s:s-e)*q-f)}
-function formTrade(){return{entree:num($('#f-entree').value),stop:num($('#f-stop').value),tp:num($('#f-tp').value),qte:num($('#f-qte').value),resultat:num($('#f-res').value),sens:fmT.elements.sens.value}}
+function formTrade(){return{entree:num($('#f-entree').value),stop:num($('#f-stop').value),tp:num($('#f-tp').value),qte:num($('#f-qte').value),risque:pos($('#f-risque').value),resultat:num($('#f-res').value),sens:fmT.elements.sens.value}}
+function myActiveDefis(){if(S.mode!=='db'||S.demo||S.viewing||S.visitor)return[];const gel=iso(new Date(Date.now()-3*864e5));return allDefis().filter(d=>d.me&&d.me.st==='accepte'&&d.me.p&&d.me.p.compte&&['attente','avenir','encours','fini'].includes(d.status)&&d.fin>=gel)}
+function renderDefisT(){
+  const date=okDate($('#f-date').value),cid=$('#f-compte').value,L=ro()?[]:myActiveDefis().filter(d=>date&&date>=d.debut&&date<=d.fin);
+  $('#f-defisBox').hidden=!L.length;if(!L.length)return;
+  $('#cg-defis').innerHTML=L.map(d=>{const own=d.me.p.compte.id===cid,on=own?!F.dOut.has(d.id):F.dIn.has(d.id);return`<button type="button" data-tdefi="${esc(d.id)}" aria-pressed="${on}">${esc(d.titre||critLab(d.critere))}</button>`}).join('');
+}
 function infoLine(){
   const t=formTrade(),c=comptes().find(x=>x.id===$('#f-compte').value)||cpt(),k=risk(t),rr=rrOf(t),out=[];
   if(t.entree!=null&&t.stop!=null&&(t.sens==='long'?t.stop>t.entree:t.stop<t.entree))out.push('Attention : le stop est du mauvais côté du prix d’entrée.');
@@ -1164,9 +1612,9 @@ function openTrade(id,date){
   $('#dtT').textContent=r?'Détail du trade':t?'Modifier le trade':'Nouveau trade';
   $('#f-compte').replaceChildren(...comptes().map(c=>new Option(c.nom+(c.type==='demo'?' (démo)':''),c.id)));$('#f-compte').value=t?(t.compte||'reel'):cpt().id;
   $('#f-date').value=t?t.date:(date||iso(new Date()));$('#f-heure').value=t?t.heure:'';$('#f-actif').value=t?t.actif:'';fmT.elements.sens.value=t?t.sens:'long';
-  for(const k of['entree','stop','tp','sortie','qte','frais'])$('#f-'+k).value=t&&t[k]!=null?String(t[k]):'';
+  for(const k of['entree','stop','tp','sortie','qte','frais','lots','risque'])$('#f-'+k).value=t&&t[k]!=null?String(t[k]):'';F.dIn=new Set(t?t.defisIn:[]);F.dOut=new Set(t?t.defisOut:[]);
   $('#f-res').value=t?String(t.resultat):'';$('#f-setup').value=t?t.setup:'';$('#f-note').value=t?t.note:'';
-  const c=calc();F.manual=!!t&&(c==null||Math.abs(c-t.resultat)>.005);hintRes();infoLine();renderChipsT();renderThumbs();
+  const c=calc();F.manual=!!t&&(c==null||Math.abs(c-t.resultat)>.005);hintRes();infoLine();renderChipsT();renderThumbs();renderDefisT();$('#f-lotcalc').hidden=r;
   $('#fsT').disabled=r;$('#saveT').hidden=r;$('#cancelT').textContent=r?'Fermer':'Annuler';delT.hidden=r||!t;delT.textContent='Supprimer';errT.textContent='';
   const showAsk=!WEB&&!!t&&!r&&!!SAMPLE;$('#f-claude').hidden=WEB?!(t&&!r):!(showAsk||(t&&t.avis));$('#f-ask').hidden=!showAsk;$('#f-copy').hidden=!(WEB&&t&&!r);$('#f-open').hidden=!(WEB&&t&&!r);$('#f-askmsg').textContent=t&&t.avis?'Avis du '+fDT(t.avis.date):'';
   if(t&&t.avis)mdLite($('#f-avis'),t.avis.texte);else $('#f-avis').replaceChildren();
@@ -1178,19 +1626,22 @@ function readTrade(){
   if(!okDate(date))return 'Indiquez la date du trade.';
   if(!actif)return 'Indiquez l’actif (par exemple BTC ou EUR/USD).';
   const v={};
-  for(const[k,l]of[['entree','Le prix d’entrée'],['stop','Le stop loss'],['tp','L’objectif'],['sortie','Le prix de sortie'],['qte','La quantité'],['frais','Les frais'],['res','Le résultat']]){const raw=$('#f-'+k).value.trim();v[k]=num(raw);if(raw&&v[k]==null)return l+' n’est pas un nombre.'}
+  for(const[k,l]of[['entree','Le prix d’entrée'],['stop','Le stop loss'],['tp','L’objectif'],['sortie','Le prix de sortie'],['qte','La quantité'],['frais','Les frais'],['lots','Le nombre de lots'],['risque','La somme risquée'],['res','Le résultat']]){const raw=$('#f-'+k).value.trim();v[k]=num(raw);if(raw&&v[k]==null)return l+' n’est pas un nombre.'}
   const res=v.res!=null?v.res:calc();if(res==null)return 'Indiquez le résultat, ou bien les prix d’entrée et de sortie avec la quantité.';
   const t=F.t;
-  return{id:t?t.id:uid(),compte:okId($('#f-compte').value)?$('#f-compte').value:cpt().id,date,heure:/^\d{2}:\d{2}$/.test($('#f-heure').value)?$('#f-heure').value:'',actif:actif.slice(0,60),sens:fmT.elements.sens.value==='short'?'short':'long',entree:v.entree,sortie:v.sortie,qte:v.qte,frais:v.frais,stop:v.stop,tp:v.tp,resultat:r2(res),setup:$('#f-setup').value.trim().slice(0,80),emotion:F.emo,plan:F.plan,erreurs:[...F.err],images:F.imgs.slice(),note:$('#f-note').value.trim().slice(0,2000),avis:t?t.avis:null,cree:t?t.cree:Date.now()};
+  return{id:t?t.id:uid(),compte:okId($('#f-compte').value)?$('#f-compte').value:cpt().id,date,heure:/^\d{2}:\d{2}$/.test($('#f-heure').value)?$('#f-heure').value:'',actif:actif.slice(0,60),sens:fmT.elements.sens.value==='short'?'short':'long',entree:v.entree,sortie:v.sortie,qte:v.qte,frais:v.frais,stop:v.stop,tp:v.tp,resultat:r2(res),setup:$('#f-setup').value.trim().slice(0,80),emotion:F.emo,plan:F.plan,erreurs:[...F.err],images:F.imgs.slice(),note:$('#f-note').value.trim().slice(0,2000),avis:t?t.avis:null,cree:t?t.cree:Date.now(),lots:v.lots>0?v.lots:null,risque:v.risque>0?r2(v.risque):null,source:t?t.source:'',ticket:t?t.ticket:'',defisIn:[...F.dIn].slice(0,30),defisOut:[...F.dOut].slice(0,30)};
 }
 ['f-entree','f-sortie','f-qte','f-frais'].forEach(id=>$('#'+id).addEventListener('input',auto));
-['f-stop','f-tp','f-compte'].forEach(id=>$('#'+id).addEventListener('input',infoLine));
+['f-stop','f-tp','f-compte','f-risque'].forEach(id=>$('#'+id).addEventListener('input',infoLine));
+['f-date','f-compte'].forEach(id=>$('#'+id).addEventListener('change',renderDefisT));
 fmT.addEventListener('change',e=>{if(e.target.name==='sens')auto()});
 $('#f-res').addEventListener('input',()=>{F.manual=$('#f-res').value.trim()!=='';if(!F.manual)auto();hintRes();infoLine()});
 fmT.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||ro())return;
   if(b.dataset.emo!==undefined){F.emo=F.emo===b.dataset.emo?'':b.dataset.emo;renderChipsT()}
   else if(b.dataset.plan!==undefined){F.plan=F.plan===b.dataset.plan?'':b.dataset.plan;renderChipsT()}
   else if(b.dataset.err!==undefined){const k=b.dataset.err;if(F.err.has(k))F.err.delete(k);else F.err.add(k);renderChipsT()}
+  else if(b.dataset.tdefi){const d=myActiveDefis().find(x=>x.id===b.dataset.tdefi);if(d){const own=d.me.p.compte.id===$('#f-compte').value,set=own?F.dOut:F.dIn;if(set.has(d.id))set.delete(d.id);else set.add(d.id);renderDefisT()}}
+  else if(b.id==='f-lotcalc')openLots(true);
   else if(b.dataset.rm){const id=b.dataset.rm;F.imgs=F.imgs.filter(x=>x!==id);if(F.added.includes(id)){F.added=F.added.filter(x=>x!==id);if(ASSETS)ASSETS.delete(id).catch(()=>{})}else F.removed.push(id);renderThumbs()}
 });
 fmT.addEventListener('submit',async e=>{
@@ -1208,8 +1659,8 @@ delT.addEventListener('click',async()=>{
     setTimeout(()=>{if(!undone&&ASSETS&&!S.demo)t.images.forEach(id=>ASSETS.delete(id).catch(()=>{}))},9000);
   }catch(x){errT.textContent='Impossible de supprimer : '+wErr(x)}
 });
-async function shrink(f){
-  try{const bm=await createImageBitmap(f),sc=Math.min(1,1600/Math.max(bm.width,bm.height));
+async function shrink(f,max){
+  try{const bm=await createImageBitmap(f),sc=Math.min(1,(max||1600)/Math.max(bm.width,bm.height));
     if(sc===1&&f.size<1.5e6&&/^image\/(jpeg|png|webp)$/.test(f.type))return f;
     const c=document.createElement('canvas');c.width=Math.round(bm.width*sc);c.height=Math.round(bm.height*sc);c.getContext('2d').drawImage(bm,0,0,c.width,c.height);
     return await new Promise(r=>c.toBlob(b=>r(b||f),'image/jpeg',.85))}catch(e){return f}
@@ -1238,6 +1689,120 @@ $('#f-ask').addEventListener('click',async()=>{
   finally{btn.disabled=false}
 });
 function fillLists(){const a=allT(),fill=(id,vals)=>$(id).replaceChildren(...[...new Set(vals.filter(Boolean))].sort().map(v=>new Option(v,v)));fill('#dl-actifs',a.map(t=>t.actif));fill('#dl-setups',a.map(t=>t.setup))}
+
+/* ---------- discussions des défis et commentaires (version web) ---------- */
+const dlgC=$('#dlgC'),CH={kind:'',id:'',items:[],timer:0,busy:false};
+const ago=s=>{const t=new Date(s).getTime();if(!t)return'';const m=Math.round((Date.now()-t)/6e4);if(m<1)return'à l’instant';if(m<60)return`il y a ${m} min`;const h=Math.round(m/60);if(h<24)return`il y a ${h} h`;const d=Math.round(h/24);if(d<7)return`il y a ${plural(d,'jour')}`;return fDY.format(new Date(t))};
+function apiMsg(e){const c=e&&e.code;return c==='not_installed'?'Cette fonction sera disponible après la mise à jour de la base (le script v2 à coller dans Supabase).':c==='forbidden'?'Action refusée.':'Connexion impossible pour le moment. Réessayez dans un instant.'}
+function renderChat(){
+  const L=$('#dcList'),atEnd=L.scrollHeight-L.scrollTop-L.clientHeight<40;
+  L.innerHTML=CH.items.length?CH.items.map(m=>{const mine=m.auteur===UIDV,del=mine||S.admin||(CH.kind==='com'&&CH.owner===UIDV);return`<div class="msg${mine?' me':''}">${mine?'':avatarHTML(m.auteur,32)}<div class="bub"><div class="mh"><b>${esc(mine?'Vous':nameReal(m.auteur))}</b> <span class="hint">${esc(ago(m.cree))}</span>${del?`<button type="button" class="mdel" data-delmsg="${esc(m.id)}" aria-label="Supprimer ce message">×</button>`:''}</div><p>${esc(m.texte)}</p></div></div>`}).join(''):`<p class="muted">${CH.busy?'Chargement…':CH.kind==='chat'?'Aucun message. Lancez la discussion !':'Aucun commentaire pour l’instant.'}</p>`;
+  if(atEnd||CH.first){L.scrollTop=L.scrollHeight;CH.first=false}
+}
+async function loadChat(){if(!PLAT||!CH.id)return;const id=CH.id,k=CH.kind;try{const r=k==='chat'?await PLAT.chat.messages(id):await PLAT.social.commentaires(id);if(CH.id!==id)return;CH.items=r;CH.busy=false;$('#errC').textContent='';renderChat();if(k==='com'){R.nbc[id]=r.length;if(S.view==='partage')renderReseauSoft()}}catch(e){CH.busy=false;$('#errC').textContent=apiMsg(e);renderChat()}}
+function openChat(kind,id,title,sub,owner){
+  if(!WEB||!PLAT||!PLAT.chat)return;Object.assign(CH,{kind,id,items:[],busy:true,first:true,owner:owner||''});$('#dcT').textContent=title;$('#dcSub').textContent=sub||'';$('#errC').textContent='';$('#c-txt').value='';$('#c-txt').placeholder=kind==='chat'?'Écrire un message au groupe…':'Écrire un commentaire…';
+  renderChat();if(dlgC.showModal)dlgC.showModal();else dlgC.setAttribute('open','');loadChat();clearInterval(CH.timer);CH.timer=setInterval(()=>{if(dlgC.open&&!document.hidden)loadChat()},kind==='chat'?6000:15000);
+}
+dlgC.addEventListener('close',()=>{clearInterval(CH.timer);CH.id=''});
+$('#fmC').addEventListener('submit',async e=>{e.preventDefault();const tx=$('#c-txt').value.trim();if(!tx||!CH.id)return;const b=$('#c-send');b.disabled=true;
+  try{const m=CH.kind==='chat'?await PLAT.chat.envoyer(CH.id,tx):await PLAT.social.commenter(CH.id,tx);$('#c-txt').value='';CH.items.push(m);CH.first=true;renderChat();if(CH.kind==='com'){R.nbc[CH.id]=CH.items.length;renderReseauSoft()}}catch(x){$('#errC').textContent=apiMsg(x)}finally{b.disabled=false;$('#c-txt').focus()}});
+$('#c-txt').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.isComposing){e.preventDefault();$('#fmC').requestSubmit()}});
+$('#dcList').addEventListener('click',async e=>{const b=e.target.closest('[data-delmsg]');if(!b)return;if(b.dataset.arm!=='1'){b.dataset.arm='1';b.textContent='Supprimer ?';return}const id=b.dataset.delmsg;
+  try{if(CH.kind==='chat')await PLAT.chat.supprimer(id);else await PLAT.social.supprimerCommentaire(id);CH.items=CH.items.filter(m=>m.id!==id);renderChat();if(CH.kind==='com'){R.nbc[CH.id]=CH.items.length;renderReseauSoft()}}catch(x){$('#errC').textContent=apiMsg(x)}});
+
+/* ---------- MetaTrader 5 et administration (version web) ---------- */
+const MT={keys:null,busy:false,err:'',show:''},AD={list:null,bannis:[],busy:false,err:'',t:0};
+const SB_URL=CONF.url||'';
+async function loadKeys(){if(MT.busy)return;MT.busy=true;try{MT.keys=await PLAT.mt5.cles();MT.err=''}catch(e){MT.keys=MT.keys||[];MT.err=apiMsg(e);if(e&&e.code==='not_installed')S.v2=false}finally{MT.busy=false;if(S.view==='reglages')renderMt5()}}
+function renderMt5(){
+  const box=$('#mt5Box');box.hidden=false;if(S.v2!==false&&MT.keys==null&&!MT.busy)loadKeys();
+  const ks=MT.keys||[],accN=id=>{const c=S.profile.comptes.find(x=>x.id===id);return c?c.nom:'Compte supprimé'};
+  let h=`<h3>Connexion MetaTrader 5</h3><p>Vos trades MT5 arrivent tout seuls dans l’appli : plus besoin de les noter. Il vous reste à ajouter vos émotions, votre plan et vos captures.</p>`;
+  if(S.v2===false){box.innerHTML=h+'<p class="hint">Disponible après la mise à jour de la base (le script v2 à coller dans Supabase).</p>';return}
+  h+=ks.length?ks.map(k=>`<div class="crow"><i class="dot ${(S.profile.comptes.find(x=>x.id===k.compte)||{}).type||''}"></i><b>${esc(accN(k.compte))}</b><span class="hint">${k.dernier?'Dernier envoi '+esc(ago(k.dernier)):'Pas encore utilisée'} · clé …${esc(k.cle.slice(-4))}</span><button class="btn ghost sm" type="button" data-mt5-copy="${esc(k.cle)}">Copier la clé</button><button class="btn ghost sm" type="button" data-mt5-del="${esc(k.cle)}">Supprimer</button></div>`).join(''):MT.keys==null?'<p class="hint">Chargement…</p>':'';
+  h+=`<div class="fgrid"><label>Les trades vont dans<select id="mt5-compte">${S.profile.comptes.map(c=>`<option value="${esc(c.id)}">${esc(c.nom)}${c.type==='demo'?' (démo)':''}</option>`).join('')}</select></label></div>
+  <div class="actions"><button class="btn ghost" type="button" id="mt5-new">Créer une clé</button><a class="btn ghost" href="mt5/BilanTrading.mq5" download="BilanTrading.mq5">Télécharger le robot</a></div>
+  ${MT.show?`<div class="keybox"><p class="hint" style="margin:0">Votre nouvelle clé (gardez-la secrète, comme un mot de passe) :</p><code>${esc(MT.show)}</code><div class="actions"><button class="btn sm" type="button" data-mt5-copy="${esc(MT.show)}">Copier la clé</button></div></div>`:''}
+  <p class="hint" id="mt5-msg">${esc(MT.err)}</p>
+  <details class="more"><summary>Installer le robot (5 minutes, sur ordinateur)</summary><ol class="steps" style="margin-top:12px">
+  <li>Créez une clé ci-dessus et téléchargez le robot.</li>
+  <li>Sur votre ordinateur, ouvrez MetaTrader 5 et connectez-vous à votre compte de trading.</li>
+  <li>Menu <b>Outils → Options</b>, onglet <b>Expert Advisors</b> : cochez « Autoriser le WebRequest pour les URL listées » et ajoutez cette adresse : <code>${esc(SB_URL)}</code></li>
+  <li>Menu <b>Fichier → Ouvrir le dossier des données</b>, puis ouvrez <b>MQL5</b> → <b>Experts</b> et copiez-y le fichier BilanTrading.mq5.</li>
+  <li>Dans MetaTrader, ouvrez l’éditeur (touche <b>F4</b>), ouvrez BilanTrading.mq5 et cliquez sur <b>Compiler</b>.</li>
+  <li>Dans le Navigateur de MetaTrader (Expert Advisors), faites glisser <b>BilanTrading</b> sur n’importe quel graphique, collez votre clé dans « Cle », puis OK.</li>
+  <li>Laissez MetaTrader ouvert : chaque trade fermé arrive dans l’appli en moins d’une minute. Les trades passés depuis votre téléphone arrivent aussi, dès que MetaTrader tourne sur l’ordinateur.</li></ol>
+  <p class="hint">Le robot ne passe aucun ordre : il lit seulement vos trades fermés. Au premier lancement, il envoie les trades des 30 derniers jours. Sur Mac, utilisez MetaTrader 5 pour Mac. L’appli mobile MetaTrader ne peut pas faire tourner de robot.</p></details>`;
+  box.innerHTML=h;
+}
+async function loadAdmin(){if(AD.busy)return;AD.busy=true;try{const[l,b]=await Promise.all([PLAT.admin.membres(),PLAT.admin.bannis()]);AD.list=l;AD.bannis=b;AD.err=''}catch(e){AD.err=apiMsg(e);AD.list=AD.list||[]}finally{AD.busy=false;AD.t=Date.now();if(S.view==='reglages')renderAdmin()}}
+function renderAdmin(){
+  const box=$('#adminBox');box.hidden=!S.admin;if(!S.admin)return;if(AD.list==null&&!AD.busy)loadAdmin();
+  const L=AD.list||[],fd=v=>v?fDY.format(new Date(v)):'—';
+  let h=`<div class="sec-h"><h3>Administration</h3><span>${AD.list?plural(L.length,'membre')+' inscrit'+(L.length>1?'s':''):''}</span></div><p>Vous êtes l’administratrice du site : vous voyez qui est inscrit et vous pouvez retirer un membre. Retirer efface son compte et toutes ses données.</p>
+  <div class="actions"><button class="btn ghost sm" type="button" id="adm-load">Actualiser</button></div><p class="hint">${esc(AD.err)}</p>`;
+  h+=AD.list==null?'<p class="muted">Chargement…</p>':`<div class="mlist">${L.map(m=>`<div class="mrow"><div class="mr-l"><b>${esc(m.pseudo||'(sans nom)')}</b>${m.admin?' <span class="tag">Admin</span>':''}${m.banni?' <span class="tag">Bloqué</span>':''}${m.visible?' <span class="tag">Comptes visibles</span>':''}<span class="hint">${esc(m.email||'')}</span><span class="hint">Inscrit le ${esc(fd(m.inscrit))} · dernière connexion ${esc(fd(m.derniere_connexion))} · ${plural(m.nb_trades||0,'trade')}</span></div>${m.id===UIDV||m.admin?'':`<div class="actions"><button class="btn ghost sm" type="button" data-adm-rm="${esc(m.id)}|0">Retirer</button><button class="btn danger sm" type="button" data-adm-rm="${esc(m.id)}|1">Retirer et bloquer</button></div>`}</div>`).join('')}</div>`;
+  if(AD.bannis.length)h+=`<h3 style="margin-top:18px">E-mails bloqués</h3>${AD.bannis.map(b=>`<div class="crow"><span class="hint" style="color:var(--ink)">${esc(b.email)}</span><button class="btn ghost sm" type="button" data-adm-unban="${esc(b.email)}">Débloquer</button></div>`).join('')}<p class="hint">Une adresse bloquée ne peut plus rien publier ni enregistrer. Pour revenir, la personne doit être débloquée puis recréer un compte.</p>`;
+  box.innerHTML=h;
+}
+async function checkAdmin(){if(!WEB||!PLAT||!PLAT.admin)return;try{S.admin=await PLAT.admin.statut();S.v2=true}catch(e){S.admin=false;if(e&&e.code==='not_installed')S.v2=false}render()}
+
+/* ---------- calculateur de lots ---------- */
+const LT=[['forex','Forex',100000],['or','Or',100],['argent','Argent',5000],['indice','Indice',1],['crypto','Crypto',1],['action','Action',1],['autre','Autre',1]];
+const QDEV=['USD','EUR','GBP','JPY','CHF','CAD','AUD','NZD'],C3=['USD','EUR','GBP','JPY','CHF','CAD','AUD','NZD','SEK','NOK','DKK','PLN','HUF','CZK','TRY','ZAR','MXN','SGD','HKD','CNH'];
+const dlgL=$('#dlgL'),LF={type:'forex',fromT:false,fx:{},res:null};
+function guessLT(a){const x=String(a||'').toUpperCase().replace(/[^A-Z0-9]/g,'');if(!x)return null;
+  if(/XAU|GOLD/.test(x)||x==='OR')return['or','USD'];if(/XAG|SILVER/.test(x))return['argent','USD'];
+  if(/BTC|ETH|SOL|XRP|DOGE|ADA|LTC|BNB/.test(x))return['crypto','USD'];
+  if(/US30|DOW|DJI|NAS|NDX|US100|USTEC|SPX|SP500|US500|GER|DAX|DE40|UK100|FTSE|CAC|FRA40|FR40|JP225|NIKKEI|HK50|AUS200|STOXX|EU50/.test(x))return['indice',/GER|DAX|DE40|CAC|FRA40|FR40|STOXX|EU50/.test(x)?'EUR':/UK100|FTSE/.test(x)?'GBP':/JP225|NIKKEI/.test(x)?'JPY':'USD'];
+  const m=x.match(/^([A-Z]{3})([A-Z]{3})/);if(m&&C3.includes(m[1])&&C3.includes(m[2]))return['forex',m[2]];return null}
+function balance(c){if(!(c.capital>0))return null;return r2(c.capital+tOf(c.id).reduce((a,t)=>a+t.resultat,0))}
+const lUnit=l=>LF.type==='action'?(l>=2?'actions':'action'):(l>=2?'lots':'lot');
+const fLot=l=>new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2}).format(l)+' '+lUnit(l);
+const lAcct=()=>comptes().find(x=>x.id===$('#l-compte').value)||cpt();
+function renderLT(){chips('#cg-lt',LT.map(x=>[x[0],x[1]]),k=>LF.type===k,'lt')}
+function openLots(fromTrade){
+  LF.fromT=!!fromTrade;$('#l-compte').replaceChildren(...comptes().map(c=>new Option(c.nom+(c.type==='demo'?' (démo)':''),c.id)));
+  $('#l-compte').value=fromTrade&&comptes().some(c=>c.id===$('#f-compte').value)?$('#f-compte').value:cpt().id;
+  const g=guessLT(fromTrade?$('#f-actif').value:'')||[pref.get('lt')||'forex',null];LF.type=LT.some(x=>x[0]===g[0])?g[0]:'forex';
+  $('#l-cs').value=String((LT.find(x=>x[0]===LF.type)||LT[0])[2]);
+  const c=lAcct(),qs=[...new Set([...QDEV,c.devise==='USDT'?'USD':c.devise])].filter(okDev);$('#l-q').replaceChildren(...qs.map(q=>new Option(q,q)));$('#l-q').value=g[1]&&qs.includes(g[1])?g[1]:(pref.get('lq')&&qs.includes(pref.get('lq'))?pref.get('lq'):'USD');
+  $('#l-e').value=fromTrade?$('#f-entree').value:'';$('#l-s').value=fromTrade?$('#f-stop').value:'';$('#l-use').hidden=!fromTrade;
+  lFillCompte();renderLT();if(dlgL.showModal)dlgL.showModal();else dlgL.setAttribute('open','');
+}
+function lFillCompte(){const c=lAcct(),b=balance(c);$('#l-cap').value=b!=null?String(b):'';$('#l-capH').textContent=b!=null?'départ + résultats':'';$('#l-rp').value=String(c.risqueMax||1);lFx()}
+function lFx(){
+  const c=lAcct(),q=$('#l-q').value,dev=c.devise==='USDT'?'USD':c.devise,need=q!==dev;$('#l-fxL').hidden=!need;$('#l-fxH').textContent='';
+  if(!need){lcalc();return}$('#l-fxLab').textContent=`1 ${q} vaut combien en ${c.devise} ?`;const k=q+'-'+dev;
+  if(LF.fx[k]){$('#l-fx').value=String(LF.fx[k]);$('#l-fxH').textContent='Taux de change du jour (Banque centrale européenne).';lcalc();return}
+  $('#l-fx').value='';lcalc();if(!WEB||!C3.includes(dev))return;
+  const ac=new AbortController(),tm=setTimeout(()=>ac.abort(),5000);$('#l-fxH').textContent='Recherche du taux de change…';
+  fetch(`https://api.frankfurter.dev/v1/latest?from=${q}&to=${dev}`,{signal:ac.signal}).then(r=>r.ok?r.json():null).then(j=>{const v=j&&j.rates&&num(j.rates[dev]);if(v>0){LF.fx[k]=Math.round(v*1e5)/1e5;if($('#l-q').value===q&&(lAcct().devise==='USDT'?'USD':lAcct().devise)===dev&&!$('#l-fx').value){$('#l-fx').value=String(LF.fx[k]);$('#l-fxH').textContent='Taux de change du jour (Banque centrale européenne).';lcalc()}}else $('#l-fxH').textContent='Taux introuvable : tapez-le à la main.'}).catch(()=>{$('#l-fxH').textContent='Taux introuvable : tapez-le à la main.'}).finally(()=>clearTimeout(tm));
+}
+function lcalc(){
+  const c=lAcct(),cap=num($('#l-cap').value),rp=num($('#l-rp').value),e=num($('#l-e').value),st=num($('#l-s').value),cs=num($('#l-cs').value),q=$('#l-q').value,dev=c.devise==='USDT'?'USD':c.devise,fx=q===dev?1:num($('#l-fx').value),out=$('#l-res');
+  LF.res=null;$('#l-use').disabled=true;chips('#cg-lr',[['0.5','0,5 %'],['1','1 %'],['2','2 %']],k=>rp===+k,'lr');
+  const say=m=>{out.innerHTML=`<p class="hint">${esc(m)}</p>`};
+  if(!(cap>0))return say('Indiquez votre capital (ou ajoutez le capital de départ du compte dans Réglages).');
+  if(!(rp>0)||rp>100)return say('Indiquez le risque par trade, en %. Conseil : 1 % au maximum quand on débute.');
+  if(e==null||st==null||e===st)return say('Indiquez le prix d’entrée et le stop loss.');
+  if(!(cs>0))return say('Indiquez la taille d’un lot.');
+  if(!(fx>0))return say(`Indiquez combien vaut 1 ${q} en ${c.devise}.`);
+  const dist=Math.abs(e-st),perLot=dist*cs*fx,riskM=cap*rp/100,lots=Math.floor(riskM/perLot*100+1e-9)/100,pip=LF.type==='forex'?(q==='JPY'?.01:.0001):null,dv=c.devise;
+  const f1x=new Intl.NumberFormat('fr-FR',{maximumFractionDigits:1});
+  const rows=[.5,1,2].map(p=>{const l=Math.floor(cap*p/100/perLot*100+1e-9)/100;return`<div class="lrow"><span>Risque ${esc(f1x.format(p))} %</span><b>${esc(l>0?fLot(l):'—')}</b><span class="hint">${l>0?'perte max '+esc(money(r2(l*perLot),false,false,dv)):''}</span></div>`}).join('');
+  const info=`<p class="hint">Distance du stop : ${esc(fN.format(dist))}${pip?` (${esc(f1x.format(dist/pip))} pips)`:''} · 1 ${LF.type==='action'?'action':'lot'} risque ${esc(money(r2(perLot),false,false,dv))}</p>`;
+  if(lots<.01){out.innerHTML=`<p class="lbig">Trop petit</p><p>Avec ce stop, même 0,01 ${LF.type==='action'?'action':'lot'} risque ${esc(money(r2(perLot*.01),false,false,dv))}, soit plus que ${esc(f1x.format(rp))} % de votre capital. Rapprochez le stop, ou passez votre tour.</p>${info}<div class="lrows">${rows}</div>`;return}
+  LF.res={lots,risque:r2(lots*perLot)};$('#l-use').disabled=false;
+  out.innerHTML=`<p class="hint" style="margin:0">Taille conseillée</p><p class="lbig">${esc(fLot(lots))}</p><p>Si le stop est touché, vous perdez environ <b>${esc(money(LF.res.risque,false,false,dv))}</b>, soit ${esc(pct(LF.res.risque/cap))} de votre capital.</p>${info}<div class="lrows">${rows}</div>`;
+}
+$('#fmL').addEventListener('input',e=>{if(['l-cap','l-rp','l-e','l-s','l-cs','l-fx'].includes(e.target.id))lcalc()});
+$('#fmL').addEventListener('change',e=>{if(e.target.id==='l-compte'){lFillCompte()}else if(e.target.id==='l-q'){pref.set('lq',e.target.value);lFx()}});
+$('#fmL').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.lt){LF.type=b.dataset.lt;pref.set('lt',LF.type);$('#l-cs').value=String((LT.find(x=>x[0]===LF.type)||LT[0])[2]);if(['or','argent','crypto','indice'].includes(LF.type)&&$('#l-q').value!=='USD'&&[...$('#l-q').options].some(o=>o.value==='USD')){$('#l-q').value='USD';lFx()}renderLT();lcalc()}
+  else if(b.dataset.lr){$('#l-rp').value=b.dataset.lr;lcalc()}
+  else if(b.id==='l-use'&&LF.res){$('#f-lots').value=String(LF.res.lots);$('#f-risque').value=String(LF.res.risque);if(!$('#f-entree').value)$('#f-entree').value=$('#l-e').value;if(!$('#f-stop').value)$('#f-stop').value=$('#l-s').value;infoLine();closeDlg(dlgL);toast('Lots et somme risquée ajoutés au trade.')}});
 
 /* ---------- formulaire de note ---------- */
 const dlgN=$('#dlgN'),fmN=$('#fmN'),errN=$('#errN'),delN=$('#delN');const NF={n:null,hum:'',arm:false};
@@ -1367,7 +1932,7 @@ function demoData(){
 
 /* ---------- navigation et démarrage ---------- */
 function go(v){if(location.hash.slice(1)===v){S.view=v;render();window.scrollTo(0,0)}else location.hash=v}
-function route(){const h=location.hash.slice(1);S.view=VIEWS.includes(h)?h:(S.visitor?'partage':'bilan');render()}
+function route(){const h=decodeURIComponent(location.hash.slice(1));if(h.startsWith('profil-')&&okUid(h.slice(7))){S.view='partage';S.profilView=h.slice(7)}else{S.profilView='';S.view=VIEWS.includes(h)?h:(S.visitor?'partage':'bilan')}render()}
 window.addEventListener('hashchange',()=>{route();window.scrollTo(0,0)});
 document.addEventListener('error',e=>{if(e.target&&e.target.tagName==='IMG')e.target.classList.add('broken')},true);
 document.addEventListener('click',async e=>{
@@ -1400,22 +1965,43 @@ document.addEventListener('click',async e=>{
     else{if(!p.comptes.length){$('#sh-msg').textContent='Choisissez au moins un compte à rendre visible.';return}p.actif=true;await saveProfile();clearTimeout(shareTimer);await syncShare();toast('Vos comptes cochés sont maintenant visibles.')}return}
   if(c('#sh-sync')){clearTimeout(shareTimer);await syncShare();toast('Partage mis à jour.');return}
   if(c('[data-defi-new]')){openDefi();return}
-  if(b=c('[data-revanche]')){const d=allDefis().find(x=>x.id===b.dataset.revanche);if(d)openDefi(d.moi==='a'?d.adversaire:d.createur,d);return}
+  if(b=c('[data-revanche]')){const d=allDefis().find(x=>x.id===b.dataset.revanche);if(d)openDefi(null,d);return}
   if(b=c('[data-acc]')){const d=allDefis().find(x=>x.id===b.dataset.acc),sel=document.querySelector(`[data-acc-c="${CSS.escape(b.dataset.acc)}"]`),cc=S.profile.comptes.find(x=>x.id===(sel&&sel.value));
     if(!d||!cc)return;if(d.critere==='pct'&&!(cc.capital>0)){toast('Indiquez d’abord le capital de départ de ce compte dans Réglages.');return}
     writeMy(cur=>{cur.part[d.id]={statut:'accepte',compte:{id:cc.id,nom:cc.nom,type:cc.type},score:scoreFor(d,cc.id)}});toast('Défi accepté. Bonne chance !');return}
   if(b=c('[data-ref]')){const id=b.dataset.ref;writeMy(cur=>{cur.part[id]={statut:'refuse',compte:null,score:null}});toast('Défi refusé.');return}
   if(b=c('[data-cancel-defi]')){if(b.dataset.arm!=='1'){b.dataset.arm='1';b.textContent='Confirmer l’annulation';return}const id=b.dataset.cancelDefi;writeMy(cur=>{const x=cur.crees.find(y=>y.id===id);if(x)x.annule=true});toast('Défi annulé.');return}
   if(c('[data-copy-link]')){copyText(APP_URL,'Lien copié.');return}
+  if(c('[data-lots]')){openLots(false);return}
+  if(b=c('.pal[data-pal]')){setLook({pal:b.dataset.pal});return}
+  if(b=c('[data-look-mode]')){setLook({mode:b.dataset.lookMode});return}
+  if(b=c('[data-mt5-copy]')){copyText(b.dataset.mt5Copy,'Clé copiée : collez-la dans le robot MT5.');return}
+  if(c('#mt5-new')){const cid=$('#mt5-compte').value;if(!okId(cid))return;$('#mt5-new').disabled=true;try{MT.show=await PLAT.mt5.creer(cid);MT.err='';await loadKeys()}catch(x){MT.err=apiMsg(x);renderMt5()}return}
+  if(b=c('[data-mt5-del]')){if(b.dataset.arm!=='1'){b.dataset.arm='1';b.textContent='Confirmer';return}try{await PLAT.mt5.supprimer(b.dataset.mt5Del);if(MT.show===b.dataset.mt5Del)MT.show='';await loadKeys();toast('Clé supprimée : le robot qui l’utilisait ne peut plus rien envoyer.')}catch(x){MT.err=apiMsg(x);renderMt5()}return}
+  if(c('#adm-load')){AD.list=null;loadAdmin();renderAdmin();return}
+  if(b=c('[data-adm-rm]')){const[id,bl]=b.dataset.admRm.split('|'),m=(AD.list||[]).find(x=>x.id===id);if(b.dataset.arm!=='1'){b.dataset.arm='1';b.textContent=bl==='1'?'Confirmer : retirer et bloquer':'Confirmer : retirer';return}
+    b.disabled=true;try{await PLAT.admin.retirer(id,bl==='1');toast(`${m&&m.pseudo||'Le membre'} a été retiré${bl==='1'?' et bloqué':''}.`)}catch(x){toast(apiMsg(x))}AD.list=null;loadAdmin();return}
+  if(b=c('[data-adm-unban]')){try{await PLAT.admin.debloquer(b.dataset.admUnban);toast('Adresse débloquée.')}catch(x){toast(apiMsg(x))}loadAdmin();return}
+  if(b=c('[data-ctab]')){S.ctab=b.dataset.ctab;pref.set('ctab',S.ctab);render();return}
+  if(c('[data-back]')){go('partage');return}
+  if(b=c('[data-post]')){openPost(b.dataset.post);return}
+  if(b=c('[data-story]')){openStories(b.dataset.story);return}
+  if(b=c('[data-like]')){toggleLike(b.dataset.like);return}
+  if(b=c('[data-com]')){const p=findPost(b.dataset.com);if(p)openChat('com',p.id,'Commentaires','Publication de '+(p.auteur===UIDV?'vous':nameReal(p.auteur))+(p.texte?' : '+p.texte.slice(0,80)+(p.texte.length>80?'…':''):''),p.auteur);return}
+  if(b=c('[data-delpost]')){if(b.dataset.arm!=='1'){b.dataset.arm='1';b.textContent='Confirmer';return}deletePost(b.dataset.delpost);return}
+  if(c('[data-more-posts]')){loadFeed(false);return}
+  if(b=c('[data-defi-with]')){openDefi(b.dataset.defiWith);return}
+  if(c('[data-edit-prof]')){openProfEdit();return}
+  if(b=c('[data-chat]')){const d=allDefis().find(x=>x.id===b.dataset.chat);if(d)openChat('chat',d.id,'Discussion · '+(d.titre||critLab(d.critere)),d.M.filter(m=>m.st!=='refuse').map(m=>nameOfUid(m.uid)).join(', '));return}
   if(c('#fab')){if(S.view==='journal')openNote();else openTrade();return}
 });
 document.addEventListener('change',e=>{
   if(e.target.id==='asset'){S.asset=e.target.value;render()}
-  else if(e.target.id==='sh-pseudo'){S.profile.partage.pseudo=e.target.value.trim().slice(0,40);saveProfile()}
+  else if(e.target.id==='sh-pseudo'){const n=e.target.value.trim().slice(0,40);S.profile.partage.pseudo=n;saveProfile();if(social()&&n){const cur=S.prof[UIDV]||{},doc={nom:n,bio:cur.bio||'',avatar:cur.avatar||'',inscrit:cur.inscrit||new Date().toISOString()};S.prof[UIDV]=doc;S.profils[UIDV]=n;DBX.doc('profils/'+UIDV).set(doc).catch(()=>{})}}
   else if(e.target.id==='sh-notes'){S.profile.partage.notes=e.target.checked;saveProfile()}
 });
 $('#q').addEventListener('input',e=>{S.q=e.target.value;renderTrades(view())});
-route();initStore();
+applyLook();route();initStore();
 }
 </script>
 </body>
